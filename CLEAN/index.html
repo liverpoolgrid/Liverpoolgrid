@@ -317,19 +317,43 @@
     /* Optional: add subtle shadow/glow for pop */
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
 }
-        .grid-back {
-            background: linear-gradient(135deg, #c8102e, #a00d1a);
-            color: white;
-            transform: rotateY(180deg);
-            flex-direction: column;
-            gap: 1rem;
-            font-size: 1rem;
-            text-align: center;
-        }
-        .grid-back h3 { font-size: 1.6rem; margin-bottom: 8px; }
-        .grid-back a { color: white; text-decoration: none; font-weight: 600; }
-        .grid-back a:hover { color: #ffd700; text-decoration: underline; }
-       
+
+
+.grid-back {
+    background: linear-gradient(135deg, #c8102e, #a00d1a);
+    color: white;
+    transform: rotateY(180deg);
+    flex-direction: column;
+    gap: 0.5rem;              /* tighter spacing to match the compact feel */
+    text-align: center;
+    overflow-y: auto;          /* in case content is very long */
+}
+/* Apply slightly bigger clamped font size to ALL regular text on the back */
+.grid-back,
+.grid-back p,
+.grid-back li,
+.grid-back a {
+    font-size: clamp(12px, 12px + 0.6vw, 14px);  /* Slightly larger: 12–14px */
+    line-height: 1.25;                           /* A bit more breathing room */
+}
+
+/* Slightly larger heading, still clamped */
+.grid-back h3 {
+    font-size: clamp(14px, 14px + 0.6vw, 16px);  /* Slightly larger: 14–16px */
+    margin-bottom: 6px;                          /* A little more space under heading */
+    font-weight: 700;
+}
+
+/* Links styling (unchanged but included for completeness) */
+.grid-back a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+.grid-back a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}       
         footer {
             text-align: center;
             padding: 3rem 1rem 2rem;
@@ -400,14 +424,16 @@
             }
         }
 .compact-list {
-    margin: 0;
-    padding-left: 16px; /* keeps bullets aligned */
+    text-align: left;
+    margin: 0.5rem auto;
+    padding-left: 1.2rem;           /* Adjust this value to move bullets further in/out */
+    list-style-position: outside;
+    width: 100%;
+    max-width: 90%;                 /* Optional: prevents very long lines from stretching too far */
 }
 
 .compact-list li {
-    margin: 0;
-    padding: 0;
-    line-height: 1.0; /* controls vertical tightness */
+    margin-bottom: 0.3rem;
 }
 .skyline-wrapper {
     width: calc(100% + 80px);       /* counters 40px left + 40px right padding */
