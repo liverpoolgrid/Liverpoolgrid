@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C2HY3XKZ8H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C2HY3XKZ8H');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Event on Sapnin’ | The Liverpool Grid</title>
+   
+    <meta name="description" content="List your Liverpool event for a one-time £20 – get visibility to thousands of Scousers.">
+   
+    <!-- Open Graph -->
+    <meta property="og:title" content="List Your Event on Sapnin’">
+    <meta property="og:description" content="One-time £20 for event exposure – no monthly fees.">
+    <meta property="og:image" content="LiverpoolGridLogo.jpg">
+    <meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+   
+    <link rel="icon" type="image/png" href="LiverpoolGridLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+   
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #000;
+            color: #222;
+            line-height: 1.6;
+        }
+        .container {
+            background: #fff;
+            margin: 20px;
+            padding: 40px;
+            border: 5px solid #000;
+            border-radius: 12px;
+            max-width: 1440px;
+            margin: 20px auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            gap: 20px;
+            border-bottom: 3px solid #c8102e;
+        }
+        .logo { max-width: 260px; height: auto; }
+       
+        .social-bar {
+            display: flex;
+            gap: 18px;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+        }
+        .social-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            border: 2px solid transparent;
+            background: #111;
+            flex-shrink: 0;
+        }
+        .social-btn:hover {
+            transform: translateY(-6px) scale(1.12);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+            border-color: #ffd700;
+        }
+        .social-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .social-btn:hover img {
+            transform: scale(1.08);
+        }
+       
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            color: white;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-testimonials {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .testimonial-bg {
+            position: absolute;
+            width: 40%;
+            max-width: 380px;
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 700;
+            color: white;
+            opacity: var(--opacity);
+            transform: rotate(var(--rot));
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+            line-height: 1.3;
+            padding: 1rem;
+            user-select: none;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,215,0,0.15), transparent 60%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .hero .price-callout {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffd700;
+            margin: 20px 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+            line-height: 1.1;
+        }
+        .hero .counter {
+            font-size: 3.4rem;
+            font-weight: 900;
+            color: #ffd700;
+            margin: 24px 0 12px;
+            animation: pulse 2.5s infinite;
+        }
+        .exclusive-tag {
+            font-size: 1.6rem;
+            color: #ffd700;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.07); }
+        }
+        .hero p { font-size: 1.4rem; max-width: 720px; margin: 0 auto 32px; }
+       
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #000;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 12px 8px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .btn:hover {
+            background: #ffea80;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+        .btn.email-cta {
+            background: linear-gradient(135deg, #ffd700, #ffea80);
+            font-weight: 900;
+        }
+        .btn.email-cta:hover {
+            background: linear-gradient(135deg, #ffea80, #ffd700);
+            transform: translateY(-4px) scale(1.05);
+        }
+       
+        .grid-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            padding: 2rem 0;
+            max-width: 600px; /* Limits width so the single grid is centered nicely */
+            margin: 0 auto;
+        }
+        .grid-item {
+            aspect-ratio: 400 / 550;
+            perspective: 1300px;
+            border-radius: 16px;
+            overflow: hidden;
+	    box-shadow: 0 8px 24px rgba(0,0,0,0.18),
+            0 0 25px 10px rgba(200, 16, 46, 0.7);
+            transition: transform 0.3s;
+            width: 100%;
+            max-width: 400px; /* Keeps it from stretching too wide */
+        }
+        .grid-item:hover { transform: translateY(-8px); }
+        .grid-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+        }
+        .grid-item:hover .grid-inner,
+        .grid-item:focus-within .grid-inner { transform: rotateY(180deg); }
+        .grid-front, .grid-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem;
+        }
+        .grid-front { background: #fff; padding: 0;}
+        .grid-front img { max-width: 100%; max-height: 100%; object-fit: cover; }
+        .grid-back {
+            background: linear-gradient(135deg, #c8102e, #a00d1a);
+            color: white;
+            transform: rotateY(180deg);
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .grid-back h3 { font-size: 1.6rem; margin-bottom: 8px; }
+        .grid-back a { color: white; text-decoration: none; font-weight: 600; }
+        .grid-back a:hover { color: #ffd700; text-decoration: underline; }
+       
+        .about { max-width: 900px; margin: 4rem auto; text-align: center; }
+        .about h2 { font-size: 2.8rem; color: #c8102e; margin-bottom: 1.5rem; }
+        .price-highlight {
+            font-size: 2.8rem;
+            color: #ffd700;
+            font-weight: 900;
+            margin: 1.5rem 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+       
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+       
+        @media (max-width: 900px) {
+            header { flex-direction: column; text-align: center; }
+            .social-bar { justify-content: center; }
+            .hero h1 { font-size: 2.6rem; }
+            .price-callout { font-size: 2.2rem; }
+        }
+        @media (max-width: 768px) {
+            .container { margin: 10px; padding: 20px; }
+            .testimonial-bg {
+                font-size: 1.3rem;
+                width: 60%;
+                max-width: none;
+            }
+            .testimonial-bg:nth-child(3),
+            .testimonial-bg:nth-child(4) {
+                display: none;
+            }
+            .nav-container {
+                gap: 10px;
+            }
+            .nav-link {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+            .social-bar {
+                gap: 10px;
+            }
+            .social-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        nav {
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            border-radius: 16px;
+            margin: 30px 0;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 25px;
+            overflow-x: auto;
+        }
+        .nav-link {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #ffd700;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 60%;
+        }
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Testimonials Styles */
+        .testimonial-bg p {
+            margin: 0;
+        }
+        .testimonial-bg span {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.8em;
+            font-style: normal;
+            font-weight: 500;
+            color: #ffd700;
+            opacity: 0.8;
+        }
+        .testimonial-bg:nth-child(1) { top: 10%; left: 5%; --rot: -8deg; --opacity: 0.18; }
+        .testimonial-bg:nth-child(2) { top: 15%; right: 5%; --rot: 6deg; --opacity: 0.20; }
+        .testimonial-bg:nth-child(3) { bottom: 20%; left: 8%; --rot: -5deg; --opacity: 0.16; }
+        .testimonial-bg:nth-child(4) { bottom: 12%; right: 6%; --rot: 7deg; --opacity: 0.22; }
+        @keyframes fadeInBg {
+            from { opacity: 0; }
+            to   { opacity: var(--opacity); }
+        }
+        .testimonial-bg {
+            animation: fadeInBg 2s ease-out forwards;
+        }
+        .perks-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            text-align: left;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .perks-list li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        .perks-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #c8102e;
+            font-weight: bold;
+        }
+        .vetting-note {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #c8102e;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        .premium-tease {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+            border: none;
+        }
+        .premium-tease h3 {
+            font-size: 1.8rem;
+            color: #c8102e;
+            margin-bottom: 1rem;
+        }
+        .premium-tease p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+.skyline-wrapper {
+    width: calc(100% + 80px);       /* counters 40px left + 40px right padding */
+    margin-left: -40px;
+    margin-right: -40px;
+    margin-top: 5px;
+    overflow: hidden;
+    border-radius: 0 0 16px 16px;
+}
+
+.skyline-full {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid – Exclusive Local Business Showcase" class="logo">
+            <div class="social-bar">
+                <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="TikTok.png" alt="TikTok">
+                </a>
+                <a href="https://www.instagram.com/liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="Instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/share/1D8M9yNtdk" target="_blank" class="social-btn">
+                    <img src="Facebook.png" alt="Facebook">
+                </a>
+                <a href="https://x.com/Liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="X.png" alt="X">
+                </a>
+                <a href="https://linktr.ee/EarnOnce" class="social-btn">
+                    <img src="LinkTree.png" alt="LinkTree">
+                </a>
+                <a href="tel:07752748342" class="social-btn">
+                    <img src="Phone.png" alt="Call Us">
+                </a>
+                <a href="https://wa.me/447752748342" target="_blank" class="social-btn">
+                    <img src="Whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="mailto:Liverpoolgrid@outlook.com" target="_blank" class="social-btn">
+                    <img src="Email.png" alt="Email">
+                </a>
+            </div>
+<div class="skyline-wrapper">
+    <img src="Skyline.png" alt="Liverpool Skyline" class="skyline-full">
+</div>
+        </header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="nav-link">Grids</a>
+                <a href="Sapnin.html" class="nav-link">Sapnin</a>
+                <a href="buyagrid.html" class="nav-link">Get A Grid</a>
+                <a href="FAQ.html" class="nav-link">FAQ</a>
+            </div>
+        </nav>
+        <section class="hero">
+            <h1>List Your Event on Sapnin’</h1>
+            <div class="price-callout">One-Time £20</div>
+            <div class="exclusive-tag">Buy Once, Own Your Digital Event Grid. Scouse Only – No Non-Local Events!</div>
+            <p>Thousands of Scousers checking monthly. Get bums on seats with visibility – dirt cheap one-time fee, no monthly nonsense, massive reach.</p>
+            <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20event%20on%20Sapnin'%20%2F%20LiverpoolGrid!&body=Hi%2C%0A%0AI'd%20love%20to%20list%20my%20event%20on%20Sapnin%E2%80%99!%20Here%20are%20the%20details%20to%20get%20started%3A%0A%0AEvent%20Name%3A%20%0ADate%20%26%20Time%3A%20%0AVenue%20%26%20Postcode%3A%20%0AShort%20Description%3A%20%0ATicket%20Link%20(if%20any)%3A%20%0ASocial%20Links%20(Instagram%2FFacebook%2Fetc.)%3A%20%0AContact%20Phone%20%2F%20Email%3A%20%0A%0APlease%20attach%20your%20event%20poster%2C%20flyer%20or%20logo%20to%20this%20email%20%E2%80%93%20best%20size%3A%20400x550px%2FA4%20(Portrait)%2C%20PNG%2C%20JPG%20or%20WebP%2C%20high-res%2C%20ideally%20with%20transparent%20background%20if%20it's%20a%20logo.%20The%20better%20quality%2C%20the%20better%20it%20looks%20on%20Sapnin%E2%80%99!%0A%0ACan't%20wait%20to%20get%20your%20event%20live%20and%20packed%20with%20Scousers!%0A%0ATa%2C%20" class="btn email-cta">List Your Event – £20 One-Time →</a>
+            <div class="hero-testimonials">
+                <div class="testimonial-bg">
+                    <p>“Posted an event on Sapnin' for £20 and we had 40+ extra tickets sold for our comedy night. Absolute bargain!”</p>
+                    <span>– Dave, Promoter</span>
+                </div>
+                <div class="testimonial-bg">
+                    <p>“Listed our car booty for £20 – footfall was up 35% compared to last year. Loads of new faces said they saw it on The Liverpool Grid. Value, no brainer!”</p>
+                    <span>– Cath, Car Boot Organiser</span>
+                </div>
+                <div class="testimonial-bg">
+                    <p>“Unreal ROI!”</p>
+                    <span>– Paul, Venue Host</span>
+                </div>
+                <div class="testimonial-bg">
+                    <p>“Numerous people said they spotted us while scrollin' Sapnin’. £20, wow!”</p>
+                    <span>– Tony, Pub Landlord, L8</span>
+                </div>
+            </div>
+        </section>
+        <section class="about">
+            <h2>What’s Sapnin’? Your Boss Events Hub! 🎉</h2>
+            <p style="font-size:1.2rem; margin:1.5rem 0;">
+                Liverpool’s always got somethin’ goin’ on. Don’t find out after it’s happened – get in the know <strong>before</strong> it kicks off! Own your digital event stall like a permanent spot at a Scouse market that never closes.
+            </p>
+            <p style="font-size:1.15rem;">
+                Gigs, belter markets, footy screenings, family fun days, mad festivals – if it’s on in Liverpool, it’s here.
+            </p>
+  <section style="margin: 3rem 0;">
+            <h2 style="text-align:center; font-size:2.2rem; color:#c8102e; margin-bottom:1.5rem;">See How Your Event Could Look</h2>
+
+            <div class="grid-container">
+                <!-- Single centered example grid item -->
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                        <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Your Event's Name</h3>
+                            <p>Your event's description, i.e gig, market, comedy night or festival.</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 on Sapnin'</a>
+			    <a href="https://www.Liverpoolgrid.co.uk" target="_blank" style="color:#ffd700; font-weight:bold;">🎟️ Get Tickets</a>
+			    <a href="tel:+4407752748342">📞 Box Office</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </section>
+
+            <div class="price-highlight">Promote Your Event – One-Time £20</div>
+            <p style="font-size:1.2rem; margin:1rem 0;">
+                Running a gig, market, comedy night or festival? Don’t let it flop cos no one knew! List it on Sapnin’ for a single <strong>£20</strong> – one-time fee, incredible visibility. We’ll get the word out to thousands of proper Scousers who are always up for a belter. Dead easy, massive reach – no monthly nonsense.
+            </p>
+            <div class="vetting-note">
+                Strictly Scouse Events Only – We vet every listing to keep it proper local, no non-Scouse or chain events. Support real Liverpool happenings!
+            </div>
+            <h3 style="font-size: 1.8rem; margin-top: 2rem; color: #c8102e;">Exclusive Community Perks for Sapnin’ Organisers</h3>
+            <ul class="perks-list">
+                <li>Free monthly shoutouts on our TikTok, Instagram, and X channels</li>                
+                <li>Cross-promotion opportunities with Grid businesses (e.g., partner with local venues)</li>
+                <li>Unlimited free updates to dates, posters, or details – perfect for recurring events</li>
+            </ul>
+        </section> 
+
+        <!-- Social proof teaser -->
+        <div style="text-align:center; margin:4rem 0; padding:2rem 1rem; background:#f9f9f9; border-radius:12px; border: none;">
+            <h3 style="font-size:2rem; color:#c8102e; margin-bottom:1rem;">Scousers Love Sapnin’</h3>
+            <p style="font-size:1.2rem; max-width:800px; margin:0 auto 2rem;">
+                “Found out about the best comedy night ever thanks to Sapnin’ – proper handy!” – @ScouseLad92<br>
+                “Listed my market stall – sold out in two days!” – Local Vendor
+            </p>
+            <p style="font-size:1.1rem; font-style:italic; color:#555;">
+                Your event could be next – don’t miss out!
+            </p>
+        </div>
+        <div class="premium-tease">
+            <h3>Coming Soon: Premium Sapnin’ Listings</h3>
+            <p>Get even more visibility with featured spotlights, top-month priority, and custom highlights. Lock in your basic listing now before upgrades launch!</p>
+        </div>
+
+        <footer>
+             <p>© January 2026 The Liverpool Grid – Proudly Supporting Scouse Talent</p>
+            <p>Liverpoolgrid@outlook.com | Liverpool (UK)</p>
+            <div class="footer-links">
+                <a href="Accessibility-Statement.html">Accessibility Statement</a>
+                <a href="Privacy-Policy.html">Privacy Policy</a>
+                <a href="Terms-and-Conditions-Policy.html">Terms and Conditions</a>
+                <a href="Cookie-Policy.html">Cookie Policy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

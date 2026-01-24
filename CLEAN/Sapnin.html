@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C2HY3XKZ8H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C2HY3XKZ8H');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapnin’ – What’s On in Liverpool | The Liverpool Grid</title>
+   
+    <meta name="description" content="Gigs, markets, festivals, comedy, family days, nights out – all the boss Liverpool events in one place.">
+   
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sapnin’ – What’s Happening in Liverpool">
+    <meta property="og:description" content="Browse thousands of local events with filters by month, search, and more.">
+    <meta property="og:image" content="LiverpoolGridLogo.jpg">
+    <meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+   
+    <link rel="icon" type="image/png" href="LiverpoolGridLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+   
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #000;
+            color: #222;
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background: #111;
+            color: #ddd;
+        }
+        body.dark-mode .container {
+            background: #222;
+            border-color: #ffd700;
+        }
+        body.dark-mode .hero {
+            background: linear-gradient(135deg, #8b0a1f 0%, #c8102e 100%);
+        }
+        body.dark-mode .filters {
+            background: #333;
+            border-color: #444;
+        }
+        body.dark-mode .grid-back {
+            background: linear-gradient(135deg, #a00d1a, #c8102e);
+        }
+        .container {
+            background: #fff;
+            margin: 20px;
+            padding: 40px;
+            border: 5px solid #000;
+            border-radius: 12px;
+            max-width: 1440px;
+            margin: 20px auto;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            gap: 20px;
+            border-bottom: 3px solid #c8102e;
+        }
+        .logo { max-width: 260px; height: auto; }
+       
+        .social-bar {
+            display: flex;
+            gap: 18px;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+        }
+        .social-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            border: 2px solid transparent;
+            background: #111;
+            flex-shrink: 0;
+        }
+        .social-btn:hover {
+            transform: translateY(-6px) scale(1.12);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+            border-color: #ffd700;
+        }
+        .social-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .social-btn:hover img {
+            transform: scale(1.08);
+        }
+       
+        .hero {
+            text-align: center;
+            padding: 60px 20px 60px;
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            color: white;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s;
+        }
+
+        .hero-testimonials {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .testimonial-bg {
+            position: absolute;
+            width: 40%;
+            max-width: 380px;
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 700;
+            color: white;
+            opacity: var(--opacity);
+            transform: rotate(var(--rot));
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+            line-height: 1.3;
+            padding: 1rem;
+            user-select: none;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,215,0,0.15), transparent 60%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .hero p { 
+            font-size: 1.4rem; 
+            max-width: 720px; 
+            margin: 0 auto 32px; 
+            position: relative;
+            z-index: 1;
+        }
+       
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #000;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 12px 8px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        .btn:hover {
+            background: #ffea80;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+        .btn.email-cta {
+            background: linear-gradient(135deg, #ffd700, #ffea80);
+            font-weight: 900;
+        }
+        .btn.email-cta:hover {
+            background: linear-gradient(135deg, #ffea80, #ffd700);
+            transform: translateY(-4px) scale(1.05);
+        }
+       
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.5rem;
+            justify-content: center;
+            margin: 3rem 0 2rem;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 16px;
+            border: 1px solid #eee;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        body.dark-mode .filters {
+            background: #333;
+            border-color: #444;
+        }
+        .filter-field {
+            flex: 1;
+            min-width: 260px;
+            max-width: 380px;
+        }
+        input[type="search"], select {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #c8102e;
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        input:focus, select:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 0 4px rgba(200,16,46,0.2);
+        }
+       
+        .month-section { margin: 5rem 0; }
+        .month-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .month-icon { width: 180px; height: auto; flex-shrink: 0; }
+        .month-title { font-size: 3rem; color: #c8102e; font-weight: 900; margin-bottom: 0.5rem; }
+       
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Force 3 per row on desktop/laptop screens */
+        @media (min-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .grid-item {
+            aspect-ratio: 400 / 550;
+            perspective: 1300px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .grid-item:hover { transform: translateY(-8px); }
+        .grid-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+        }
+        .grid-item:hover .grid-inner,
+        .grid-item:focus-within .grid-inner { transform: rotateY(180deg); }
+        .grid-front, .grid-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+ .grid-item1 {
+            aspect-ratio: 400 / 550;
+            perspective: 1300px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .grid-item1:hover { transform: translateY(-8px); }
+        .grid-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+        }
+        .grid-item1:hover .grid-inner,
+        .grid-item1:focus-within .grid-inner { transform: rotateY(180deg); }
+        .grid-front, .grid-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .grid-front {
+            background: #fff;
+            padding: 0; /* Remove padding so image fills completely */
+        }
+        .grid-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Stretch to fill entire grid space, crops if needed */
+            object-position: center;
+        }
+        .grid-back {
+            background: linear-gradient(135deg, #c8102e, #a00d1a);
+            color: white;
+            transform: rotateY(180deg);
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 1rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem;
+        }
+        .grid-back h3 { font-size: 1.6rem; margin-bottom: 8px; }
+        .grid-back a { color: white; text-decoration: none; font-weight: 600; }
+        .grid-back a:hover { color: #ffd700; text-decoration: underline; }
+        .lifetime-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ffd700;
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1;
+        }
+        .scouse-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #02f750;
+            color: #02541c;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .scouse-badge2 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #c8102e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .postcode-tooltip {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .grid-item:hover .postcode-tooltip {
+            opacity: 1;
+        }
+       
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            color: #666;
+            border-top: 1px solid #eee;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        body.dark-mode footer {
+            color: #aaa;
+            border-color: #333;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .footer-links a {
+            color: #c8102e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        body.dark-mode .footer-links a {
+            color: #ffd700;
+        }
+        .footer-links a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+        .no-results {
+            text-align: center;
+            padding: 4rem 1rem;
+            font-size: 1.4rem;
+            color: #666;
+            display: none;
+            transition: color 0.3s;
+        }
+        body.dark-mode .no-results {
+            color: #aaa;
+        }
+       
+        @media (max-width: 900px) {
+            header { flex-direction: column; text-align: center; }
+            .social-bar { justify-content: center; }
+            .hero h1 { font-size: 2.6rem; }
+        }
+        @media (max-width: 768px) {
+            .container { margin: 10px; padding: 20px; }
+            .filters { flex-direction: column; }
+            .month-header { flex-direction: column; text-align: center; }
+            .testimonial-bg {
+                font-size: 1.3rem;
+                width: 60%;
+                max-width: none;
+            }
+            .testimonial-bg:nth-child(3),
+            .testimonial-bg:nth-child(4) {
+                display: none;
+            }
+            .nav-container {
+                gap: 10px; /* Smaller gap for single line */
+            }
+            .nav-link {
+                font-size: 1rem; /* Smaller font */
+                padding: 8px 16px; /* Smaller padding */
+            }
+            .social-bar {
+                gap: 10px; /* Smaller gap for single line */
+            }
+            .social-btn {
+                width: 40px; /* Smaller icons */
+                height: 40px;
+            }
+        }
+
+        /* Enhanced Navbar Styles */
+        nav {
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            border-radius: 16px;
+            margin: 30px 0;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            overflow: hidden;
+            transition: background 0.3s;
+        }
+        body.dark-mode nav {
+            background: linear-gradient(135deg, #8b0a1f 0%, #c8102e 100%);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 25px;
+            overflow-x: auto;
+        }
+        .nav-link {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #ffd700;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 60%;
+        }
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Testimonial styling tweaks */
+        .testimonial-bg p {
+            margin: 0;
+        }
+        .testimonial-bg span {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.8em;
+            font-style: normal;
+            font-weight: 500;
+            color: #ffd700;
+            opacity: 0.8;
+        }
+        .testimonial-bg:nth-child(1) { top: 10%; left: 5%;   --rot: -8deg; --opacity: 0.18; }
+        .testimonial-bg:nth-child(2) { top: 15%; right: 5%;  --rot: 6deg; --opacity: 0.20; }
+        .testimonial-bg:nth-child(3) { bottom: 20%; left: 8%;  --rot: -5deg; --opacity: 0.16; }
+        .testimonial-bg:nth-child(4) { bottom: 12%; right: 6%; --rot: 7deg; --opacity: 0.22; }
+        @keyframes fadeInBg {
+            from { opacity: 0; }
+            to   { opacity: var(--opacity); }
+        }
+        .testimonial-bg {
+            animation: fadeInBg 2s ease-out forwards;
+        }
+        /* New Styles for Uniqueness */
+        .scouse-only-note {
+            text-align: center;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #c8102e;
+            margin: 1rem 0 2rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+        body.dark-mode .scouse-only-note {
+            background: #333;
+            color: #ffd700;
+            border-color: #444;
+        }
+        .list-cta-banner {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #ffd700, #ffea80);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .list-cta-banner h3 {
+            font-size: 1.8rem;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+        .list-cta-banner a {
+            color: #c8102e;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .list-cta-banner a:hover {
+            text-decoration: underline;
+        }
+        .shuffle-btn {
+            display: block;
+            margin: 1rem auto;
+            padding: 10px 20px;
+            background: #c8102e;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        .shuffle-btn:hover {
+            background: #a00d1a;
+        }
+        body.dark-mode .shuffle-btn {
+            background: #a00d1a;
+        }
+        body.dark-mode .shuffle-btn:hover {
+            background: #c8102e;
+        }
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ffd700;
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s, color 0.3s;
+            z-index: 100;
+        }
+        body.dark-mode .dark-mode-toggle {
+            background: #222;
+            color: #ffd700;
+        }
+        .dark-mode-toggle:hover {
+            background: #ffea80;
+        }
+        body.dark-mode .dark-mode-toggle:hover {
+            background: #333;
+        }
+.skyline-wrapper {
+    width: calc(100% + 80px);       /* counters 40px left + 40px right padding */
+    margin-left: -40px;
+    margin-right: -40px;
+    margin-top: 5px;
+    overflow: hidden;
+    border-radius: 0 0 16px 16px;
+}
+
+.skyline-full {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+}
+    </style>
+</head>
+<body>
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</div>
+    <div class="container">
+        <header>
+            <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid – Exclusive Local Business Showcase" class="logo">
+            <div class="social-bar">
+                <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="TikTok.png" alt="TikTok">
+                </a>
+                <a href="https://www.instagram.com/liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="Instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/share/1D8M9yNtdk" target="_blank" class="social-btn">
+                    <img src="Facebook.png" alt="Facebook">
+                </a>
+                <a href="https://x.com/Liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="X.png" alt="X">
+                </a>
+                <a href="https://linktr.ee/EarnOnce" class="social-btn">
+                    <img src="LinkTree.png" alt="LinkTree">
+                </a>
+                <a href="tel:07752748342" class="social-btn">
+                    <img src="Phone.png" alt="Call Us">
+                </a>
+                <a href="https://wa.me/447752748342" target="_blank" class="social-btn">
+                    <img src="Whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="mailto:Liverpoolgrid@outlook.com" target="_blank" class="social-btn">
+                    <img src="Email.png" alt="Email">
+                </a>
+
+            </div>
+<div class="skyline-wrapper">
+    <img src="Skyline.png" alt="Liverpool Skyline" class="skyline-full">
+</div>
+        </header>
+
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="nav-link">Grids</a>
+                <a href="buyagrid.html" class="nav-link">Get A Grid</a>
+                <a href="Sapnin Sales.html" class="nav-link">Promote An Event</a>
+                <a href="FAQ.html" class="nav-link">FAQ</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <h1>Sapnin’ – What’s On in Liverpool</h1>
+            <p>Thousands of Scousers checking monthly. Discover gigs, markets, festivals, comedy, family days, nights out – all in one place!</p>
+            <div style="margin: 2rem 0; font-size: 1.3rem; color: #ffd700; font-style: italic; font-weight: 500; position: relative; z-index: 1;">
+                🔥 What’s Hot Right Now: NYE hangover gigs, Smiths tribute sell-outs, steak nights packed every Friday – January is already buzzing!
+            </div>
+            <a href="Sapnin Sales.html" class="btn email-cta">List Your Event for £20 One-Time Forever →</a>
+
+            <!-- Visitor Testimonials -->
+            <div class="hero-testimonials">
+                <div class="testimonial-bg">
+                    <p>“Sapnin’ made it dead easy to find a boss comedy night – filtered by the month and booked it in minutes!”</p>
+                    <span>– Mike, Huyton</span>
+                </div>
+                <div class="testimonial-bg">
+                    <p>“Needed family-friendly stuff for half-term – found a lovely kids event straight away!”</p>
+                    <span>– Rachel, Aigburth</span>
+                </div>
+                <div class="testimonial-bg">
+                    <p>“Spotted a tribute act – love the month filter, great for gigs!”</p>
+                    <span>– Tom, City Centre</span>
+                </div>
+                <div class="testimonial-bg">
+                    <p>“First time in Liverpool, wanted to make the most of my stay – I found a cracking rave thanks to the Sapnin’!”</p>
+                    <span>– Sophie, Visitor</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="scouse-only-note">
+            Strictly Scouse Events Only – Vetted for Local Authenticity. Support Proper Liverpool Happenings!
+        </div>
+
+        <div class="list-cta-banner">
+            <h3>Got a Scouse Event? List It Now!</h3>
+            <p>Get visibility for a one-time £20 – free updates for recurring events forever!</p>
+            <a href="Sapnin Sales.html">Go to Sapnin’ Sales →</a>
+        </div>
+
+        <div class="filters">
+            <div class="filter-field">
+                <input type="search" id="searchInput" placeholder="Search events (name, type, venue...)">
+            </div>
+            <div class="filter-field">
+                <select id="monthSelect">
+                    <option value="all">All Months</option>
+                    <option value="february">February 26</option>
+                    <option value="march">March 26</option>
+                    <option value="april">April 26</option>
+                    <option value="may">May 26</option>
+                    <option value="june">June 26</option>
+                    <option value="july">July 26</option>
+                    <option value="august">August 26</option>
+                    <option value="september">September 26</option>
+                    <option value="october">October 26</option>
+                    <option value="november">November 26</option>
+                    <option value="december">December 26</option>
+		    <option value="january 27">January 27</option>
+                </select>
+            </div>
+        </div>
+
+<!-- Quick stats bar -->
+<div style="text-align: center; margin: 2rem 0; padding: 1.5rem; background: #f9f9f9; border-radius: 12px; border: 1px solid #eee; transition: background 0.3s, border-color 0.3s;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; font-size: 1.1rem;">
+        <div>
+            <strong style="color:#c8102e; font-size:1.6rem;">+5,000</strong> Scousers checking monthly
+        </div>
+        <div>
+            <strong style="color:#c8102e; font-size:1.6rem;" id="live-grid-counter">
+                <span style="color:#ffd700;">0</span> 
+            </strong>events listed so far
+        </div>
+        <div>
+            <strong style="color:#c8102e; font-size:1.6rem;">£20</strong> one-time – visibility
+        </div>
+    </div>
+    <p style="margin-top:1rem; font-size:1rem; color:#555; transition: color 0.3s;">
+        Your gig, market or comedy night could be next – get in quick!
+    </p>
+</div>
+
+        <!-- Featured Events Spotlight -->
+        <section style="margin: 3rem 0;">
+            <h2 style="text-align:center; font-size:2.2rem; color:#c8102e; margin-bottom:1.5rem;">Sapnin’ Spotlight – Featured This Month</h2>
+            <div class="spotlight-carousel" style="display:flex; overflow-x:auto; gap:1.5rem; padding:1rem 0; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;">
+                
+<div style="flex:0 0 320px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.15); scroll-snap-align:start; transition: background 0.3s;">
+
+                    <img src="Events/grand national.jpg" alt="Featured Event" style="width:100%; height:180px; object-fit:cover;">
+                    <div style="padding:1rem;">
+                        <h3 style="margin:0; font-size:1.4rem;">Randox Grand National 2026</h3>
+                        <p style="margin:0.5rem 0; color:#555; font-size:0.95rem; transition: color 0.3s;">9-11 Apr • The world's most famous steeplechase • Aintree Racecourse!</p>
+                        <a href="https://www.thejockeyclub.co.uk/aintree/events-tickets/grand-national/" style="color:#c8102e; font-weight:bold;">Tickets →</a>
+                        <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+        <div class="month-section" data-month="february">
+            <div class="month-header">
+                <img src="February.jpg" alt="February" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="month-section" data-month="march">
+            <div class="month-header">
+                <img src="March.jpg" alt="March" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="month-section" data-month="april">
+            <div class="month-header">
+                <img src="April.jpg" alt="April" class="month-icon">
+            </div>
+            
+                    <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item1" tabindex="0" data-postcode="L9">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/grand national.jpg" alt="Randox Grand National 2026">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Randox Grand National 2026</h3>
+                            <p>The world's most famous steeplechase returns to Aintree Racecourse! Watch 40 horses and jockeys battle over the legendary fences in one of Liverpool's biggest sporting weekends.</p>
+                            <ul class="compact-list">
+                                <li>April 9–11, 2026</li>
+                                <li>Aintree Racecourse (L9)</li>
+                                <li>The Randox Grand National – Saturday 11 April</li>
+                                <li>Festivals, Ladies Day, family fun & more</li>
+                            </ul>
+                            <a href="https://www.thejockeyclub.co.uk/aintree/events-tickets/grand-national/" target="_blank" style="color:#ffd700; font-weight:bold;">Get Tickets →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode Area: L9</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>        
+
+        <div class="month-section" data-month="may">
+            <div class="month-header">
+                <img src="May.jpg" alt="May" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="month-section" data-month="june">
+            <div class="month-header">
+                <img src="June.jpg" alt="June" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="month-section" data-month="july">
+            <div class="month-header">
+                <img src="July.jpg" alt="July" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="month-section" data-month="august">
+            <div class="month-header">
+                <img src="August.jpg" alt="August" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="month-section" data-month="september">
+            <div class="month-header">
+                <img src="September.jpg" alt="September" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="month-section" data-month="october">
+            <div class="month-header">
+                <img src="October.jpg" alt="October" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="month-section" data-month="november">
+            <div class="month-header">
+                <img src="November.jpg" alt="November" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="month-section" data-month="december">
+            <div class="month-header">
+                <img src="December.jpg" alt="December" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="month-section" data-month="january 27">
+            <div class="month-header">
+                <img src="January27.jpg" alt="January 27" class="month-icon">
+            </div>
+            <div class="grid-container">
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+
+                <div class="grid-item" tabindex="0" data-postcode="L3">
+                    <div class="scouse-badge">AVAILABLE</div>
+                    <div class="grid-inner">
+                        <div class="grid-front">
+                            <img src="Events/example.png" alt="Event Placeholder">
+                        </div>
+                        <div class="grid-back">
+                            <h3>Available Event Slot</h3>
+                            <p>Your gig, market, comedy night or festival here – one-time £20 forever visibility!</p>
+                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time Forever →</a>
+                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
+                        </div>
+                    </div>
+                    <div class="postcode-tooltip">Postcode: L3</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Mid-page CTA -->
+        <div style="text-align:center; margin:4rem 0; padding:2rem; background:linear-gradient(135deg, #c8102e, #8b0a1f); color:white; border-radius:16px; transition: background 0.3s;">
+            <h3 style="font-size:2rem; margin-bottom:1rem;">Got an Event Coming Up?</h3>
+            <p style="font-size:1.3rem; margin-bottom:1.5rem;">List it on Sapnin’ for a one-time £20 – exposure to thousands of Scousers! Recurring events? Free updates forever!</p>
+            <a href="Sapnin Sales.html" class="btn email-cta">Submit Your Event Now →</a>
+        </div>
+
+        <!-- Social proof teaser -->
+        <div style="text-align:center; margin:4rem 0; padding:2rem 1rem; background:#f9f9f9; border-radius:12px; transition: background 0.3s, color 0.3s;">
+            <h3 style="font-size:2rem; color:#c8102e; margin-bottom:1rem;">Scousers Love Sapnin’</h3>
+            <p style="font-size:1.2rem; max-width:800px; margin:0 auto 2rem;">
+                Find your next big night out or family day out in seconds – proper handy!
+            </p>
+        </div>
+
+        <footer>
+             <p>© January 2026 The Liverpool Grid – Proudly Supporting Scouse Talent</p>
+            <p>Liverpoolgrid@outlook.com | Liverpool (UK)</p>
+            <div class="footer-links">
+                <a href="Accessibility-Statement.html">Accessibility Statement</a>
+                <a href="Privacy-Policy.html">Privacy Policy</a>
+                <a href="Terms-and-Conditions-Policy.html">Terms and Conditions</a>
+                <a href="Cookie-Policy.html">Cookie Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript: Search + Month filter + New Features -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const monthSelect = document.getElementById('monthSelect');
+        const sections = document.querySelectorAll('.month-section');
+        const noResults = document.createElement('p');
+        noResults.className = 'no-results';
+        noResults.textContent = 'No events match your filters – try broadening your search!';
+        noResults.style.display = 'none';
+        document.body.append(noResults);
+
+        function filterEvents() {
+            const query = searchInput.value.toLowerCase().trim();
+            const selectedMonth = monthSelect.value;
+            let visible = 0;
+
+            sections.forEach(section => {
+                const month = section.dataset.month;
+                const showSection = selectedMonth === 'all' || month === selectedMonth;
+                let sectionHasVisible = false;
+                const items = section.querySelectorAll('.grid-item');
+
+                items.forEach(item => {
+                    const text = (item.querySelector('h3')?.textContent || '' +
+                                  item.querySelector('p')?.textContent || '').toLowerCase();
+                    const matches = !query || text.includes(query);
+                    if (matches && showSection) {
+                        item.style.display = '';
+                        sectionHasVisible = true;
+                        visible++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                section.style.display = showSection && sectionHasVisible ? 'block' : 'none';
+            });
+
+            noResults.style.display = visible === 0 ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', filterEvents);
+        monthSelect.addEventListener('change', filterEvents);
+        filterEvents();
+
+        // Shuffle Grids Function
+        function shuffleGrids() {
+            document.querySelectorAll('.grid-container').forEach(grid => {
+                const items = Array.from(grid.children);
+                for (let i = items.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    grid.appendChild(items[j]);
+                }
+            });
+        }
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Load Dark Mode Preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Touch Flip Support (for mobile)
+        document.querySelectorAll('.grid-item').forEach(item => {
+            item.addEventListener('touchstart', () => {
+                item.classList.add('active');
+            });
+            item.addEventListener('touchend', () => {
+                item.classList.remove('active');
+            });
+        });
+</script>
+
+<script>
+// === LIVE GRID COUNTER ===
+function updateGridCounter() {
+    const gridItems = document.querySelectorAll('.grid-item1');
+    const count = gridItems.length;
+    
+    // Debug: Check console to see what it finds
+    console.log('Number of .grid-item elements found:', count);
+
+    const counterElement = document.getElementById('live-grid-counter');
+    if (!counterElement) return;
+
+    const numberSpan = counterElement.querySelector('span');
+    if (numberSpan) {
+        numberSpan.textContent = count;
+    } else {
+        // Fallback
+        counterElement.innerHTML = `<span style="color:#ffd700;">${count}</span> events listed so far`;
+    }
+}
+
+// Run immediately (at end of body → all HTML is loaded)
+updateGridCounter();
+
+// Watch for future changes (if you ever add/remove grids dynamically)
+const gridContainer = document.querySelector('.grid-container') || document.body;
+const observer = new MutationObserver(updateGridCounter);
+observer.observe(gridContainer, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    characterData: true
+});
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C2HY3XKZ8H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C2HY3XKZ8H');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Statement | The Liverpool Grid</title>
+   
+    <meta name="description" content="Our commitment to making The Liverpool Grid accessible to all users.">
+   
+    <!-- Open Graph -->
+    <meta property="og:title" content="Accessibility Statement | The Liverpool Grid">
+    <meta property="og:description" content="Learn about our accessibility efforts and compliance.">
+    <meta property="og:image" content="LiverpoolGridLogo.jpg">
+    <meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+   
+    <link rel="icon" type="image/png" href="LiverpoolGridLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+   
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #000;
+            color: #222;
+            line-height: 1.6;
+        }
+        .container {
+            background: #fff;
+            margin: 20px;
+            padding: 40px;
+            border: 5px solid #000;
+            border-radius: 12px;
+            max-width: 1440px;
+            margin: 20px auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            gap: 20px;
+            border-bottom: 3px solid #c8102e;
+        }
+        .logo { max-width: 260px; height: auto; }
+        .social-bar {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .social-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            border: 2px solid transparent;
+            background: #111;
+        }
+        .social-btn:hover {
+            transform: translateY(-6px) scale(1.12);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+            border-color: #ffd700;
+        }
+        .social-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .social-btn:hover img {
+            transform: scale(1.08);
+        }
+       
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            color: white;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,215,0,0.15), transparent 60%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+       
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            font-size: 1.1rem;
+        }
+        .content h2 {
+            font-size: 2rem;
+            color: #c8102e;
+            margin: 2rem 0 1rem;
+        }
+        .content p {
+            margin-bottom: 1rem;
+        }
+        .content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+       
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+       
+        @media (max-width: 900px) {
+            header { flex-direction: column; text-align: center; }
+            .social-bar { justify-content: center; }
+            .hero h1 { font-size: 2.6rem; }
+        }
+        @media (max-width: 768px) {
+            .container { margin: 10px; padding: 20px; }
+        }
+        @media (max-width: 500px) {
+            header { flex-direction: column; text-align: center; }
+        }
+
+        /* Enhanced Navbar Styles */
+        nav {
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            border-radius: 16px;
+            margin: 30px 0;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .nav-link {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #ffd700;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 60%;
+        }
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .footer-links a {
+            color: #c8102e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+.skyline-wrapper {
+    width: calc(100% + 80px);       /* counters 40px left + 40px right padding */
+    margin-left: -40px;
+    margin-right: -40px;
+    margin-top: 5px;
+    overflow: hidden;
+    border-radius: 0 0 16px 16px;
+}
+
+.skyline-full {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid – Exclusive Local Business Showcase" class="logo">
+            <div class="social-bar">
+                <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="TikTok.png" alt="TikTok">
+                </a>
+                <a href="https://www.instagram.com/liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="Instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/share/1D8M9yNtdk" target="_blank" class="social-btn">
+                    <img src="Facebook.png" alt="Facebook">
+                </a>
+                <a href="https://x.com/Liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="X.png" alt="X">
+                </a>
+                <a href="https://linktr.ee/EarnOnce" class="social-btn">
+                    <img src="LinkTree.png" alt="LinkTree">
+                </a>
+                <a href="tel:07752748342" class="social-btn">
+                    <img src="Phone.png" alt="Call Us">
+                </a>
+                <a href="https://wa.me/447752748342" target="_blank" class="social-btn">
+                    <img src="Whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="mailto:Liverpoolgrid@outlook.com" target="_blank" class="social-btn">
+                    <img src="Email.png" alt="Email">
+                </a>
+            </div>
+<div class="skyline-wrapper">
+    <img src="Skyline.png" alt="Liverpool Skyline" class="skyline-full">
+</div>
+        </header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="nav-link active">Grids</a>
+		<a href="Sapnin.html" class="nav-link">Sapnin</a>
+                <a href="buyagrid.html" class="nav-link">Get A Grid</a>
+             	<a href="Sapnin Sales.html" class="nav-link">Promote An Event</a>
+		<a href="FAQ.html" class="nav-link">FAQ</a>
+            </div>
+        </nav>
+        <section class="hero">
+            <h1>Accessibility Statement</h1>
+            <p>Last updated: January 06, 2026</p>
+        </section>
+        <div class="content">
+            <p>We are committed to making The Liverpool Grid accessible to all users, in line with The Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 and the Equality Act 2010. We aim to meet WCAG 2.2 AA standards.</p>
+            <h2>1. Compliance Status</h2>
+            <p>This website is partially compliant with WCAG 2.2 AA. We are working on improvements based on audits and user feedback.</p>
+            <h2>2. Known Issues</h2>
+            <ul>
+                <li>Some older images may lack alt text (fix by Q2 2026).</li>
+                <li>Keyboard navigation may skip some interactive elements (fix ongoing).</li>
+                <li>Color contrast on certain buttons may not meet ratios for all users (review in progress).</li>
+            </ul>
+            <h2>3. What We're Doing</h2>
+            <p>We test with assistive technologies (e.g., screen readers, magnifiers). User research includes disabled participants. We conduct annual audits and fix issues promptly.</p>
+            <h2>4. Reporting Issues</h2>
+            <p>If you find an accessibility problem, contact Liverpoolgrid@outlook.com with details (page, issue, device). We respond within 5 working days.</p>
+            <h2>5. Enforcement</h2>
+            <p>If unsatisfied, contact the Equality Advisory and Support Service (EASS) or escalate to the Equality and Human Rights Commission (EHRC).</p>
+            <p>Note: This is a template and not legal advice. Consult a professional for your specific situation.</p>
+        </div>
+        <footer>
+            <p>© January 2026 The Liverpool Grid – Proudly Supporting Scouse Talent</p>
+            <p>Liverpoolgrid@outlook.com | Liverpool (UK)</p>
+            <div class="footer-links">
+                <a href="Privacy-Policy.html">Privacy Policy</a>
+                <a href="Terms-and-Conditions-Policy.html">Terms and Conditions</a>
+                <a href="Cookie-Policy.html">Cookie Policy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

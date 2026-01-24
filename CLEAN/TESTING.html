@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse The Liverpool Grid | Local Businesses & Stalls</title>
+   
+    <meta name="description" content="Shop local, discover Liverpool’s best independent businesses on The Liverpool Grid – all in one place.">
+   
+    <!-- Open Graph -->
+    <meta property="og:title" content="Browse The Liverpool Grid">
+    <meta property="og:description" content="Discover and support Scouse businesses – food, services, beauty, retail and more.">
+    <meta property="og:image" content="LiverpoolGridLogo.jpg">
+    <meta property="og:type" content="website">
+   
+    <link rel="icon" type="image/png" href="LiverpoolGridLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+   
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #000;
+            color: #222;
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background: #111;
+            color: #ddd;
+        }
+        body.dark-mode .container {
+            background: #222;
+            border-color: #ffd700;
+        }
+        body.dark-mode .hero {
+            background: linear-gradient(135deg, #8b0a1f 0%, #c8102e 100%);
+        }
+        body.dark-mode .filters {
+            background: #333;
+            border-color: #444;
+        }
+        body.dark-mode .grid-front {
+            background: #333;
+        }
+        body.dark-mode .grid-back {
+            background: linear-gradient(135deg, #a00d1a, #c8102e);
+        }
+        .container {
+            background: #fff;
+            margin: 20px;
+            padding: 40px;
+            border: 5px solid #000;
+            border-radius: 12px;
+            max-width: 1440px;
+            margin: 20px auto;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            gap: 20px;
+            border-bottom: 3px solid #c8102e;
+        }
+        .logo { max-width: 260px; height: auto; }
+       
+        .social-bar {
+            display: flex;
+            gap: 18px;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+        }
+        .social-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            border: 2px solid transparent;
+            background: #111;
+            flex-shrink: 0;
+        }
+        .social-btn:hover {
+            transform: translateY(-6px) scale(1.12);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+            border-color: #ffd700;
+        }
+        .social-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .social-btn:hover img {
+            transform: scale(1.08);
+        }
+       
+        .hero {
+            text-align: center;
+            padding: 60px 20px 60px;
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            color: white;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s;
+        }
+        .hero-testimonials {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .testimonial-bg {
+            position: absolute;
+            width: 40%;
+            max-width: 380px;
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 700;
+            color: white;
+            opacity: var(--opacity);
+            transform: rotate(var(--rot));
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+            line-height: 1.3;
+            padding: 1rem;
+            user-select: none;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,215,0,0.15), transparent 60%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin: 1rem 0 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .testimonial-bg p {
+            margin: 0;
+        }
+        .testimonial-bg span {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.8em;
+            font-style: normal;
+            font-weight: 500;
+            color: #ffd700;
+            opacity: 0.8;
+        }
+        .testimonial-bg:nth-child(1) { top: 10%; left: 5%;   --rot: -8deg; --opacity: 0.18; }
+        .testimonial-bg:nth-child(2) { top: 15%; right: 5%;  --rot: 6deg; --opacity: 0.20; }
+        .testimonial-bg:nth-child(3) { bottom: 20%; left: 8%;  --rot: -5deg; --opacity: 0.16; }
+        .testimonial-bg:nth-child(4) { bottom: 12%; right: 6%; --rot: 7deg; --opacity: 0.22; }
+        @keyframes fadeInBg {
+            from { opacity: 0; }
+            to   { opacity: var(--opacity); }
+        }
+        .testimonial-bg {
+            animation: fadeInBg 2s ease-out forwards;
+        }
+        @media (max-width: 768px) {
+            .testimonial-bg {
+                font-size: 1.3rem;
+                width: 60%;
+                max-width: none;
+            }
+            .testimonial-bg:nth-child(3),
+            .testimonial-bg:nth-child(4) {
+                display: none;
+            }
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #000;
+            font-size: 1.4rem;
+            font-weight: 900;
+            padding: 18px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            transition: all 0.35s ease;
+            border: 4px solid #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 16px 40px rgba(255,215,0,0.5);
+            background: #ffeb3b;
+            color: #111;
+        }
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.6s;
+        }
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+       
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.5rem;
+            justify-content: center;
+            margin: 3rem 0 2rem;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 16px;
+            border: 1px solid #eee;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        body.dark-mode .filters {
+            background: #333;
+            border-color: #444;
+        }
+        .filter-field {
+            flex: 1;
+            min-width: 260px;
+            max-width: 380px;
+        }
+        input[type="search"], select {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #c8102e;
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        input:focus, select:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 0 4px rgba(200,16,46,0.2);
+        }
+       
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            padding: 2rem 0;
+        }
+        .grid-item {
+            aspect-ratio: 1 / 1;
+            perspective: 1300px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .grid-item:hover { transform: translateY(-8px); }
+        .grid-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+        }
+        .grid-item:hover .grid-inner,
+        .grid-item:focus-within .grid-inner { transform: rotateY(180deg); }
+        .grid-front, .grid-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem;
+        }
+        .grid-front { background: linear-gradient(135deg, #c8102e, #a00d1a);
+    color: white;                /* important: text/icon visibility on dark red */}
+        .grid-front img {
+    max-width: 92%;
+    max-height: 92%;
+    object-fit: contain;
+    /* Optional: add subtle shadow/glow for pop */
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+}
+        .grid-back {
+            background: linear-gradient(135deg, #c8102e, #a00d1a);
+            color: white;
+            transform: rotateY(180deg);
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .grid-back h3 { font-size: 1.6rem; margin-bottom: 8px; }
+        .grid-back a { color: white; text-decoration: none; font-weight: 600; }
+        .grid-back a:hover { color: #ffd700; text-decoration: underline; }
+       
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            color: #666;
+            border-top: 1px solid #eee;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        body.dark-mode footer {
+            color: #aaa;
+            border-color: #333;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .footer-links a {
+            color: #c8102e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        body.dark-mode .footer-links a {
+            color: #ffd700;
+        }
+        .footer-links a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+        .no-results {
+            text-align: center;
+            padding: 4rem 1rem;
+            font-size: 1.4rem;
+            color: #666;
+            display: none;
+            transition: color 0.3s;
+        }
+        body.dark-mode .no-results {
+            color: #aaa;
+        }
+       
+        @media (max-width: 1100px) {
+            .grid-container { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .container { margin: 10px; padding: 20px; }
+            .grid-container { grid-template-columns: 1fr; }
+            .filters { flex-direction: column; }
+            .hero h1 { font-size: 2.6rem; }
+            .hero p { font-size: 1.3rem; }
+            .cta-button { font-size: 1.2rem; padding: 14px 36px; }
+            .social-bar {
+                gap: 8px;
+            }
+            .social-btn {
+                width: 36px;
+                height: 36px;
+            }
+            .nav-container {
+                gap: 8px;
+            }
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+        }
+.compact-list {
+    margin: 0;
+    padding-left: 16px; /* keeps bullets aligned */
+}
+
+.compact-list li {
+    margin: 0;
+    padding: 0;
+    line-height: 1.0; /* controls vertical tightness */
+}
+.skyline-wrapper {
+    width: calc(100% + 80px);       /* counters 40px left + 40px right padding */
+    margin-left: -40px;
+    margin-right: -40px;
+    margin-top: 5px;
+    overflow: hidden;
+    border-radius: 0 0 16px 16px;
+}
+
+.skyline-full {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+        /* Enhanced Navbar Styles */
+        nav {
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            border-radius: 16px;
+            margin: 30px 0;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 25px;
+            overflow-x: auto;
+        }
+        .nav-link {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #ffd700;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 60%;
+        }
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* New Styles for Suggestions */
+        .scouse-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #c8102e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.dark-mode .scouse-badge {
+            background: #a00d1a;
+            color: #ffd700;
+        }
+/* Lifetime Badge - Simple, no hover animations */
+.lifetime-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: bold;
+    z-index: 1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+/* Phase 1: Deep Blue (Founder) */
+.grid-item.phase-1 .lifetime-badge {
+    background: #0A2540;
+    border: 1px solid #1F4FD8;
+}
+
+/* Phase 2: Emerald Green (Pioneer) */
+.grid-item.phase-2 .lifetime-badge {
+    background: #0F9D58;
+    border: 1px solid #34C38F;
+}
+
+/* Phase 3: Gold (Legacy)*/
+.grid-item.phase-3 .lifetime-badge {
+    background: #D4AF37;
+    border: 1px solid #B8962E;
+    color: #000;  /* black text for better readability on gold */
+}
+
+
+        body.dark-mode .lifetime-badge {
+            background: #222;
+            color: #ffd700;
+        }
+        .postcode-tooltip {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 2;
+        }
+        body.dark-mode .postcode-tooltip {
+            background: rgba(255,255,255,0.7);
+            color: #000;
+        }
+        .grid-item:hover .postcode-tooltip {
+            opacity: 1;
+        }
+        .scouse-only-note {
+            text-align: center;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #c8102e;
+            margin: 1rem 0 2rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+        body.dark-mode .scouse-only-note {
+            background: #333;
+            color: #ffd700;
+            border-color: #444;
+        }
+        .sapnin-cta-banner {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #ffd700, #ffea80);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .sapnin-cta-banner h3 {
+            font-size: 1.8rem;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+        .sapnin-cta-banner a {
+            color: #c8102e;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .sapnin-cta-banner a:hover {
+            text-decoration: underline;
+        }
+        .shuffle-btn {
+            display: block;
+            margin: 1rem auto;
+            padding: 10px 20px;
+            background: #c8102e;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        .shuffle-btn:hover {
+            background: #a00d1a;
+        }
+        body.dark-mode .shuffle-btn {
+            background: #a00d1a;
+        }
+        body.dark-mode .shuffle-btn:hover {
+            background: #c8102e;
+        }
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ffd700;
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s, color 0.3s;
+            z-index: 100;
+        }
+        body.dark-mode .dark-mode-toggle {
+            background: #222;
+            color: #ffd700;
+        }
+        .dark-mode-toggle:hover {
+            background: #ffea80;
+        }
+        body.dark-mode .dark-mode-toggle:hover {
+            background: #333;
+        }
+        /* Perks Tease */
+        .perks-tease {
+            text-align: center;
+            margin: 4rem 0;
+            padding: 2rem 1rem;
+            background: #f9f9f9;
+            border-radius: 12px;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.dark-mode .perks-tease {
+            background: #333;
+            color: #ddd;
+        }
+        .perks-tease h3 {
+            font-size: 2rem;
+            color: #c8102e;
+            margin-bottom: 1rem;
+        }
+        body.dark-mode .perks-tease h3 {
+            color: #ffd700;
+        }
+        .perks-tease p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        /* Mobile Adjustments for Navbar & Social Icons */
+        @media (max-width: 768px) {
+            .nav-container {
+                gap: 10px; /* Smaller gap for single line */
+            }
+            .nav-link {
+                font-size: 1rem; /* Smaller font */
+                padding: 8px 16px; /* Smaller padding */
+            }
+            .social-bar {
+                gap: 10px; /* Smaller gap for single line */
+            }
+            .social-btn {
+                width: 40px; /* Smaller icons */
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</div>
+    <div class="container">
+        <header>
+            <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid – Exclusive Local Business Showcase" class="logo">
+            <div class="social-bar">
+                <a href="https://www.tiktok.com/@LiverpoolMarket" target="_blank" class="social-btn">
+                    <img src="Tiktok.png" alt="TikTok">
+                </a>
+                <a href="https://www.instagram.com/liverpoolmarket.uk" target="_blank" class="social-btn">
+                    <img src="Instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/LiverpoolMarket" target="_blank" class="social-btn">
+                    <img src="Facebook.png" alt="Facebook">
+                </a>
+                <a href="https://x.com/LiverpoolMarket" target="_blank" class="social-btn">
+                    <img src="X.png" alt="X">
+                </a>
+                <a href="https://linktr.ee/EarnOnce" class="social-btn">
+                    <img src="LinkTree.png" alt="LinkTree">
+                </a>
+                <a href="tel:07860524036" class="social-btn">
+                    <img src="Phone.png" alt="Call Us">
+                </a>
+                <a href="https://wa.me/447860524036" target="_blank" class="social-btn">
+                    <img src="Whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="mailto:help@liverpoolgrid.co.uk" target="_blank" class="social-btn">
+                    <img src="Email.png" alt="Email">
+                </a>
+            </div>
+<div class="skyline-wrapper">
+    <img src="Skyline.png" alt="Liverpool Skyline" class="skyline-full">
+</div>
+        </header>
+
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="nav-link active">Grids</a>
+		<a href="Sapnin.html" class="nav-link">Sapnin</a>
+                <a href="buyagrid.html" class="nav-link">Grid (Sales)</a>
+		<a href="Sapnin Sales.html" class="nav-link">Sapnin (Sales)</a>
+		<a href="FAQ.html" class="nav-link">FAQ</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <h1>Ger'on our Grids</h1>
+            <p>
+                Have a really good nose to discover and support Liverpool’s best independent businesses – food, services, beauty, retail and more.
+            </p>
+            <a href="buyagrid.html" class="cta-button">
+                Local Business? – Get a Grid!
+            </a>
+<div class="hero-testimonials">
+    <div class="testimonial-bg" style="--rot: -8deg; --pos: top left; --opacity: 0.18;">
+        <p>“Found a brilliant end-of-tenancy cleaner in L3 the same day I searched – sorted my flat out in no time. Proper lifesaver this site is!”</p>
+        <span>– Chloe, Private Landlord</span>
+    </div>
+    <div class="testimonial-bg" style="--rot: 6deg; --pos: top right; --opacity: 0.20;">
+        <p>“I needed something a little different for my daughter's 8th birthday and found a brilliant party services after scrolling The Grids – The kids loved it!”</p>
+        <span>– Liam, Walton</span>
+    </div>
+    </div>
+        </section>
+
+        <div class="scouse-only-note">
+            Strictly Scouse Independents Only – Vetted for Authenticity. Support Proper Liverpool Businesses!
+        </div>
+
+        <div class="sapnin-cta-banner">
+            <h3>Check What's On in Liverpool!</h3>
+            <p>Discover gigs, markets, festivals, and more on Sapnin’ – all Scouse events in one place!</p>
+            <a href="Sapnin.html">Go to Sapnin’ →</a>
+        </div>
+
+        <button class="shuffle-btn" onclick="shuffleGrids()">Shuffle Grids for Fresh Discovery!</button>
+
+        <!-- Filters -->
+        <div class="filters">
+            <div class="filter-field">
+                <input type="search" id="searchInput" placeholder="Search name, service, area...">
+            </div>
+            <div class="filter-field">
+                <select id="categorySelect">
+                    <option value="all">All Categories</option>
+		    <option value="Animal Retail & Services">Animal Retail & Services</option>
+		    <option value="Beauty & Wellness">Beauty & Wellness</option>
+		    <option value="Cleaning & Domestic">Cleaning & Domestic</option>
+		    <option value="Food & Drink">Food & Drink</option>
+                    <option value="Kids & Entertainment">Kids & Entertainment</option>
+		    <option value="Retail & Shops">Retail & Shops</option>  
+                    <option value="Services & Trades">Services & Trades</option>                  
+                    </select>
+            </div>
+            <div class="filter-field">
+                <input type="search" id="postcodeInput" placeholder="Postcode area e.g. L1, L8, L20, L40">
+            </div>
+        </div>
+
+<div id="live-grid-counter" style="text-align:center; margin:2rem 0; font-size:1.8rem; font-weight:bold; color:#c8102e;">
+    Loading number of grids...
+</div>
+
+
+        <section class="grid-section">
+            <div class="grid-container" id="gridContainer">
+<div class="grid-item phase-1" tabindex="0" data-category="Cleaning & Domestic" data-postcode="L1-L40">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/Alka_Cleaning.png" alt="Alka Cleaning">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Alka Cleaning</h3>
+                <p>We offer a range of cleaning services for Domestic & Commercial customers in Liverpool, which includes:</p>
+                <ul class="compact-list">
+                    <li>Student accommodation</li>
+                    <li>Office / commercial</li>
+                    <li>End of tenancy</li>
+                    <li>Pre party / After party</li>
+                </ul>
+                <p>Insured and professional.</p>
+                <ul class="compact-list">
+                    <a href="https://www.facebook.com/alkacleaningliverpool" target="_blank">🌐 Website</a>
+                    <a href="mailto:alkacleaningliverpool@gmail.com">📧 Email</a>                            
+                    <a href="tel:+4407469950072">📞 Call Us</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Services & Trades" data-postcode="L1-L40">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>YOUR COMPANY NAME</h3>
+                <p>DESCRIPTION</p>
+		<p>LIST OF SERVICES...</p>
+                <ul class="compact-list">
+		    <li>Service #1</li>
+		    <li>Service #2</li>
+                </ul>
+                <p>YOUR MOTTO</p>
+                <ul class="compact-list">
+                    <a href="https://www.theliverpoolgrid.co.uk" target="_blank">🌐 Website</a>
+                    <a href="mailto:help@liverpoolgrid.co.uk">📧 Email</a>
+                    <a href="tel:07860524036">📞 Contact</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+<a href="https://www.liverpoolgrids.co.uk/buyagrid.html" target="_blank" style="color:#ffd700; font-weight:bold;">Buy Your Grid Now →</a>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1-L40</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Kids & Entertainment" data-postcode="L1-L40">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/DreamsSleepover.jpg" alt="Dreams Sleepover Club">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Dreams Sleepover Club</h3>
+                <p>Magical teepee & bell tent sleepover hire across Merseyside! We deliver, set up & collect – perfect for kids' birthdays & special nights.</p>
+                <ul class="compact-list">
+                    <li>16 exciting themes</li>
+                    <li>Light-up numbers & balloons</li>
+                    <li>Indoor/outdoor options</li>
+                    <li>Stress-free setup & packaway</li>
+                </ul>
+                <p>Merseyside based – DM to book!</p>
+                <ul class="compact-list">
+                    <a href="https://www.facebook.com/Dreams.sleepover" target="_blank">🌐 Facebook</a>
+                    <a href="https://www.instagram.com/dreamssleepoverclub/" target="_blank">📸 Instagram</a>                    
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1-L40</div>
+</div>
+            <p id="noResults" class="no-results">
+                No businesses match your filters. Try broadening your filters.
+            </p>
+        </section>
+
+
+        <section class="grid-section">
+            <div class="grid-container" id="gridContainer">
+   <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/69a.jpg" alt="69A Intandane">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>69A Intandane</h3>
+                <p>Iconic vintage & antique shop since 1976. Eclectic treasures: vintage fashion, furniture, books, tribal art & more at 75 Renshaw St (L1).</p>
+                <ul class="compact-list">
+                    <li>Vintage clothing & accessories</li>
+                    <li>Antiques & decorative art</li>
+                    <li>Furniture, books & records</li>
+                    <li>Asian/tribal items & curios</li>
+                </ul>
+                <p>Open daily 1pm–6pm. In-person browsing only – no online sales.</p>
+                <ul class="compact-list">
+                    <a href="https://www.69aliverpool.co.uk" target="_blank">🌐 Website</a>
+                    <a href="mailto:intandane69a@yahoo.co.uk">📧 Email</a>
+                    <a href="tel:+441517088873">📞 Call Us</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+  <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L15">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/deadink.jpg" alt="Dead Ink Bookshop">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Dead Ink Bookshop</h3>
+                <p>Independent bookshop & publisher since 2022 on Smithdown Road (L15). Bold indie fiction, non-fiction, poetry, graphic novels, zines & more.</p>
+                <ul class="compact-list">
+                    <li>Fiction, non-fiction & poetry</li>
+                    <li>Graphic novels & children's books</li>
+                    <li>Discounted indie titles</li>
+                    <li>Zines, stationery & events</li>
+                </ul>
+                <p>Community hub with workshops & book club. Liverpool's alternative lit spot!</p>
+                <ul class="compact-list">
+                    <a href="https://www.deadinkbooks.com" target="_blank">🌐 Website</a>
+                    <a href="mailto:shop@deadinkbooks.com">📧 Email</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L15</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/mattas.jpg" alt="Mattas International Foods">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Mattas International Foods</h3>
+                <p>Legendary family-run global food store since 1960s on Bold Street (L1). Huge range of spices, produce & specialist items for Arabic, African, Indian, Caribbean & Asian cooking.</p>
+                <ul class="compact-list">
+                    <li>Vegetarian, vegan & organic foods</li>
+                    <li>Spices, herbs & exotic ingredients</li>
+                    <li>Fresh veggies, nuts & bulk items</li>
+                    <li>Rare ethnic groceries</li>
+                </ul>
+                <p>A Liverpool institution – quality & friendly service!</p>
+                <ul class="compact-list">
+                    <a href="https://www.mattas.co.uk" target="_blank">🌐 Website</a>
+                    <a href="mailto:info@mattas.co.uk">📧 Email</a>
+                    <a href="tel:+441517093031">📞 Call Us</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+<p id="noResults" class="no-results">No businesses match your filters. Try broadening your filters.</p>
+</section>
+
+        <section class="grid-section">
+            <div class="grid-container" id="gridContainer">
+<div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L8">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/redbrick.jpg" alt="Red Brick Market">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Red Brick Market</h3>
+                <p>Huge independent indoor market in Baltic Triangle since 2018. Treasure trove of vintage, antiques, retro, handmade crafts & unique finds in a former brewery warehouse (Stanhope St, L8).</p>
+                <ul class="compact-list">
+                    <li>Vintage & second-hand fashion</li>
+                    <li>Antiques, furniture & collectables</li>
+                    <li>Handmade jewellery & crafts</li>
+                    <li>Retro homeware, vinyl & curios</li>
+                </ul>
+                <p>Over 50+ traders – support local independents! Open daily for browsing & bargains.</p>
+                <ul class="compact-list">
+                    <a href="https://www.redbrickmarkets.com" target="_blank">🌐 Website</a>
+                    <a href="mailto:redbrickliverpool@gmail.com">📧 Email</a>
+                    <a href="tel:+447900265475">📞 Call Us</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L8</div>
+</div>
+<!-- Probe Records (Phase 1) -->
+<div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/probe.jpg" alt="Probe Records">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Probe Records</h3>
+                <p>Iconic independent record shop since 1971 on School Lane (L1). Legendary Liverpool music hub – punk, post-punk, indie, jazz, psych & more.</p>
+                <ul class="compact-list">
+                    <li>New & reissue vinyl</li>
+                    <li>Extensive CDs & rarities</li>
+                    <li>Curated across all genres</li>
+                    <li>Knowledgeable staff & play-before-buy</li>
+                </ul>
+                <p>A true Scouse institution – still going strong!</p>
+                <ul class="compact-list">
+                    <a href="https://www.probe-records.uk" target="_blank">🌐 Website</a>
+                    <a href="tel:+441517088815">📞 Call Us</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/theegg.jpg" alt="The Egg Café">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>The Egg Café</h3>
+                <p>Legendary independent vegetarian café on Seel Street (L1). Wholesome, hearty veggie/vegan food – a Scouse institution since the 90s.</p>
+                <ul class="compact-list">
+                    <li>Vegetarian & vegan home-cooked meals</li>
+                    <li>Daily specials & cakes</li>
+                    <li>Great coffee & juices</li>
+                    <li>Cosy, quirky atmosphere</li>
+                </ul>
+                <p>Proper Scouse veggie legend!</p>
+                <ul class="compact-list">
+                    <a href="https://www.theeggcafe.co.uk" target="_blank">🌐 Website</a>
+                    <a href="tel:+441517046000">📞 Call Us</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+
+
+
+<div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L2">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/shipmitre.jpg" alt="Ship & Mitre">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Ship & Mitre</h3>
+                <p>Independent pub on Dale Street (L2). Award-winning real ales, craft beers, great pub grub – a proper Scouse boozer.</p>
+                <ul class="compact-list">
+                    <li>Extensive real ale & craft beer selection</li>
+                    <li>Homemade pub classics</li>
+                    <li>Sports on TV & live music</li>
+                    <li>Dog-friendly & welcoming</li>
+                </ul>
+                <p>One of Liverpool's best independents!</p>
+                <ul class="compact-list">
+                    <a href="https://shipandmitre.com" target="_blank">🌐 Website</a>
+                    <a href="tel:+441512360967">📞 Call Us</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L2</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/shippingforecast.jpg" alt="The Shipping Forecast">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>The Shipping Forecast</h3>
+                <p>Independent pub & live music venue on Slater Street (L1). Craft beers, real ales, great food & regular gigs – a proper Scouse night out spot.</p>
+                <ul class="compact-list">
+                    <li>Extensive craft beer & ale selection</li>
+                    <li>Homemade pub grub</li>
+                    <li>Live music & DJs most nights</li>
+                    <li>Welcoming atmosphere</li>
+                </ul>
+                <p>One of Liverpool's best indie pubs!</p>
+                <ul class="compact-list">
+                    <a href="https://shippingforecastliverpool.com" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/shippingforecastliverpool/" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L8">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/Tapetrove.png" alt="The Tape Trove">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>The Tape Trove</h3>
+                <p>Retro gaming & VHS haven inside Red Brick Market (L8). Affordable tapes, vinyl, consoles, games, and more – the ultimate spot for nostalgia hunters!</p>
+                <ul class="compact-list">
+                    <li>Cheap VHS tapes & retro video games</li>
+                    <li>Consoles, vinyl records & accessories</li>
+                    <li>Guaranteed to beat CEX prices</li>
+                    <li>VHS film screenings & events</li>
+                </ul>
+                <p>Liverpool's hidden gem for retro lovers!</p>
+                <ul class="compact-list">
+                    <a href="https://www.instagram.com/thetapetrove" target="_blank">🌐 Instagram</a>
+                    <a href="https://www.facebook.com/thetapetrove1" target="_blank">📘 Facebook</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L8</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Beauty & Wellness" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/Independent.png" alt="Independent Woman Beauty Clinic">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Independent Woman Beauty Clinic</h3>
+                <p>Award-winning independent beauty salon in Page Moss (L14). Full range of treatments including nails, lashes, facials, waxing, tanning & aesthetics – luxury at affordable prices!</p>
+                <ul class="compact-list">
+                    <li>Manicures, pedicures & gel nails</li>
+                    <li>Lash extensions & brow lamination</li>
+                    <li>Facials, waxing & spray tan</li>
+                    <li>Training academy on-site</li>
+                </ul>
+                <p>Multi-award winner – proper Scouse pamper spot!</p>
+                <ul class="compact-list">
+                    <a href="https://independent-clinic.edan.io/" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/independentwomanbeautyclinic" target="_blank">📸 Instagram</a>
+		    <a href="tel:+1514897093">📞 Call Us</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L14</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Beauty & Wellness" data-postcode="L8">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/unit.png" alt="Unit 7 Personal Training">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Unit 7 Personal Training</h3>
+                <p>Premium independent PT studio in the Baltic Triangle (L8). Personalised training, group classes & open gym – supportive community vibe with expert coaches!</p>
+                <ul class="compact-list">
+                    <li>1-2-1 personal training</li>
+                    <li>Group fitness classes</li>
+                    <li>Nutrition guidance & progress tracking</li>
+                    <li>Private studio – no crowds</li>
+                </ul>
+                <p>Transform your fitness – proper Scouse motivation!</p>
+                <ul class="compact-list">
+                    <a href="https://unit7pt.co.uk" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/unit7pt" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L8</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/smudge.png" alt="Smudge Boutique">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Smudge Boutique</h3>
+                <p>Independent women's fashion boutique on Bold Street (L1). Curated collection of established & emerging designers – stunning dresses, blouses & accessories!</p>
+                <ul class="compact-list">
+                    <li>Trendy dresses & tops</li>
+                    <li>Accessories & jewellery</li>
+                    <li>Sizes for all styles</li>
+                    <li>Personal styling advice</li>
+                </ul>
+                <p>Liverpool's go-to for standout looks!</p>
+                <ul class="compact-list">
+                    <a href="https://smudgeboutique.com" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/smudgeboutique" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/mary.png" alt="Mary Mary Florals">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Mary Mary Florals</h3>
+                <p>Independent female-owned florist in Liverpool city centre (L1). Bold, creative & beautiful floral arrangements for all occasions – weddings, events & everyday!</p>
+                <ul class="compact-list">
+                    <li>Hand-tied bouquets & posies</li>
+                    <li>Wedding & event flowers</li>
+                    <li>Sustainable & seasonal blooms</li>
+                    <li>Delivery across Liverpool</li>
+                </ul>
+                <p>Stunning Scouse floristry with heart!</p>
+                <ul class="compact-list">
+                    <a href="https://www.marymaryflorals.co.uk" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/marymaryflorals" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Animal Retail & Services" data-postcode="L8">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/Oce.png" alt="Oce's Holistic Dog Grooming">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Oce's Holistic Dog Grooming</h3>
+                <p>Independent holistic dog grooming & DIY wash in Liverpool (L8). Gentle, natural grooming for all breeds – stress-free & pamper-focused!</p>
+                <ul class="compact-list">
+                    <li>Full grooming & styling</li>
+                    <li>DIY self-wash stations</li>
+                    <li>Natural products & calming care</li>
+                    <li>Pet-friendly environment</li>
+                </ul>
+                <p>Liverpool's top spot for happy pups!</p>
+                <ul class="compact-list">
+                    <a href="https://www.instagram.com/ocesholisticdoggrooming" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L8</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/maray.png" alt="Maray">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Maray</h3>
+                <p>Independent small plates restaurant & bar in Liverpool ONE (L1). Bold, seasonal dishes with global flavours – perfect for sharing & date nights!</p>
+                <ul class="compact-list">
+                    <li>Small plates & tapas-style</li>
+                    <li>Cocktails & craft beers</li>
+                    <li>Vegetarian & vegan options</li>
+                    <li>Outdoor seating</li>
+                </ul>
+                <p>Liverpool's favourite indie eatery!</p>
+                <ul class="compact-list">
+                    <a href="https://maray.co.uk" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/marayliverpool" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/rough.png" alt="Rough Handmade">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Rough Handmade</h3>
+                <p>Independent artisan bakery & cake shop in Liverpool city centre (L1). Handmade sourdough, pastries, cakes & coffee – fresh daily!</p>
+                <ul class="compact-list">
+                    <li>Artisan breads & sourdough</li>
+                    <li>Custom cakes & pastries</li>
+                    <li>Speciality coffee</li>
+                    <li>Takeaway & sit-in</li>
+                </ul>
+                <p>Scouse's top spot for proper bakes!</p>
+                <ul class="compact-list">
+                    <a href="https://roughhandmade.co.uk" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/roughhandmade" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/design.png" alt="Design 4 Life Tattoo">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Design 4 Life Tattoo</h3>
+                <p>Multi-award-winning independent tattoo & piercing studio in Liverpool city centre (L1). Custom designs, walk-ins & high-quality work!</p>
+                <ul class="compact-list">
+                    <li>Custom tattoos & fine-line</li>
+                    <li>Professional piercings</li>
+                    <li>Aftercare products</li>
+                    <li>Open 7 days a week</li>
+                </ul>
+                <p>Liverpool's trusted ink spot!</p>
+                <ul class="compact-list">
+                    <a href="https://design4lifetattoo.co.uk" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/design4lifetattoo" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Services & Trades" data-postcode="L6">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/anfield.png" alt="Anfield MOT & Service">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Anfield MOT & Service</h3>
+                <p>Independent local garage in Anfield (L6). MOTs, full services, repairs & diagnostics – all makes & models with honest pricing!</p>
+                <ul class="compact-list">
+                    <li>MOT testing & repairs</li>
+                    <li>Full car servicing</li>
+                    <li>Tyres & brakes</li>
+                    <li>Free collection/drop-off</li>
+                </ul>
+                <p>Trusted Scouse mechanics!</p>
+                <ul class="compact-list">
+                    <a href="https://anfieldmotservice.co.uk" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/anfieldmotservice" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L6</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Services & Trades" data-postcode="L15">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/src.png" alt="SRC Automotive">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>SRC Automotive</h3>
+                <p>Independent specialist garage in Liverpool (L15). VW, Audi, Skoda, Seat, Ford & Mercedes repairs, servicing & diagnostics – expert & affordable!</p>
+                <ul class="compact-list">
+                    <li>Full servicing & MOTs</li>
+                    <li>Engine diagnostics</li>
+                    <li>Brakes, tyres & exhausts</li>
+                    <li>Collection & delivery</li>
+                </ul>
+                <p>Scouse's go-to for German cars!</p>
+                <ul class="compact-list">
+                    <a href="https://srcautomotive.co.uk" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/srcautomotive" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L15</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Kids & Entertainment" data-postcode="L9">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/bubbles.png" alt="Bubbles World of Play">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Bubbles World of Play</h3>
+                <p>Huge independent indoor soft play centre in Aintree (L9). Massive play frame, parties & café – fun for kids 0-11!</p>
+                <ul class="compact-list">
+                    <li>5-level adventure play frame</li>
+                    <li>Toddler zones & parties</li>
+                    <li>Café with kids meals</li>
+                    <li>Daily sessions & events</li>
+                </ul>
+                <p>Liverpool's ultimate kids play spot!</p>
+                <ul class="compact-list">
+                    <a href="https://www.bubblesworldofplay.co.uk" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/bubblesworldofplay" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L9</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L2">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/ste.png" alt="Stephen Jones Jewellers">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Stephen Jones Jewellers</h3>
+                <p>Independent family-run jewellers in Liverpool city centre (L2). Handmade & bespoke jewellery, repairs & diamonds since 1978!</p>
+                <ul class="compact-list">
+                    <li>Bespoke engagement rings</li>
+                    <li>Handcrafted earrings & necklaces</li>
+                    <li>Repairs & cleaning</li>
+                    <li>Choose your own diamond</li>
+                </ul>
+                <p>Scouse craftsmanship at its best!</p>
+                <ul class="compact-list">
+                    <a href="https://stephenjonesjewellers.com" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/stephenjonesjewellers" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L2</div>
+</div>
+<div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L1">
+    <div class="scouse-badge">Scouse Only</div>
+    <div class="lifetime-badge">Founder</div>
+    <div class="grid-inner">
+        <div class="grid-front">
+            <img src="Grids/bold.png" alt="Bold Street Coffee">
+        </div>
+        <div class="grid-back">
+            <ul class="compact-list">
+                <h3>Bold Street Coffee</h3>
+                <p>Independent speciality coffee shop on Bold Street (L1). Expert brews, brunch & cakes – Liverpool's original indie coffee spot!</p>
+                <ul class="compact-list">
+                    <li>Single-origin coffees & espresso</li>
+                    <li>Brunch & all-day breakfast</li>
+                    <li>House-baked cakes & pastries</li>
+                    <li>Cosy vibe & takeaway</li>
+                </ul>
+                <p>Scouse coffee legends!</p>
+                <ul class="compact-list">
+                    <a href="https://boldstreetcoffee.co.uk" target="_blank">🌐 Website</a>
+                    <a href="https://www.instagram.com/boldstreetcoffee" target="_blank">📸 Instagram</a>
+                    <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="postcode-tooltip">Postcode: L1</div>
+</div>
+            <p id="noResults" class="no-results">
+                No businesses match your filters. Try broadening your filters.
+            </p>
+        </section>
+
+
+
+
+
+        <div class="perks-tease">
+            <h3>Grid Members Get Priority Visibility</h3>
+            <p>Members get free monthly shoutouts, priority in searches, and cross-promos with Sapnin’ events – own your spot forever!</p>
+<a href="buyagrid.html" class="cta-button">
+                Local Business? – Get a Grid!
+            </a>
+        </div>
+        <footer>
+            <p>© January 2026 The Liverpool Grid – Proudly Supporting Scouse Talent</p>
+            <p>help@liverpoolgrid.co.uk | 07860 524 036</p>
+            <div class="footer-links">
+                <a href="Accessibility-Statement.html">Accessibility Statement</a>
+                <a href="Privacy-Policy.html">Privacy Policy</a>
+                <a href="Terms-and-Conditions-Policy.html">Terms and Conditions</a>
+                <a href="Cookie-Policy.html">Cookie Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript: Filtering + Shuffle + Dark Mode -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const categorySelect = document.getElementById('categorySelect');
+        const postcodeInput = document.getElementById('postcodeInput');
+        const gridItems = document.querySelectorAll('.grid-item');
+        const noResults = document.getElementById('noResults');
+
+        function filterGrids() {
+            const query = searchInput.value.toLowerCase().trim();
+            const cat = categorySelect.value;
+            let postcode = postcodeInput.value.toUpperCase().trim().replace(/\s+/g, '');
+            if (postcode.startsWith('L') && postcode.length >= 2) {
+                postcode = postcode.replace(/^L/, 'L');
+            }
+
+            let visibleCount = 0;
+            gridItems.forEach(item => {
+                const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
+                const desc = item.querySelector('.grid-back p')?.textContent.toLowerCase() || '';
+                const links = Array.from(item.querySelectorAll('.grid-back a'))
+                                   .map(a => a.textContent.toLowerCase())
+                                   .join(' ');
+                const allText = title + ' ' + desc + ' ' + links;
+
+                const matchesSearch = !query || allText.includes(query);
+                const matchesCat = cat === 'all' || item.dataset.category === cat;
+                let matchesPostcode = true;
+                if (postcode && postcode.startsWith('L') && postcode.length >= 2) {
+                    const itemPc = item.dataset.postcode || '';
+                    matchesPostcode = itemPc.toUpperCase() === postcode;
+                }
+
+                if (matchesSearch && matchesCat && matchesPostcode) {
+                    item.style.display = '';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', filterGrids);
+        categorySelect.addEventListener('change', filterGrids);
+        postcodeInput.addEventListener('input', filterGrids);
+        filterGrids();
+
+        // Shuffle Grids
+        function shuffleGrids() {
+            document.querySelectorAll('.grid-container').forEach(grid => {
+                const items = Array.from(grid.children);
+                for (let i = items.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    grid.appendChild(items[j]);
+                }
+            });
+        }
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Load Dark Mode Preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Touch Flip Support (for mobile)
+        document.querySelectorAll('.grid-item').forEach(item => {
+            item.addEventListener('touchstart', () => {
+                item.classList.add('active');
+            });
+            item.addEventListener('touchend', () => {
+                item.classList.remove('active');
+            });
+        });
+    </script>
+
+
+
+
+<script>
+// Count how many .grid-item elements exist on the page
+const gridCount = document.querySelectorAll('.grid-item').length;
+
+// Find or create a place to display the number
+let counterElement = document.getElementById('live-grid-counter');
+
+if (!counterElement) {
+    // If you haven't added it yet, create it somewhere nice (e.g. in hero or stats bar)
+    counterElement = document.createElement('div');
+    counterElement.id = 'live-grid-counter';
+    counterElement.style.textAlign = 'center';
+    counterElement.style.margin = '2rem 0';
+    counterElement.style.fontSize = '1.8rem';
+    counterElement.style.fontWeight = 'bold';
+    counterElement.style.color = '#c8102e';
+
+    // Example: insert after the quick stats bar
+    const statsBar = document.querySelector('.quick-stats-bar') || document.querySelector('.filters');
+    if (statsBar) {
+        statsBar.parentNode.insertBefore(counterElement, statsBar.nextSibling);
+    } else {
+        document.querySelector('.container').prepend(counterElement);
+    }
+}
+
+// Set the text
+counterElement.innerHTML = `<span style="color:#ffd700;">${gridCount}</span> Grids live here!`;
+
+// Optional: make it update if you ever dynamically add/remove grids later
+const observer = new MutationObserver(() => {
+    const newCount = document.querySelectorAll('.grid-item').length;
+    counterElement.querySelector('span').textContent = newCount;
+});
+observer.observe(document.querySelector('.grid-container') || document.body, { childList: true, subtree: true });
+</script>
+
+
+
+</body>
+</html>
