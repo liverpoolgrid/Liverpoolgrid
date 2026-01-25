@@ -452,14 +452,25 @@
             .testimonial-bg:nth-child(4) {
                 display: none;
             }
-            .nav-container {
-                gap: 10px; /* Smaller gap for single line */
-            }
-            .nav-link {
-                font-size: 1rem; /* Smaller font */
-                padding: 8px 16px; /* Smaller padding */
-            }
-            .social-bar {
+            /* Responsive navbar adjustments - gaps also halved */
+@media (max-width: 1100px) {
+    .nav-link {
+        font-size: 0.88rem;
+        padding: 7px 12px;
+    }
+    .nav-container {
+        gap: 7px;                 /* ← Halved from 14px */
+    }
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+    .nav-container {
+        gap: 6px;                 /* ← Halved from 12px */
+        padding: 0 10px;
+    }
+	.social-bar {
                 gap: 10px; /* Smaller gap for single line */
             }
             .social-btn {
@@ -470,59 +481,60 @@
 
         /* Enhanced Navbar Styles */
         nav {
-            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
-            border-radius: 16px;
-            margin: 30px 0;
-            padding: 15px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            overflow: hidden;
-            transition: background 0.3s;
-        }
+    background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+    border-radius: 16px;
+    margin: 20px 0;
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    overflow: hidden;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 9px;                     /* ← Halved from original 18px */
+    overflow-x: hidden;
+    padding: 0 15px;
+}
         body.dark-mode nav {
             background: linear-gradient(135deg, #8b0a1f 0%, #c8102e 100%);
         }
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
-            gap: 25px;
-            overflow-x: auto;
-        }
         .nav-link {
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-            white-space: nowrap;
-        }
+    color: white;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
         .nav-link:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-        }
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
         .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background: #ffd700;
-            transition: width 0.3s;
-        }
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: #ffd700;
+    transition: width 0.3s;
+}
         .nav-link:hover::after {
-            width: 60%;
-        }
+    width: 60%;
+}
         .nav-link.active {
-            background: rgba(255,255,255,0.2);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-        }
+    background: rgba(255,255,255,0.2);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
 
         /* Testimonial styling tweaks */
         .testimonial-bg p {
@@ -1613,4 +1625,5 @@ observer.observe(gridContainer, {
 
 
 </body>
+
 </html>
