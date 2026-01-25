@@ -62,11 +62,13 @@
        
         .social-bar {
     display: flex;
-    gap: clamp(5px, 1vw, 7px);    /* ← HALVED */
+    gap: clamp(5px, 1vw, 7px);
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     overflow-x: auto;
+    max-width: 100%;
+    margin: 0 auto;
 }
         .social-btn {
             width: 56px;
@@ -537,5 +539,6 @@
 </body>
 
 </html>
+
 
 
