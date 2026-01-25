@@ -82,36 +82,37 @@
         }
         .logo { max-width: 260px; height: auto; }
        
-        .social-bar {
-            display: flex;
-            gap: 18px;
-            flex-wrap: nowrap;
-            justify-content: center;
-            align-items: center;
-            overflow-x: auto;
-        }
-        .social-btn {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            overflow: hidden;
-            transition: all 0.35s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            border: 2px solid transparent;
-            background: #111;
-            flex-shrink: 0;
-        }
+.social-bar {
+    display: flex;
+    gap: 14px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+}
+.social-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    border: 2px solid transparent;
+    background: #111;
+    flex-shrink: 0;
+}
         .social-btn:hover {
             transform: translateY(-6px) scale(1.12);
             box-shadow: 0 12px 28px rgba(0,0,0,0.45);
             border-color: #ffd700;
         }
-        .social-btn img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
+.social-btn img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    margin: auto;
+    display: block;
+}
         .social-btn:hover img {
             transform: scale(1.08);
         }
@@ -1720,4 +1721,5 @@ observer.observe(document.querySelector('.grid-container') || document.body, { c
 
 </body>
 </html>
+
 
