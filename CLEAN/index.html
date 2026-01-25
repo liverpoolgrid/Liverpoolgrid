@@ -460,25 +460,24 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             overflow: hidden;
         }
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
-            gap: 20px;
-            overflow-x: auto;
-        }
-        .nav-link {
-            color: white;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-            white-space: nowrap;
-        }
+       .nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;           /* ← Changed from nowrap → allows wrapping when needed */
+    gap: 18px;                 /* Reduced from 25px for more breathing room when wrapped */
+    padding: 0 10px;           /* Optional: prevents items from touching screen edges */
+}
+.nav-link {
+    color: white;
+    font-size: clamp(0.9rem, 2.4vw, 1rem);  /* Scales: ~14px on small screens → 16px on large */
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 16px;         /* Reduced padding */
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
         .nav-link:hover {
             background: rgba(255,255,255,0.15);
             transform: translateY(-3px);
@@ -1721,6 +1720,7 @@ observer.observe(document.querySelector('.grid-container') || document.body, { c
 
 </body>
 </html>
+
 
 
 
