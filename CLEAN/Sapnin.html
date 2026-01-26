@@ -480,65 +480,88 @@
                 width: 40px; /* Smaller icons */
                 height: 40px;
             }
-        }
-
-        /* Enhanced Navbar Styles */
+        /* Enhanced Navbar Styles - FIXED */
         nav {
-    background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
-    border-radius: 16px;
-    margin: 20px 0;
-    padding: 15px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    overflow: hidden;
-}
-
-.nav-container {
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            border-radius: 16px;
+            margin: 20px 0;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+        .nav-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 9px;                     /* ← Halved from original 18px */
+    gap: 9px;                     /* ← Changed from 18px to half */
     overflow-x: hidden;
     padding: 0 15px;
 }
-        body.dark-mode nav {
-            background: linear-gradient(135deg, #8b0a1f 0%, #c8102e 100%);
-        }
         .nav-link {
-    color: white;
-    font-size: 0.92rem;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    position: relative;
-    white-space: nowrap;
-}
+            color: white;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
         .nav-link:hover {
-    background: rgba(255,255,255,0.15);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
         .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: #ffd700;
-    transition: width 0.3s;
-}
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #ffd700;
+            transition: width 0.3s;
+        }
         .nav-link:hover::after {
-    width: 60%;
-}
+            width: 60%;
+        }
         .nav-link.active {
-    background: rgba(255,255,255,0.2);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.2);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 1100px) {
+    .nav-link {
+        font-size: 0.88rem;
+        padding: 7px 12px;
+    }
+    .nav-container {
+        gap: 7px;                 /* ← Half of 14px */
+    }
 }
 
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+    .nav-container {
+        gap: 6px;                 /* ← Half of 12px */
+        padding: 0 10px;
+    }
+
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+    .nav-container {
+        gap: 6px;                 /* ← Half of 12px */
+        padding: 0 10px;
+    }
         /* Testimonial styling tweaks */
         .testimonial-bg p {
             margin: 0;
@@ -648,21 +671,17 @@
             background: #333;
         }
 .skyline-wrapper {
-    width: calc(100% + 80px);       /* counters 40px left + 40px right padding */
-    margin-left: -40px;
-    margin-right: -40px;
-    margin-top: 5px;
+    width: 100%;                    /* Fits perfectly inside the container's width */
+    margin: 5px 0 0 0;              /* Only a small top margin, no negative left/right */
     overflow: hidden;
-    border-radius: 0 0 16px 16px;
+    border-radius: 0 0 16px 16px;   /* Keeps the bottom rounded corners */
 }
 
 .skyline-full {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
-}
-
+    object-fit: contain;            /* Ensures the full image is visible without cropping */
 }
     </style>
 </head>
@@ -1628,5 +1647,6 @@ observer.observe(gridContainer, {
 </body>
 
 </html>
+
 
 
