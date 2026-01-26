@@ -231,20 +231,19 @@
             text-decoration: underline;
         }
 .skyline-wrapper {
-    width: calc(100% + 80px);       /* counters 40px left + 40px right padding */
-    margin-left: -40px;
-    margin-right: -40px;
-    margin-top: 5px;
+    width: 100%;                    /* Fits exactly inside the container */
+    margin: 5px 0 0 0;              /* Only top margin, no negative sides */
     overflow: hidden;
-    border-radius: 0 0 16px 16px;
+    border-radius: 0 0 16px 16px;   /* Rounds bottom corners */
 }
 
 .skyline-full {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: contain;            /* Keeps the full image visible, no cropping */
 }
+
     </style>
 </head>
 <body>
@@ -331,3 +330,4 @@
 </body>
 
 </html>
+
