@@ -61,7 +61,7 @@
         .logo { max-width: 260px; height: auto; }
         .social-bar {
             display: flex;
-            gap: 18px;
+            clamp(5px, 1vw, 7px);     /* ← Reduced spacing */
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
@@ -330,5 +330,6 @@
 </body>
 
 </html>
+
 
 
