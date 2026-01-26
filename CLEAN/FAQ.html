@@ -556,10 +556,18 @@
         </footer>
     </div>
 <script>
+    const logo = document.getElementById('logo');
+    const audio = new Audio('easter-egg.mp3');
+
+    logo.addEventListener('click', function() {
+        audio.play().catch(error => console.error('Audio playback failed:', error));
+        logo.classList.add('spin');
+        setTimeout(() => logo.classList.remove('spin'), 800);
+    });
 </script>
 </body>
-
 </html>
+
 
 
 
