@@ -503,31 +503,30 @@
             animation: fadeInBg 2s ease-out forwards;
         }
       
-        .scouse-only-note {
-            text-align: center;
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #c8102e;
-            margin: 1rem 0 2rem;
-            padding: 1rem;
-            background: #f9f9f9;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            transition: background 0.3s, color 0.3s, border-color 0.3s;
-        }
+        .scouse-only-note + .list-cta-banner::before {
+        content: "";
+        display: block;
+        height: 2px;
+        background: linear-gradient(to right, transparent, #c8102e, transparent);
+        margin: 1.5rem auto;
+        width: 60%;
+        max-width: 400px;
+    }
         body.dark-mode .scouse-only-note {
             background: #333;
             color: #ffd700;
             border-color: #444;
         }
+@media (min-width: 768px) {
+    .scouse-only-note {
+        margin-bottom: 3.5rem !important;   /* Strong push-down — adjust 3.5rem to taste, e.g. 4rem for more air */
+    }
+
+      
         .list-cta-banner {
-            text-align: center;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #ffd700, #ffea80);
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
+        margin-top: 0;                      /* Prevent any extra top margin doubling up */
+        padding: 2rem 1.5rem;               /* Slightly more internal breathing room if it feels tight */
+    }
         .list-cta-banner h3 {
             font-size: 1.8rem;
             color: #000;
@@ -918,4 +917,5 @@
     </script>
 </body>
 </html>
+
 
