@@ -722,6 +722,127 @@
     to   { transform: rotate(360deg); }
 }
 
+/* ────────────────────────────────────────────────
+   DESKTOP OPTIMIZATIONS (added at the end)
+   ──────────────────────────────────────────────── */
+
+@media (min-width: 1024px) {
+  header {
+    justify-content: flex-start;
+    gap: 40px;
+  }
+  .social-bar {
+    justify-content: flex-start;
+    gap: 16px;
+  }
+  .social-btn {
+    width: 48px;
+    height: 48px;
+  }
+  .skyline-wrapper {
+    margin: 10px 0 0 0;
+  }
+
+  .nav-container {
+    gap: 24px;
+    padding: 0 40px;
+  }
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+
+  .hero p {
+    max-width: 1000px;
+  }
+  .hero h1 {
+    font-size: 4rem;
+  }
+  .cta-button {
+    font-size: 1.6rem;
+    padding: 20px 60px;
+  }
+  .testimonial-bg {
+    width: 30%;
+    max-width: 450px;
+  }
+  .testimonial-bg:nth-child(1) { left: 10%; }
+  .testimonial-bg:nth-child(2) { right: 10%; }
+  .testimonial-bg:nth-child(3) { left: 15%; bottom: 25%; }
+  .testimonial-bg:nth-child(4) { right: 15%; bottom: 15%; }
+
+  .scouse-only-note, .sapnin-cta-banner {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+  }
+  .shuffle-btn {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+  }
+  #live-grid-counter {
+    font-size: 2.2rem;
+  }
+
+  .filters {
+    max-width: 1200px;
+    margin: 3rem auto;
+    gap: 2rem;
+  }
+  .filter-field {
+    min-width: 300px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr); /* More columns on desktop */
+  }
+  .grid-back,
+  .grid-back p,
+  .grid-back li,
+  .grid-back a {
+    font-size: clamp(14px, 1vw, 16px);
+  }
+  .grid-back h3 {
+    font-size: clamp(16px, 1.2vw, 18px);
+  }
+  .grid-item {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .compact-list {
+    padding-left: 1.5rem;
+  }
+  .scouse-badge, .lifetime-badge {
+    font-size: 1rem;
+    padding: 6px 14px;
+  }
+  .postcode-tooltip {
+    font-size: 1rem;
+  }
+
+  .perks-tease p {
+    max-width: 1000px;
+  }
+  .perks-tease h3 {
+    font-size: 2.5rem;
+  }
+  .footer-links {
+    gap: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1600px) {
+  .grid-container {
+    grid-template-columns: repeat(5, 1fr); /* Optional ultra-wide support */
+  }
+}
+
     </style>
 <meta name="google-site-verification" content="VkOBm4IFsuuzCGNHzwT1Ey93E2ZXnr6O11KuIWKJjhI" />	
 </head>
@@ -1011,7 +1132,7 @@
                     <a href="https://www.mattas.co.uk" target="_blank">🌐 Website</a>
                     <a href="mailto:info@mattas.co.uk">📧 Email</a>
                     <a href="tel:+441517093031">📞 Call Us</a>
-		    <a href="https://www.google.com/maps?sca_esv=1aac1df092c2d5fa&sxsrf=ANbL-n7Yyy3WhuB36-Lgh_Gpw7xr2PfoDg:1769379110606&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiGk1hdHRhcyBJbnRlcm5hdGlvbmFsIEZvb2RzMgsQLhiABBjHARivATIGEAAYFhgeMhoQLhiABBjHARivARiXBRjcBBjeBBjgBNgBAUjvA1AAWABwAHgAkAEAmAFQoAFQqgEBMbgBA8gBAPgBAvgBAZgCAaACV5gDALoGBggBEAEYFJIHATGgB6cFsgcBMbgHV8IHAzItMcgHBYAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KXFCERIkIXtIMRllDP0RgJqD&daddr=51+Bold+St,+Liverpool+L1+4EU">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=1aac1df092c2d5fa&sxsrf=ANbL-n7Yyy3WhuB36-Lgh_Gpw7xr2PfoDg:1769379110606&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiGk1hdHRhcyBJbnRlcm5hdGlvbmFsIEZvb2RzMgsQLhiABBjHARivATIGEAAYFhgeMhoQLhiABBjHARivARiXBRjcBBjeBBjgBNgBAUjvA1AAWABwAHgAkAEAmAFQoAFQqgEBMbgBA8gBAPgBAvgBAZgCAaACV5gDALoGBggBEAEYFJIHATGgB6cFsgcBMbgHV8IHAzItMcgHBYAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KXFCERIkIXtIMRllDP0RgJqD&daddr=51+Bold+St,+Liverpool+L1+4EU">🗺️ Locate Us</a>
 
                 </ul>
             </ul>
@@ -1108,7 +1229,7 @@
                 <ul class="compact-list">
                     <a href="https://www.theeggcafe.co.uk" target="_blank">🌐 Website</a>
                     <a href="tel:+441517046000">📞 Call Us</a>
-		    <a href="https://www.google.com/maps?sca_esv=c83d7cd0e65589fa&sxsrf=ANbL-n4vEWJ62GYGyfd_3QEBT88WsLpihg:1769297927447&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiF1RoZSBFZ2cgQ2Fmw6kgbGl2ZXJwb29sMgQQABgeMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEi5CFAAWABwAHgAkAEAmAFfoAFfqgEBMbgBA8gBAPgBAvgBAZgCAaACZ5gDAJIHAzAuMaAH_gKyBwMwLjG4B2fCBwMyLTHIBwWACAE&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KWPKZnYkIXtIMWOR75EbXqq0&daddr=Top+Floor,+16-18+Newington,+Liverpool+L1+4ED">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=c83d7cd0e65589fa&sxsrf=ANbL-n4vEWJ62GYGyfd_3QEBT88WsLpihg:1769297927447&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiF1RoZSBFZ2cgQ2Fmw6kgbGl2ZXJwb29sMgQQABgeMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEi5CFAAWABwAHgAkAEAmAFfoAFfqgEBMbgBA8gBAPgBAvgBAZgCAaACZ5gDAJIHAzAuMaAH_gKyBwMwLjG4B2fCBwMyLTHIBwWACAE&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KWPKZnYkIXtIMWOR75EbXqq0&daddr=Top+Floor,+16-18+Newington,+Liverpool+L1+4ED">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1141,7 +1262,7 @@
                 <ul class="compact-list">
                     <a href="https://shipandmitre.com" target="_blank">🌐 Website</a>
                     <a href="tel:+441512360967">📞 Call Us</a>
-		    <a href="https://www.google.com/maps?sca_esv=c83d7cd0e65589fa&sxsrf=ANbL-n4nqXrULYLbI5oLK3NnES4coaUoxQ:1769297898942&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFlNoaXAgJiBNaXRyZSBsaXZlcnBvb2wyDhAuGIAEGMcBGK8BGI4FMgYQABgHGB4yCBAAGAUYBxgeMgYQABgIGB4yBhAAGAgYHjIGEAAYCBgeMgYQABgIGB4yBhAAGAgYHjIGEAAYCBgeMgYQABgIGB4yHRAuGIAEGMcBGK8BGI4FGJcFGNwEGN4EGOAE2AEBSP4IUABYAHAAeACQAQCYAWqgAWqqAQMwLjG4AQPIAQD4AQL4AQGYAgGgAniYAwC6BgYIARABGBSSBwMwLjGgB9cLsgcDMC4xuAd4wgcDMy0xyAcMgAgB&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KVvOu4M6IXtIMdxOhFHrwJSn&daddr=133+Dale+St,+Liverpool+L2+2JH">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=c83d7cd0e65589fa&sxsrf=ANbL-n4nqXrULYLbI5oLK3NnES4coaUoxQ:1769297898942&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiFlNoaXAgJiBNaXRyZSBsaXZlcnBvb2wyDhAuGIAEGMcBGK8BGI4FMgYQABgHGB4yCBAAGAUYBxgeMgYQABgIGB4yBhAAGAgYHjIGEAAYCBgeMgYQABgIGB4yBhAAGAgYHjIGEAAYCBgeMgYQABgIGB4yHRAuGIAEGMcBGK8BGI4FGJcFGNwEGN4EGOAE2AEBSP4IUABYAHAAeACQAQCYAWqgAWqqAQMwLjG4AQPIAQD4AQL4AQGYAgGgAniYAwC6BgYIARABGBSSBwMwLjGgB9cLsgcDMC4xuAd4wgcDMy0xyAcMgAgB&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KVvOu4M6IXtIMdxOhFHrwJSn&daddr=133+Dale+St,+Liverpool+L2+2JH">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1171,7 +1292,7 @@
                 <ul class="compact-list">
                     <a href="https://www.theshippingforecastliverpool.com" target="_blank">🌐 Website</a>
                     <a href="https://www.instagram.com/shippingforecastliverpool/" target="_blank">📸 Instagram</a>
-		    <a href="https://www.google.com/maps?sca_esv=c83d7cd0e65589fa&sxsrf=ANbL-n52n49N2aV-Mya3sH5l11Epm7nZ2w:1769297700548&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiH1RoZSBTaGlwcGluZyBGb3JlY2FzdCBsaXZlcnBvb2wyDhAuGK8BGMcBGIAEGI4FMgUQABiABDIFEAAYgAQyBRAAGIAEMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgQQABgeMgQQABgeMgQQABgeMh0QLhivARjHARiABBiOBRiXBRjcBBjeBBjgBNgBAUjlCVAAWABwAHgAkAEAmAFooAFoqgEDMC4xuAEDyAEA-AEC-AEBmAIBoAJzmAMAugYGCAEQARgUkgcDMC4xoAfLCbIHAzAuMbgHc8IHAzMtMcgHCYAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KWFCuSIkIXtIMYHuTns81qoF&daddr=15+Slater+St.,+Liverpool+L1+4BW">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=c83d7cd0e65589fa&sxsrf=ANbL-n52n49N2aV-Mya3sH5l11Epm7nZ2w:1769297700548&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiH1RoZSBTaGlwcGluZyBGb3JlY2FzdCBsaXZlcnBvb2wyDhAuGK8BGMcBGIAEGI4FMgUQABiABDIFEAAYgAQyBRAAGIAEMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgQQABgeMgQQABgeMgQQABgeMh0QLhivARjHARiABBiOBRiXBRjcBBjeBBjgBNgBAUjlCVAAWABwAHgAkAEAmAFooAFoqgEDMC4xuAEDyAEA-AEC-AEBmAIBoAJzmAMAugYGCAEQARgUkgcDMC4xoAfLCbIHAzAuMbgHc8IHAzMtMcgHCYAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KWFCuSIkIXtIMYHuTns81qoF&daddr=15+Slater+St.,+Liverpool+L1+4BW">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1200,7 +1321,7 @@
                 <ul class="compact-list">
                     <a href="https://www.instagram.com/thetapetrove" target="_blank">🌐 Instagram</a>
                     <a href="https://www.facebook.com/thetapetrove1" target="_blank">📘 Facebook</a>
-		    <a href="https://www.google.com/maps?sca_esv=c83d7cd0e65589fa&sxsrf=ANbL-n6X9_haCbeMHnkvawWEqozlfd3ggA:1769297865388&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiGFRoZSBUYXBlIFRyb3ZlIGxpdmVycG9vbDIOEC4YgAQYxwEYrwEYjgUyBBAAGB4yBRAAGO8FMggQABiABBiiBDIdEC4YgAQYxwEYrwEYjgUYlwUY3AQY3gQY4ATYAQJI4R9QtQ1Y7hZwAXgAkAEAmAF0oAGLBKoBAzQuMrgBA8gBAPgBAfgBApgCBqAC9APCAgoQABhHGNYEGLADwgINEAAYgAQYigUYQxiwA8ICHBAuGIAEGIoFGEMYxwEYrwEYyAMYsAMYjgXYAQHCAhkQLhiABBiKBRhDGMcBGK8BGMgDGLAD2AEBwgIOEC4YrwEYxwEYgAQYjgXCAgsQABiABBixAxiDAcICCxAuGIAEGMcBGK8BwgIFEAAYgATCAh0QLhivARjHARiABBiOBRiXBRjcBBjeBBjgBNgBAsICBhAAGAcYHsICBBAjGCfCAhAQABiABBiKBRhDGLEDGIMBwgIKEAAYgAQYigUYQ8ICEBAuGEMYgwEYsQMYgAQYigXCAg0QABiABBiKBRhDGLEDwgILEAAYgAQYigUYkQLCAgUQLhiABJgDAIgGAZAGDLoGBAgBGAi6BgYIAhABGBSSBwM0LjKgB4FOsgcDMy4yuAfrA8IHBTItNC4yyAcwgAgB&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KadMiRwAIXtIMSLaAlm9IM8B&daddr=Red+Brick+Market,+70+Stanhope+St,+Liverpool+L8+5RF">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=c83d7cd0e65589fa&sxsrf=ANbL-n6X9_haCbeMHnkvawWEqozlfd3ggA:1769297865388&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiGFRoZSBUYXBlIFRyb3ZlIGxpdmVycG9vbDIOEC4YgAQYxwEYrwEYjgUyBBAAGB4yBRAAGO8FMggQABiABBiiBDIdEC4YgAQYxwEYrwEYjgUYlwUY3AQY3gQY4ATYAQJI4R9QtQ1Y7hZwAXgAkAEAmAF0oAGLBKoBAzQuMrgBA8gBAPgBAfgBApgCBqAC9APCAgoQABhHGNYEGLADwgINEAAYgAQYigUYQxiwA8ICHBAuGIAEGIoFGEMYxwEYrwEYyAMYsAMYjgXYAQHCAhkQLhiABBixAxiDARjHARjRA8ICDhAAGIAEGIoFGLEDGIMBwgIIEAAYgAQYsQPCAgsQLhiABBixAxiDAcICDhAuGIAEGLEDGMcBGNEDwgIOEC4YgAQYigUYsQMYgwHCAgsQABiABBixAxiDAcICCBAuGIAEGLEDwgIREC4YgAQYigUYkQIYxwEYrwHCAgUQLhiABMICCxAuGIAEGMcBGNEDwgIQECMYyQIY8AUYgAQYigUYJ8ICCBAuGLEDGIAEwgIREC4YrwEYxwEYkQIYgAQYigXCAgsQLhiABBjHARivAZgDAJIHAjI2oAf61QKyBwIyNrgHrxDCBwgwLjMuMjEuMsgHfIAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KadMiRwAIXtIMSLaAlm9IM8B&daddr=Red+Brick+Market,+70+Stanhope+St,+Liverpool+L8+5RF">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1232,7 +1353,7 @@
                     <a href="https://independent-clinic.edan.io/" target="_blank">🌐 Website</a>
                     <a href="https://www.instagram.com/independentwomanbeautyclinic" target="_blank">📸 Instagram</a>
 		    <a href="tel:+1514897093">📞 Call Us</a>
-		    <a href="https://www.google.com/maps?sca_esv=c83d7cd0e65589fa&sxsrf=ANbL-n5a-dLh_A9YlBuPBwiYTYkRdAoIww:1769297954468&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiKUluZGVwZW5kZW50IFdvbWFuIEJlYXV0eSBDbGluaWMgbGl2ZXJwb29sMgQQABgeMgUQABjvBTIIEAAYiQUYogQyCBAAGIAEGKIEMggQABiABBiiBEiqB1AAWABwAHgAkAEAmAFqoAFqqgEDMC4xuAEDyAEA-AEC-AEBmAIBoAJymAMAkgcDMC4xoAeUA7IHAzAuMbgHcsIHAzItMcgHBYAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KXPrOWJrH3tIMYHM4_5jh4N5&daddr=92+Page+Moss+Ln,+Liverpool+L14+0LX">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=c83d7cd0e65589fa&sxsrf=ANbL-n5a-dLh_A9YlBuPBwiYTYkRdAoIww:1769297954468&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiKUluZGVwZW5kZW50IFdvbWFuIEJlYXV0eSBDbGluaWMgbGl2ZXJwb29sMgQQABgeMgUQABjvBTIIEAAYiQUYogQyCBAAGIAEGKIEMggQABiABBiiBEiqB1AAWABwAHgAkAEAmAFqoAFqqgEDMC4xuAEDyAEA-AEC-AEBmAIBoAJymAMAkgcDMC4xoAeUA7IHAzAuMbgHcsIHAzItMcgHBYAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KXPrOWJrH3tIMYHM4_5jh4N5&daddr=92+Page+Moss+Ln,+Liverpool+L14+0LX">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1262,7 +1383,7 @@
                 <ul class="compact-list">
                     <a href="https://unit7pt.co.uk" target="_blank">🌐 Website</a>
                     <a href="https://www.instagram.com/unit7pt" target="_blank">📸 Instagram</a>
-		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n5Aj5yWzFrJKAR2a3zaj4DGRHVBAA:1769299123627&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiGFVuaXQgNyBQZXJzb25hbCBUcmFpbmluZzIFECEYoAFI3QNQAFgAcAB4AJABAJgBa6ABa6oBAzAuMbgBA8gBAPgBAvgBAZgCAaACcZgDAJIHAzAuMaAHmgGyBwMwLjG4B3HCBwMyLTHIBwOACAE&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KRnd9uMDIXtIMQ-F_W0CboDg&daddr=Brunswick+Dock,+Unit+7+Summers+Rd,+Liverpool+L3+4BJ">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n5Aj5yWzFrJKAR2a3zaj4DGRHVBAA:1769299123627&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiGFVuaXQgNyBQZXJzb25hbCBUcmFpbmluZzIFECEYoAFI3QNQAFgAcAB4AJABAJgBa6ABa6oBAzAuMbgBA8gBAPgBAvgBAZgCAaACcZgDAJIHAzAuMaAHmgGyBwMwLjG4B3HCBwMyLTHIBwOACAE&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KRnd9uMDIXtIMQ-F_W0CboDg&daddr=Brunswick+Dock,+Unit+7+Summers+Rd,+Liverpool+L3+4BJ">🗺️ Locate Us</a>
                                     </ul>
             </ul>
 <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
@@ -1292,7 +1413,7 @@
                 <ul class="compact-list">
                     <a href="https://www.marymaryflorals.co.uk" target="_blank">🌐 Website</a>
                     <a href="https://www.instagram.com/marymaryflorals" target="_blank">📸 Instagram</a>
-		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n4--pUmXH3TiRyglrtcsmTExmAPXg:1769299028064&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiEU1hcnkgTWFyeSBGbG9yYWxzMgsQLhivARjHARiABDIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yCxAAGIAEGIoFGIYDMgsQABiABBiKBRiGAzILEAAYgAQYigUYhgMyCBAAGIAEGKIEMhoQLhivARjHARiABBiXBRjcBBjeBBjgBNgBAUjGA1AAWABwAHgAkAEAmAFloAFlqgEDMC4xuAEDyAEA-AEC-AEBmAIBoAJ1mAMAugYGCAEQARgUkgcDMC4xoAeWCbIHAzAuMbgHdcIHAzMtMcgHDYAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KbGiyCCSIXtIMeZJB7Qt8yHb&daddr=Look+out+for+the+lilac+railings!,+17+Parliament+St,+Liverpool+L8+5RN">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n4--pUmXH3TiRyglrtcsmTExmAPXg:1769299028064&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiEU1hcnkgTWFyeSBGbG9yYWxzMgsQLhivARjHARiABDIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yCxAAGIAEGIoFGIYDMgsQABiABBiKBRiGAzILEAAYgAQYigUYhgMyCBAAGIAEGKIEMhoQLhivARjHARiABBiXBRjcBBjeBBjgBNgBAUjGA1AAWABwAHgAkAEAmAFloAFlqgEDMC4xuAEDyAEA-AEC-AEBmAIBoAJ1mAMAugYGCAEQARgUkgcDMC4xoAeWCbIHAzAuMbgHdcIHAzMtMcgHDYAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KbGiyCCSIXtIMeZJB7Qt8yHb&daddr=Look+out+for+the+lilac+railings!,+17+Parliament+St,+Liverpool+L8+5RN">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1323,7 +1444,7 @@
 		    <a href="https://www.facebook.com/ocesholisticdoggrooming/reels/" target="_blank">📘 Facebook</a>
                     <a href="https://www.instagram.com/ocesholisticdoggrooming" target="_blank">📸 Instagram</a>
 		    <a href="tel:+4407934214834">📞 Call Us</a>
-		    <a href="https://www.google.com/maps/dir/Oces+Holistic+Dog+Grooming+%26+Self+Service,+126+Aigburth+Rd,+Dingle,+Liverpool+L17+7BP/Oces+Holistic+Dog+Grooming+%26+Self+Service,+126+Aigburth+Rd,+Dingle,+Liverpool+L17+7BP/@53.3453321,-2.8718691,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x4877f50d01d8e80b:0x56b3e0fb3a1d0a93!2m2!1d-2.9510111!2d53.3795108!1m5!1m1!1s0x4877f50d01d8e80b:0x56b3e0fb3a1d0a93!2m2!1d-2.9510111!2d53.3795108?entry=ttu&g_ep=EgoyMDI2MDExOS4wIKXMDSoASAFQAw%3D%3D">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps/dir/Oces+Holistic+Dog+Grooming+%26+Self+Service,+126+Aigburth+Rd,+Dingle,+Liverpool+L17+7BP/Oces+Holistic+Dog+Grooming+%26+Self+Service,+126+Aigburth+Rd,+Dingle,+Liverpool+L17+7BP/@53.3453321,-2.8718691,14z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x4877f50d01d8e80b:0x56b3e0fb3a1d0a93!2m2!1d-2.9510111!2d53.3795108!1m5!1m1!1s0x4877f50d01d8e80b:0x56b3e0fb3a1d0a93!2m2!1d-2.9510111!2d53.3795108?entry=ttu&g_ep=EgoyMDI2MDEyOS4wIKXMDSoASAFQAw%3D%3D">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1354,7 +1475,7 @@
                 <ul class="compact-list">
                     <a href="https://roughhandmade.co.uk" target="_blank">🌐 Website</a>
                     <a href="https://www.instagram.com/roughhandmade" target="_blank">📸 Instagram</a>
-		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n6O2DVlBleDBvHIUMKJMsznF-89rA:1769298861120&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiDlJvdWdoIEhhbmRtYWRlMgsQLhivARjHARiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyGhAuGK8BGMcBGIAEGJcFGNwEGN4EGOAE2AEBSPgDUABYAHAAeACQAQCYAVqgAVqqAQExuAEDyAEA-AEC-AEBmAIBoAJmmAMAugYGCAEQARgUkgcDMC4xoAftBrIHAzAuMbgHZsIHAzMtMcgHCYAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KekISjpGIHtIMbjEzoxgppoT&daddr=Britannia+Pavilion,+Royal+Albert+Dock,+Liverpool+L3+4AD">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n6O2DVlBleDBvHIUMKJMsznF-89rA:1769298861120&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiDlJvdWdoIEhhbmRtYWRlMgsQLhivARjHARiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyGhAuGK8BGMcBGIAEGJcFGNwEGN4EGOAE2AEBSPgDUABYAHAAeACQAQCYAVqgAVqqAQExuAEDyAEA-AEC-AEBmAIBoAJmmAMAugYGCAEQARgUkgcDMC4xoAftBrIHAzAuMbgHZsIHAzMtMcgHCYAIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KekISjpGIHtIMbjEzoxgppoT&daddr=Britannia+Pavilion,+Royal+Albert+Dock,+Liverpool+L3+4AD">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1384,7 +1505,7 @@
                 <ul class="compact-list">
                     <a href="https://design4lifetattoo.co.uk" target="_blank">🌐 Website</a>
                     <a href="https://www.instagram.com/design4lifetattoo" target="_blank">📸 Instagram</a>
-		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n4hvqYTXk55fTuvwqKcPSUVhG2btA:1769298840562&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFERlc2lnbiA0IExpZmUgVGF0dG9vMgUQABiABDIFEAAYgAQyCxAuGK8BGMcBGIAEMgUQABiABDIFEAAYgAQyBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeSPgDUABYAHAAeACQAQCYAV6gAV6qAQExuAEDyAEA-AEC-AEBmAIBoAJnmAMAkgcDMC4xoAfMCbIHAzAuMbgHZ8IHAzItMcgHB4AIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KcuEz5AkIXtIMY2Im_RUY-kX&daddr=70+Lime+St,+Liverpool+L1+1JN">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n4hvqYTXk55fTuvwqKcPSUVhG2btA:1769298840562&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiFERlc2lnbiA0IExpZmUgVGF0dG9vMgUQABiABDIFEAAYgAQyCxAuGK8BGMcBGIAEMgUQABiABDIFEAAYgAQyBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeSPgDUABYAHAAeACQAQCYAV6gAV6qAQExuAEDyAEA-AEC-AEBmAIBoAJnmAMAkgcDMC4xoAfMCbIHAzAuMbgHZ8IHAzItMcgHB4AIAQ&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KcuEz5AkIXtIMY2Im_RUY-kX&daddr=70+Lime+St,+Liverpool+L1+1JN">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1414,7 +1535,7 @@
                 <ul class="compact-list">
                     <a href="https://anfieldmotservice.co.uk" target="_blank">🌐 Website</a>
                     <a href="https://www.instagram.com/anfieldmotservice" target="_blank">📸 Instagram</a>
-		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n4T2xmOgrvkjoWzuD0zJb23PAUmGw:1769298821520&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFUFuZmllbGQgTU9UICYgU2VydmljZTIOEC4YgAQYxwEYrwEYjgUyBRAAGIAEMgUQABiABDIGEAAYFhgeMgYQABgWGB4yCxAAGIAEGIoFGIYDMgsQABiABBiKBRiGAzILEAAYgAQYigUYhgMyHRAuGIAEGMcBGK8BGI4FGJcFGNwEGN4EGOAE2AEBSN4DUABYAHAAeACQAQCYAW2gAW2qAQMwLjG4AQPIAQD4AQL4AQGYAgGgAnmYAwC6BgYIARABGBSSBwMwLjGgB-YIsgcDMC4xuAd5wgcDMy0xyAcJgAgB&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KWHkN4d8IXtIMXiwLbnVzEhA&daddr=232+Priory+Rd,+Anfield,+Liverpool+L4+2SL">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n4T2xmOgrvkjoWzuD0zJb23PAUmGw:1769298821520&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiFUFuZmllbGQgTU9UICYgU2VydmljZTIOEC4YgAQYxwEYrwEYjgUyBRAAGIAEMgUQABiABDIGEAAYFhgeMgYQABgWGB4yCxAAGIAEGIoFGIYDMgsQABiABBiKBRiGAzILEAAYgAQYigUYhgMyHRAuGIAEGMcBGK8BGI4FGJcFGNwEGN4EGOAE2AEBSN4DUABYAHAAeACQAQCYAW2gAW2qAQMwLjG4AQPIAQD4AQL4AQGYAgGgAnmYAwC6BgYIARABGBSSBwMwLjGgB-YIsgcDMC4xuAd5wgcDMy0xyAcJgAgB&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KWHkN4d8IXtIMXiwLbnVzEhA&daddr=232+Priory+Rd,+Anfield,+Liverpool+L4+2SL">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1444,7 +1565,7 @@
                 <ul class="compact-list">
                     <a href="https://srcautomotive.co.uk" target="_blank">🌐 Website</a>
                     <a href="https://www.instagram.com/srcautomotive" target="_blank">📸 Instagram</a>
-		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n5hQjfOydPNdQcMj3cmDuybVXG2JA:1769298796255&gs_lp=Egxnd3Mtd2l6LXNlcnAiDlNSQyBBdXRvbW90aXZlKgIIATIFEAAYgAQyCxAuGIAEGMcBGK8BMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMhoQLhiABBjHARivARiXBRjcBBjeBBjgBNgBAUimFFAAWABwAHgAkAEAmAFXoAFXqgEBMbgBAcgBAPgBAvgBAZgCAqACkQyYAwC6BgYIARABGBSSBwUxLjctMaAHgwiyBwExuAddwgcDMi0yyAcIgAgB&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KcmnQgmJI3tIMaAkBIal6tXP&daddr=105+Bridge+Rd,+Litherland,+Liverpool+L21+2PB">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n5hQjfOydPNdQcMj3cmDuybVXG2JA:1769298796255&gs_lp=Egxnd3Mtd2l6LXNlcnIiDlNSQyBBdXRvbW90aXZlKgIIATIFEAAYgAQyCxAuGIAEGMcBGK8BMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMhoQLhiABBjHARivARiXBRjcBBjeBBjgBNgBAUimFFAAWABwAHgAkAEAmAFXoAFXqgEBMbgBAcgBAPgBAvgBAZgCAqACkQyYAwC6BgYIARABGBSSBwUxLjctMaAHgwiyBwExuAddwgcDMi0yyAcIgAgB&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KcmnQgmJI3tIMaAkBIal6tXP&daddr=105+Bridge+Rd,+Litherland,+Liverpool+L21+2PB">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1505,7 +1626,7 @@
                 <ul class="compact-list">
                     <a href="https://stephenjonesjewellers.com" target="_blank">🌐 Website</a>
                     <a href="https://www.instagram.com/stephenjonesjewellers" target="_blank">📸 Instagram</a>
-		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n4gozflwoLNqiwIidP8rN-V0Whucw:1769298741988&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiF1N0ZXBoZW4gSm9uZXMgSmV3ZWxsZXJzMgsQLhivARjHARiABDIFEAAYgAQyBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBTIaEC4YrwEYxwEYgAQYlwUY3AQY3gQY4ATYAQFItgVQAFgAcAB4AJABAJgBbaABbaoBAzAuMbgBA8gBAPgBAvgBAZgCAaACeZgDALoGBggBEAEYFJIHAzAuMaAHtgmyBwMwLjG4B3nCBwMzLTHIBwmACAE&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KacV5zguIXtIMbzkk74w2EVW&daddr=24+N+John+St,+Liverpool+L2+9RP">🗺️ Locate Us</a>
+		    <a href="https://www.google.com/maps?sca_esv=d5bddc34ecb03e72&sxsrf=ANbL-n4gozflwoLNqiwIidP8rN-V0Whucw:1769298741988&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnIiF1N0ZXBoZW4gSm9uZXMgSmV3ZWxsZXJzMgsQLhivARjHARiABDIFEAAYgAQyBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBTIaEC4YrwEYxwEYgAQYlwUY3AQY3gQY4ATYAQFItgVQAFgAcAB4AJABAJgBbaABbaoBAzAuMbgBA8gBAPgBAvgBAZgCAaACeZgDALoGBggBEAEYFJIHAzAuMaAHtgmyBwMwLjG4B3nCBwMzLTHIBwmACAE&um=1&ie=UTF-8&fb=1&gl=uk&sa=X&geocode=KacV5zguIXtIMbzkk74w2EVW&daddr=24+N+John+St,+Liverpool+L2+9RP">🗺️ Locate Us</a>
                     
                 </ul>
             </ul>
@@ -1695,9 +1816,3 @@ observer.observe(document.querySelector('.grid-container') || document.body, { c
 
 </body>
 </html>
-
-
-
-
-
-
