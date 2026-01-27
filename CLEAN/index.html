@@ -276,20 +276,33 @@
         }
       
         .grid-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.8rem;
-            padding: 2rem 0;
-        }
-        .grid-item {
-            aspect-ratio: 1 / 1;
-            perspective: 1300px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-            transition: transform 0.3s;
-            position: relative;
-        }
+    display: grid;
+    grid-template-columns: 1fr;          /* Default: single column everywhere */
+    gap: 2rem;                           /* Slightly larger gap for breathing room */
+    padding: 2rem 0;
+    justify-items: center;               /* Center cards horizontally */
+}
+
+.grid-item {
+    width: 100%;                         /* Full width on mobile/small screens */
+    max-width: 350px;                    /* Cap at 350px so they don't grow huge */
+    aspect-ratio: 1 / 1;                 /* Keep perfect square */
+    height: auto;                        /* Let aspect-ratio control height */
+    margin: 0 auto;                      /* Center if needed */
+}
+      .grid-item {
+        width: 350px;                    /* Fixed width */
+        height: 350px;                   /* Fixed height – overrides aspect-ratio if needed */
+        max-width: 350px;
+        flex: 0 0 350px;                 /* Prevent flex grow/shrink if container flexes */
+    }
+      /* On desktop/large screens: enforce exactly 350×350px cards + multi-column if desired */
+@media (min-width: 900px) {              /* Adjust breakpoint as needed (e.g. 1100px) */
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, 350px);  /* As many 350px cards as fit */
+        justify-content: center;         /* Center the whole grid row */
+        gap: 2.5rem;                     /* Nice spacing between fixed-size cards */
+    }
         .grid-item:hover { transform: translateY(-8px); }
         .grid-inner {
             position: relative;
@@ -1600,3 +1613,4 @@ observer.observe(document.querySelector('.grid-container') || document.body, { c
 </script>
 </body>
 </html>
+
