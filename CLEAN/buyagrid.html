@@ -193,34 +193,6 @@
             position: relative;
             overflow: hidden;
         }
-        .hero-testimonials {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .testimonial-bg {
-            position: absolute;
-            width: 38%;
-            max-width: 420px;
-            font-size: clamp(1.4rem, 2.2vw, 1.8rem);
-            font-style: italic;
-            font-weight: 700;
-            color: white;
-            opacity: var(--opacity);
-            transform: rotate(var(--rot));
-            text-shadow: 0 3px 10px rgba(0,0,0,0.7);
-            line-height: 1.35;
-            padding: 1.2rem;
-            user-select: none;
-        }
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 70%, rgba(255,215,0,0.15), transparent 60%);
-            pointer-events: none;
-        }
         .hero h1 {
             font-size: clamp(2.8rem, 5vw, 3.8rem);
             font-weight: 900;
@@ -284,19 +256,54 @@
             border: 2px solid #ffd700;
         }
         .btn.vip:hover { background: #222; color: #fff; }
-       
+
+        .testimonials-section {
+            text-align: center;
+            margin: 4rem 0;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #111, #222);
+            border-radius: 16px;
+            color: white;
+        }
+        .testimonials-section h2 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 2rem;
+        }
+        .testimonial-card {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border: 1px solid #444;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .testimonial-card p {
+            font-size: 1.6rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .testimonial-card span {
+            font-size: 1.1rem;
+            color: #ffd700;
+            font-weight: 600;
+        }
+
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, 300px);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             justify-content: center;
-            gap: 1.8rem;
+            gap: 2rem;
             padding: 2rem 0;
             margin: 0 auto;
         }
         .grid-item {
-            width: 300px;
-            height: 300px;
-            perspective: 300px;
+            aspect-ratio: 1 / 1;           /* Perfect square */
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            perspective: 1000px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 8px 24px rgba(0,0,0,0.18),
@@ -321,85 +328,89 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
+            padding: 1.5rem;
         }
         .grid-front { background: #fff; }
-        .grid-front img { max-width: 92%; max-height: 92%; object-fit: contain; }
+        .grid-front img { 
+            max-width: 90%; 
+            max-height: 90%; 
+            object-fit: contain; 
+        }
         .grid-back {
             background: linear-gradient(135deg, #c8102e, #a00d1a);
             color: white;
             transform: rotateY(180deg);
             flex-direction: column;
-            gap: 0.6rem;
+            gap: 0.8rem;
             text-align: center;
-            line-height: 1.3;
-            padding: 1.2rem 1rem;
+            line-height: 1.4;
+            padding: 1.5rem;
             overflow-y: auto;
         }
         .grid-back h3 { 
-            font-size: clamp(13px, 1.1vw, 15px);
-            margin-bottom: 6px;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 0.5rem;
             font-weight: 700;
         }
         .grid-back p,
         .grid-back li,
         .grid-back a {
-            font-size: clamp(11px, 0.9vw, 13px);
-            margin: 0.3rem 0;
-            line-height: 1.35;
+            font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+            margin: 0.4rem 0;
         }
         .grid-back ul.compact-list {
-            padding-left: 1.4rem;
-            margin: 0.6rem auto;
+            padding-left: 1.6rem;
+            margin: 0.8rem auto;
             text-align: left;
-            max-width: 92%;
+            max-width: 90%;
         }
         .grid-back ul.compact-list li {
-            margin-bottom: 0.4rem;
-            font-size: clamp(11px, 0.9vw, 13px);
+            margin-bottom: 0.5rem;
         }
         .grid-back a {
             color: #ffd700;
             font-weight: 600;
-            font-size: clamp(12px, 1vw, 14px);
+            font-size: clamp(1rem, 1.7vw, 1.2rem);
         }
 
         .scouse-badge {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 12px;
+            left: 12px;
             background: #c8102e;
             color: white;
             padding: 6px 12px;
             border-radius: 20px;
-            font-size: clamp(0.75rem, 2.2vw, 0.9rem);
+            font-size: clamp(0.8rem, 2vw, 1rem);
             font-weight: bold;
             z-index: 10;
             box-shadow: 0 2px 6px rgba(0,0,0,0.4);
         }
         .lifetime-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 12px;
+            right: 12px;
+            background: #000000;
             color: white;
-            padding: 6px 12px;
+            padding: 6px 14px;
+            border: 2px solid white;
             border-radius: 20px;
-            font-size: clamp(0.75rem, 2.2vw, 0.9rem);
-            font-weight: bold;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            font-weight: 900;
             z-index: 10;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
         .postcode-tooltip {
             position: absolute;
-            bottom: 10px;
+            bottom: 12px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.75);
             color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
             opacity: 0;
             transition: opacity 0.3s;
             pointer-events: none;
@@ -414,38 +425,9 @@
             padding: 3rem 1rem 2rem;
             color: #666;
             border-top: 1px solid #eee;
-            transition: color 0.3s, border-color 0.3s;
-        }
-        body.dark-mode footer {
-            color: #aaa;
-            border-color: #333;
-        }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-            font-size: 0.9rem;
-        }
-        .footer-links a {
-            color: #c8102e;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        body.dark-mode .footer-links a {
-            color: #ffd700;
-        }
-        .footer-links a:hover {
-            color: #ffd700;
-            text-decoration: underline;
         }
 
-        /* ────────────────────────────────────────────────
-           RESPONSIVE FIXES
-        ──────────────────────────────────────────────── */
-
+        /* Responsive adjustments */
         @media (max-width: 900px) {
             header {
                 flex-direction: column;
@@ -457,80 +439,32 @@
                 flex-wrap: wrap;
                 gap: 12px;
             }
-            .social-btn {
-                width: 44px;
-                height: 44px;
-            }
         }
 
         @media (min-width: 1024px) {
-            header {
-                justify-content: space-between;
-                gap: 60px;
-            }
-            .social-bar {
-                gap: 18px;
-            }
-            .social-btn {
-                width: 52px;
-                height: 52px;
-            }
-            .nav-container {
-                gap: 24px;
-                padding: 0 40px;
-            }
-            .nav-link {
-                font-size: 1.1rem;
-                padding: 10px 20px;
-            }
-            .hero h1 {
-                font-size: 4rem;
-            }
-            .hero .price-callout {
-                font-size: 3.5rem;
-            }
-            .hero .counter {
-                font-size: 4rem;
-            }
-            .testimonial-bg {
-                width: 32%;
-                max-width: 460px;
-                font-size: clamp(1.6rem, 2.4vw, 2rem);
-            }
-            .testimonial-bg:nth-child(1) { top: 8%; left: 8%; }
-            .testimonial-bg:nth-child(2) { top: 12%; right: 8%; }
-            .testimonial-bg:nth-child(3) { bottom: 22%; left: 12%; }
-            .testimonial-bg:nth-child(4) { bottom: 16%; right: 10%; }
             .grid-container {
                 grid-template-columns: repeat(4, 1fr);
             }
             .grid-item {
-                width: 100%;
-                height: 400px;
+                max-width: none;
             }
-        }
-
-        @media (min-width: 1400px) {
-            .grid-container {
-                grid-template-columns: repeat(5, 1fr);
+            .grid-back h3 {
+                font-size: 1.5rem;
+            }
+            .grid-back p,
+            .grid-back li,
+            .grid-back a {
+                font-size: 1.15rem;
+            }
+            .testimonial-card {
+                max-width: 900px;
             }
         }
 
         @media (max-width: 768px) {
             .container { margin: 10px; padding: 20px; }
             .grid-container { grid-template-columns: 1fr; }
-            .hero-testimonials .testimonial-bg:nth-child(3),
-            .hero-testimonials .testimonial-bg:nth-child(4) {
-                display: none;
-            }
-            .testimonial-bg {
-                width: 70%;
-                font-size: 1.3rem;
-            }
-            .scouse-badge, .lifetime-badge {
-                font-size: 0.75rem;
-                padding: 4px 8px;
-            }
+            .grid-item { aspect-ratio: 1 / 1; }
         }
     </style>
 </head>
@@ -589,24 +523,26 @@
             </p>
             <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20own%20grid%20on%20LiverpoolGrid!&body=Hi%2C%0A%0AI%27d%20love%20to%20get%20my%20business%20on%20The%20Liverpool%20Grid!%20Here%20are%20the%20details%20to%20get%20started%3A%20%0A%0ABusiness%20Name%3A%20%0AShort%20Description%20%28270%20Characters%20Max%29%3A%20%0AWebsite%2FOnline%20Link%3A%0AInstagram%2FFacebook%2FTikTok%3A%20%0APhone%20Number%3A%20%0AEmail%20%3A%20%0APostcode%20%28or%20if%20you%20cover%20L1-L40%2C%20just%20put%20%E2%80%98L1-L40%E2%80%99%29%3A%0A%0AGUIDANCE%3A%20Please%20attach%20your%20company%20logo%20to%20this%20email%20%E2%80%93%20best%20size%3A%20400x400px%20or%20larger%2C%20square%20format%2C%20PNG%20%2C%20JPG%20or%20WebP%2C%20ideally%20with%20a%20transparent%20background%20for%20the%20best%20look%20on%20the%20Grid.%0A%0ALooking%20forward%20to%20hearing%20from%20you%20and%20getting%20set%20up!%20%0A%0ATa%2C%20" class="btn email-cta">Claim Your £10 Forever Grid Now</a>
             <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20own%20grid%20on%20LiverpoolGrid!&body=Hi%2C%0A%0AI%27d%20love%20to%20get%20my%20business%20on%20The%20Liverpool%20Grid!%20Here%20are%20the%20details%20to%20get%20started%3A%20%0A%0ABusiness%20Name%3A%20%0AShort%20Description%20%28270%20Characters%20Max%29%3A%20%0AWebsite%2FOnline%20Link%3A%20%0AInstagram%2FFacebook%2FTikTok%3A%20%0APhone%20Number%3A%20%0AEmail%3A%20%0APostcode%20%28or%20if%20you%20cover%20L1-L40%2C%20just%20put%20%E2%80%98L1-L40%E2%80%99%29%3A%0A%0AGUIDANCE%3A%20Please%20attach%20your%20company%20logo%20to%20this%20email%20%E2%80%93%20best%20size%3A%20400x400px%20or%20larger%2C%20square%20format%2C%20PNG%20%2C%20JPG%20or%20WebP%2C%20ideally%20with%20a%20transparent%20background%20for%20the%20best%20look%20on%20the%20Grid.%0A%0ALooking%20forward%20to%20hearing%20from%20you%20and%20getting%20set%20up!%20%0A%0ATa%2C%0A%5BYour%20Name%5D" class="btn vip">VIP Early Access – £10 One-Time →</a>
+        </section>
 
-            <div class="hero-testimonials">
-                <div class="testimonial-bg">
-                    <p>“Transformed how locals find us!”</p>
-                    <span>– Alicia, Alka Cleaning</span>
-                </div>
-                <div class="testimonial-bg">
-                    <p>“Best platform for Scouse businesses – love it!”</p>
-                    <span>– Retailer on Bold Street</span>
-                </div>
-                <div class="testimonial-bg">
-                    <p>“Quick exposure & real customers.”</p>
-                    <span>– Beauty Salon L3</span>
-                </div>
-                <div class="testimonial-bg">
-                    <p>“Fantastic way to support Liverpool talent.”</p>
-                    <span>– Vintage Shop Keeper</span>
-                </div>
+        <!-- New Testimonials Section -->
+        <section class="testimonials-section">
+            <h2>What Scousers Are Saying</h2>
+            <div class="testimonial-card">
+                <p>“Transformed how locals find us!”</p>
+                <span>– Alicia, Alka Cleaning</span>
+            </div>
+            <div class="testimonial-card">
+                <p>“Best platform for Scouse businesses – love it!”</p>
+                <span>– Retailer on Bold Street</span>
+            </div>
+            <div class="testimonial-card">
+                <p>“Quick exposure & real customers.”</p>
+                <span>– Beauty Salon L3</span>
+            </div>
+            <div class="testimonial-card">
+                <p>“Fantastic way to support Liverpool talent.”</p>
+                <span>– Vintage Shop Keeper</span>
             </div>
         </section>
 
@@ -666,7 +602,7 @@
             <p style="margin-top:2rem; font-style:italic; color:#c8102e;">
                 Don’t just get found. Get on the Grid for £10 forever – before Phase 1 sells out and the price goes up.
             </p>
-            <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20own%20grid%20on%20LiverpoolGrid!&body=Hi%20team%2C%0A%0AI'd%20love%20to%20get%20my%20business%20on%20The%20Liverpool%20Grid!%20Here%20are%20the%20details%20to%20get%20started%3A%20%0A%0ABusiness%20Name%3A%20%5BYour%20Business%20Name%5D%0AShort%20Description%20(what%20you%20do%2C%20keep%20it%20snappy)%3A%20%5BYour%20description%5D%0AWebsite%2FOnline%20Link%3A%20%5Bhttps%3A%2F%2F...%5D%0AInstagram%2FFacebook%2FTikTok%3A%20%5Blinks%5D%0APhone%20Number%3A%20%5B0151%20...%5D%0AEmail%3A%20%5Bhello%40yourbusiness.co.uk%5D%0APostcode%20Area%20(L1%2C%20L8%2C%20etc.)%3A%20%5BL...%5D%0A%0APlease%20attach%20your%20company%20logo%20to%20this%20email%20–%20best%20size%3A%20400x400px%20or%20larger%2C%20square%20format%2C%20PNG%20, %20JPG%20or%20WebP%2C%20ideally%20with%20a%20transparent%20background%20for%20the%20best%20look%20on%20the%20Grid.%0A%0ALooking%20forward%20to%20hearing%20from%20you%20and%20getting%20set%20up!%0A%0ATa%2C%0A%5BYour%20Name%5D" class="btn" style="margin-top:2rem;">Claim Your Lifetime Spot – Only £10</a>
+            <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20own%20grid%20on%20LiverpoolGrid!&body=Hi%20team%2C%0A%0AI'd%20love%20to%20get%20my%20business%20on%20The%20Liverpool%20Grid!%20Here%20are%20the%20details%20to%20get%20started%3A%20%0A%0ABusiness%20Name%3A%20%5BYour%20Business%20Name%5D%0AShort%20Description%20(what%20you%20do%2C%20keep%20it%20snappy)%3A%20%5BYour%20description%5D%0AWebsite%2FOnline%20Link%3A%20%5Bhttps%3A%2F%2F...%5D%0AInstagram%2FFacebook%2FTikTok%3A%20%5Blinks%5D%0APhone%20Number%3A%20%5B0151%20...%5D%0AEmail%3A%20%5Bhello%40yourbusiness.co.uk%5D%0APostcode%20Area%20(L1%2C%20L8%2C%20etc.)%3A%20%5BL...%5D%0A%0APlease%20attach%20your%20company%20logo%20to%20this%20email%20–%20best%20size%3A%20400x400px%20or%20larger%2C%20square%20format%2C%20PNG%20, %20JPG%20or%20WebP%2C%20ideally%20with%20a%20transparent%20background%20for%20the%20best%20look%20on%20the%20Grid.%0A%0ALooking%20forward%20to%20hearing%20from%20you%20and%20getting%20set%20up!%20%0A%0ATa%2C%0A%5BYour%20Name%5D" class="btn" style="margin-top:2rem;">Claim Your Lifetime Spot – Only £10</a>
             <div class="premium-tease">
                 <h3>Coming Soon: Premium Grids</h3>
                 <p>Get even more visibility with bigger logos, top-row priority, and custom highlights. Lock in your basic spot now before upgrades launch!</p>
