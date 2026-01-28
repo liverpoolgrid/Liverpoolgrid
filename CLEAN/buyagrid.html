@@ -22,13 +22,12 @@
     <meta property="og:image" content="LiverpoolGridLogo.jpg">
     <meta property="og:type" content="website">
 
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-   
     <link rel="icon" type="image/png" href="LiverpoolGridLogo.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
    
@@ -69,6 +68,7 @@
             margin: 20px auto;
             transition: background 0.3s, border-color 0.3s;
         }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -182,7 +182,7 @@
             background: rgba(255,255,255,0.2);
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .hero {
             text-align: center;
             padding: 60px 20px 40px;
@@ -285,28 +285,6 @@
         }
         .btn.vip:hover { background: #222; color: #fff; }
        
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem 1.5rem;
-            justify-content: center;
-            margin: 3rem 0 2rem;
-            padding: 1.5rem;
-            background: #f9f9f9;
-            border-radius: 16px;
-            border: 1px solid #eee;
-        }
-        .filter-field {
-            flex: 1;
-            min-width: 260px;
-            max-width: 380px;
-        }
-
-        input:focus, select:focus {
-            border-color: #ffd700;
-            box-shadow: 0 0 0 4px rgba(200,16,46,0.2);
-        }
-       
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, 300px);
@@ -321,8 +299,8 @@
             perspective: 300px;
             border-radius: 16px;
             overflow: hidden;
-	    box-shadow: 0 8px 24px rgba(0,0,0,0.18),
-            0 0 25px 10px rgba(200, 16, 46, 0.7);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18),
+                        0 0 25px 10px rgba(200, 16, 46, 0.7);
             transition: transform 0.3s;
         }
         .grid-item:hover { transform: translateY(-8px); }
@@ -343,7 +321,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem; /* Reduced for more space */
+            padding: 1rem;
         }
         .grid-front { background: #fff; }
         .grid-front img { max-width: 92%; max-height: 92%; object-fit: contain; }
@@ -352,59 +330,85 @@
             color: white;
             transform: rotateY(180deg);
             flex-direction: column;
-            gap: 0.6rem;               /* Slightly more breathing room between elements */
+            gap: 0.6rem;
             text-align: center;
-            line-height: 1.3;           /* Improved readability */
-            padding: 1.2rem 1rem;       /* A bit more internal padding */
-            overflow-y: auto;           /* Scroll only if truly needed */
+            line-height: 1.3;
+            padding: 1.2rem 1rem;
+            overflow-y: auto;
         }
         .grid-back h3 { 
-            font-size: clamp(13px, 1.1vw, 15px);  /* Smaller title, still bold */
+            font-size: clamp(13px, 1.1vw, 15px);
             margin-bottom: 6px;
             font-weight: 700;
         }
         .grid-back p,
         .grid-back li,
         .grid-back a {
-            font-size: clamp(11px, 0.9vw, 13px);  /* Main body text – noticeably smaller */
+            font-size: clamp(11px, 0.9vw, 13px);
             margin: 0.3rem 0;
             line-height: 1.35;
         }
-
         .grid-back ul.compact-list {
             padding-left: 1.4rem;
             margin: 0.6rem auto;
             text-align: left;
             max-width: 92%;
         }
-
         .grid-back ul.compact-list li {
             margin-bottom: 0.4rem;
             font-size: clamp(11px, 0.9vw, 13px);
         }
-
         .grid-back a {
             color: #ffd700;
             font-weight: 600;
             font-size: clamp(12px, 1vw, 14px);
         }
 
-        .compact-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .scouse-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #c8102e;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: clamp(0.75rem, 2.2vw, 0.9rem);
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
         }
-       
-        .about { max-width: 900px; margin: 4rem auto; text-align: center; }
-        .about h2 { font-size: 2.6rem; color: #c8102e; margin-bottom: 1.5rem; }
-        .price-highlight {
-            font-size: 2.8rem;
-            color: #ffd700;
-            font-weight: 900;
-            margin: 1.5rem 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        .lifetime-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: clamp(0.75rem, 2.2vw, 0.9rem);
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.35);
         }
-       
+
+        .postcode-tooltip {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .grid-item:hover .postcode-tooltip {
+            opacity: 1;
+        }
+
         footer {
             text-align: center;
             padding: 3rem 1rem 2rem;
@@ -437,477 +441,97 @@
             color: #ffd700;
             text-decoration: underline;
         }
-        .no-results {
-            text-align: center;
-            padding: 4rem 1rem;
-            font-size: 1.4rem;
-            color: #666;
-            display: none;
-            transition: color 0.3s;
+
+        /* ────────────────────────────────────────────────
+           RESPONSIVE FIXES
+        ──────────────────────────────────────────────── */
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .social-bar {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            .social-btn {
+                width: 44px;
+                height: 44px;
+            }
         }
-        body.dark-mode .no-results {
-            color: #aaa;
+
+        @media (min-width: 1024px) {
+            header {
+                justify-content: space-between;
+                gap: 60px;
+            }
+            .social-bar {
+                gap: 18px;
+            }
+            .social-btn {
+                width: 52px;
+                height: 52px;
+            }
+            .nav-container {
+                gap: 24px;
+                padding: 0 40px;
+            }
+            .nav-link {
+                font-size: 1.1rem;
+                padding: 10px 20px;
+            }
+            .hero h1 {
+                font-size: 4rem;
+            }
+            .hero .price-callout {
+                font-size: 3.5rem;
+            }
+            .hero .counter {
+                font-size: 4rem;
+            }
+            .testimonial-bg {
+                width: 32%;
+                max-width: 460px;
+                font-size: clamp(1.6rem, 2.4vw, 2rem);
+            }
+            .testimonial-bg:nth-child(1) { top: 8%; left: 8%; }
+            .testimonial-bg:nth-child(2) { top: 12%; right: 8%; }
+            .testimonial-bg:nth-child(3) { bottom: 22%; left: 12%; }
+            .testimonial-bg:nth-child(4) { bottom: 16%; right: 10%; }
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .grid-item {
+                width: 100%;
+                height: 400px;
+            }
         }
-       
-        @media (max-width: 1100px) {
-            .grid-container { grid-template-columns: repeat(2, 1fr); }
+
+        @media (min-width: 1400px) {
+            .grid-container {
+                grid-template-columns: repeat(5, 1fr);
+            }
         }
+
         @media (max-width: 768px) {
             .container { margin: 10px; padding: 20px; }
             .grid-container { grid-template-columns: 1fr; }
-            .filters { flex-direction: column; }
-            .hero h1 { font-size: 2.6rem; }
-            .hero p { font-size: 1.3rem; }
-            .cta-button { font-size: 1.2rem; padding: 14px 36px; }
+            .hero-testimonials .testimonial-bg:nth-child(3),
+            .hero-testimonials .testimonial-bg:nth-child(4) {
+                display: none;
+            }
+            .testimonial-bg {
+                width: 70%;
+                font-size: 1.3rem;
+            }
+            .scouse-badge, .lifetime-badge {
+                font-size: 0.75rem;
+                padding: 4px 8px;
+            }
         }
-.compact-list {
-    text-align: left;
-    margin: 0.5rem auto;
-    padding-left: 1.2rem;           /* Adjust this value to move bullets further in/out */
-    list-style-position: outside;
-    width: 100%;
-    max-width: 90%;                 /* Optional: prevents very long lines from stretching too far */
-}
-
-.compact-list li {
-    margin-bottom: 0.3rem;
-}
-        /* Enhanced Navbar Styles - FIXED */
-        nav {
-            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
-            border-radius: 16px;
-            margin: 20px 0;
-            padding: 15px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            overflow: hidden;
-        }
-        .nav-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 9px;                     /* ← Changed from 18px to half */
-    overflow-x: hidden;
-    padding: 0 15px;
-}
-        .nav-link {
-            color: white;
-            font-size: 0.92rem;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 8px 14px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-            white-space: nowrap;
-        }
-        .nav-link:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background: #ffd700;
-            transition: width 0.3s;
-        }
-        .nav-link:hover::after {
-            width: 60%;
-        }
-        .nav-link.active {
-            background: rgba(255,255,255,0.2);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        @media (max-width: 1100px) {
-    .nav-link {
-        font-size: 0.88rem;
-        padding: 7px 12px;
-    }
-    .nav-container {
-        gap: 7px;                 /* ← Half of 14px */
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-link {
-        font-size: 0.85rem;
-        padding: 6px 10px;
-    }
-    .nav-container {
-        gap: 6px;                 /* ← Half of 12px */
-        padding: 0 10px;
-    }
-           @media (max-width: 768px) {
-    .social-bar {
-        gap: 5px;                 /* ← Half of original 10px */
-    }
-    .social-btn {
-        width: 36px;
-        height: 36px;
-    }
-}
-
-        /* New Styles for Suggestions */
-        .scouse-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #c8102e;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            z-index: 1;
-            transition: background 0.3s, color 0.3s;
-        }
-        body.dark-mode .scouse-badge {
-            background: #a00d1a;
-            color: #ffd700;
-        }
-/* Lifetime Badge - Simple, no hover animations */
-.lifetime-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: white;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.78rem;
-    font-weight: bold;
-    z-index: 1;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
-}
-
-/* Phase 1: Deep Blue (Founder) */
-.grid-item.phase-1 .lifetime-badge {
-    background: #0A2540;
-    border: 1px solid #1F4FD8;
-}
-
-/* Phase 2: Emerald Green (Pioneer) */
-.grid-item.phase-2 .lifetime-badge {
-    background: #0F9D58;
-    border: 1px solid #34C38F;
-}
-
-/* Phase 3: Gold (Legacy)*/
-.grid-item.phase-3 .lifetime-badge {
-    background: #D4AF37;
-    border: 1px solid #B8962E;
-    color: #000;  /* black text for better readability on gold */
-}
-/* Phase 4: Black (Owner)*/
-.grid-item.phase-4 .lifetime-badge {
-    background: #080807;
-    border: 1px solid #fffffc;
-    color: #fffffc;  /* black text for better readability on gold */
-}
-
-        body.dark-mode .lifetime-badge {
-            background: #222;
-            color: #ffd700;
-        }
-        .postcode-tooltip {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-            z-index: 2;
-        }
-        body.dark-mode .postcode-tooltip {
-            background: rgba(255,255,255,0.7);
-            color: #000;
-        }
-        .grid-item:hover .postcode-tooltip {
-            opacity: 1;
-        }
-        .scouse-only-note {
-            text-align: center;
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #c8102e;
-            margin: 1rem 0 2rem;
-            padding: 1rem;
-            background: #f9f9f9;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            transition: background 0.3s, color 0.3s, border-color 0.3s;
-        }
-        body.dark-mode .scouse-only-note {
-            background: #333;
-            color: #ffd700;
-            border-color: #444;
-        }
-        .list-cta-banner {
-            text-align: center;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #ffd700, #ffea80);
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        .list-cta-banner h3 {
-            font-size: 1.8rem;
-            color: #000;
-            margin-bottom: 1rem;
-        }
-        .list-cta-banner a {
-            color: #c8102e;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .list-cta-banner a:hover {
-            text-decoration: underline;
-        }
-        .shuffle-btn {
-            display: block;
-            margin: 1rem auto;
-            padding: 10px 20px;
-            background: #c8102e;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s;
-        }
-        .shuffle-btn:hover {
-            background: #a00d1a;
-        }
-        body.dark-mode .shuffle-btn {
-            background: #a00d1a;
-        }
-        body.dark-mode .shuffle-btn:hover {
-            background: #c8102e;
-        }
-        .dark-mode-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #ffd700;
-            color: #000;
-            padding: 8px 16px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            transition: background 0.3s, color 0.3s;
-            z-index: 100;
-        }
-        body.dark-mode .dark-mode-toggle {
-            background: #222;
-            color: #ffd700;
-        }
-        .dark-mode-toggle:hover {
-            background: #ffea80;
-        }
-        body.dark-mode .dark-mode-toggle:hover {
-            background: #333;
-        }
-        /* Perks Tease */
-        .perks-tease {
-            text-align: center;
-            margin: 4rem 0;
-            padding: 2rem 1rem;
-            background: #f9f9f9;
-            border-radius: 12px;
-            transition: background 0.3s, color 0.3s;
-        }
-        body.dark-mode .perks-tease {
-            background: #333;
-            color: #ddd;
-        }
-        .perks-tease h3 {
-            font-size: 2rem;
-            color: #c8102e;
-            margin-bottom: 1rem;
-        }
-        body.dark-mode .perks-tease h3 {
-            color: #ffd700;
-        }
-        .perks-tease p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-.spin {
-    animation: spin 0.7s ease-in-out;
-    animation-iteration-count: 1;
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-}
-
-/* ────────────────────────────────────────────────
-   DESKTOP OPTIMIZATIONS (added at the end)
-   ──────────────────────────────────────────────── */
-
-@media (min-width: 1024px) {
-  header {
-    justify-content: flex-start;
-    gap: 40px;
-  }
-  .social-bar {
-    justify-content: flex-start;
-    gap: 16px;
-  }
-  .social-btn {
-    width: 48px;
-    height: 48px;
-  }
-  .skyline-wrapper {
-    margin: 10px 0 0 0;
-  }
-
-  .nav-container {
-    gap: 24px;
-    padding: 0 40px;
-  }
-  .nav-link {
-    font-size: 1.1rem;
-    padding: 10px 20px;
-  }
-
-  .hero p {
-    max-width: 1000px;
-  }
-  .hero h1 {
-    font-size: 4rem;
-  }
-  .cta-button {
-    font-size: 1.6rem;
-    padding: 20px 60px;
-  }
-  .testimonial-bg {
-    width: 30%;
-    max-width: 450px;
-  }
-  .testimonial-bg:nth-child(1) { left: 10%; }
-  .testimonial-bg:nth-child(2) { right: 10%; }
-  .testimonial-bg:nth-child(3) { left: 15%; bottom: 25%; }
-  .testimonial-bg:nth-child(4) { right: 15%; bottom: 15%; }
-
-  .scouse-only-note, .sapnin-cta-banner {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-  }
-  .shuffle-btn {
-    font-size: 1.2rem;
-    padding: 12px 30px;
-  }
-  #live-grid-counter {
-    font-size: 2.2rem;
-  }
-
-  .filters {
-    max-width: 1200px;
-    margin: 3rem auto;
-    gap: 2rem;
-  }
-  .filter-field {
-    min-width: 300px;
-  }
-
-  .grid-container {
-    grid-template-columns: repeat(4, 1fr); /* More columns on desktop */
-  }
-  .grid-back,
-  .grid-back p,
-  .grid-back li,
-  .grid-back a {
-    font-size: clamp(14px, 1vw, 16px);
-  }
-  .grid-back h3 {
-    font-size: clamp(16px, 1.2vw, 18px);
-  }
-  .grid-item {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  .compact-list {
-    padding-left: 1.5rem;
-  }
-  .scouse-badge, .lifetime-badge {
-    font-size: 1rem;
-    padding: 6px 14px;
-  }
-  .postcode-tooltip {
-    font-size: 1rem;
-  }
-
-  .perks-tease p {
-    max-width: 1000px;
-  }
-  .perks-tease h3 {
-    font-size: 2.5rem;
-  }
-  .footer-links {
-    gap: 30px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .grid-container {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (min-width: 1600px) {
-  .grid-container {
-    grid-template-columns: repeat(5, 1fr); /* Optional ultra-wide support */
-  }
-}
-
-@media (min-width: 1024px) {
-    .grid-back {
-        padding: 1.4rem 1.2rem;
-        gap: 0.8rem;
-    }
-    .grid-back h3 {
-        font-size: clamp(14px, 1.2vw, 16px);
-    }
-    .grid-back p,
-    .grid-back li,
-    .grid-back a {
-        font-size: clamp(12px, 1vw, 14px);
-    }
-    .grid-back ul.compact-list {
-        padding-left: 1.6rem;
-        max-width: 90%;
-    }
-}
-
-/* Mobile: keep slightly larger so it's still legible on small screens */
-@media (max-width: 768px) {
-    .grid-back h3 {
-        font-size: clamp(14px, 3vw, 16px);
-    }
-    .grid-back p,
-    .grid-back li,
-    .grid-back a {
-        font-size: clamp(13px, 3.2vw, 15px);
-    }
-}
-
     </style>
 </head>
 <body>
@@ -915,7 +539,7 @@
         <header>
             <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid – Exclusive Local Business Showcase" class="logo">
             <div class="social-bar">
-                 <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn">
+                <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn">
                     <img src="TikTok.png" alt="TikTok">
                 </a>
                 <a href="https://www.instagram.com/liverpoolgrid" target="_blank" class="social-btn">
@@ -941,9 +565,10 @@
                 </a>
             </div>
         </header>
+
         <div class="skyline-wrapper">
-    <img src="Skyline.png" alt="Liverpool Skyline" class="skyline-full">
-</div>
+            <img src="Skyline.png" alt="Liverpool Skyline" class="skyline-full">
+        </div>
 
         <nav>
             <div class="nav-container">
@@ -963,7 +588,7 @@
                 For a single tenner – one time, forever – secure your business on the Grid and be seen by thousands of proud Scousers every month. No subscriptions, no hidden costs, just lifetime exposure for less than a couple of pints.
             </p>
             <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20own%20grid%20on%20LiverpoolGrid!&body=Hi%2C%0A%0AI%27d%20love%20to%20get%20my%20business%20on%20The%20Liverpool%20Grid!%20Here%20are%20the%20details%20to%20get%20started%3A%20%0A%0ABusiness%20Name%3A%20%0AShort%20Description%20%28270%20Characters%20Max%29%3A%20%0AWebsite%2FOnline%20Link%3A%0AInstagram%2FFacebook%2FTikTok%3A%20%0APhone%20Number%3A%20%0AEmail%20%3A%20%0APostcode%20%28or%20if%20you%20cover%20L1-L40%2C%20just%20put%20%E2%80%98L1-L40%E2%80%99%29%3A%0A%0AGUIDANCE%3A%20Please%20attach%20your%20company%20logo%20to%20this%20email%20%E2%80%93%20best%20size%3A%20400x400px%20or%20larger%2C%20square%20format%2C%20PNG%20%2C%20JPG%20or%20WebP%2C%20ideally%20with%20a%20transparent%20background%20for%20the%20best%20look%20on%20the%20Grid.%0A%0ALooking%20forward%20to%20hearing%20from%20you%20and%20getting%20set%20up!%20%0A%0ATa%2C%20" class="btn email-cta">Claim Your £10 Forever Grid Now</a>
-            <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20own%20grid%20on%20LiverpoolGrid!&body=Hi%2C%0A%0AI%27d%20love%20to%20get%20my%20business%20on%20The%20Liverpool%20Grid!%20Here%20are%20the%20details%20to%20get%20started%3A%20%0A%0ABusiness%20Name%3A%20%0AShort%20Description%20%28270%20Characters%20Max%29%3A%20%0AWebsite%2FOnline%20Link%3A%0AInstagram%2FFacebook%2FTikTok%3A%20%0APhone%20Number%3A%20%0AEmail%3A%20%0APostcode%20%28or%20if%20you%20cover%20L1-L40%2C%20just%20put%20%E2%80%98L1-L40%E2%80%99%29%3A%0A%0AGUIDANCE%3A%20Please%20attach%20your%20company%20logo%20to%20this%20email%20%E2%80%93%20best%20size%3A%20400x400px%20or%20larger%2C%20square%20format%2C%20PNG%20%2C%20JPG%20or%20WebP%2C%20ideally%20with%20a%20transparent%20background%20for%20the%20best%20look%20on%20the%20Grid.%0A%0ALooking%20forward%20to%20hearing%20from%20you%20and%20getting%20set%20up!%20%0A%0ATa%2C%0A%5BYour%20Name%5D" class="btn vip">VIP Early Access – £10 One-Time →</a>
+            <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20own%20grid%20on%20LiverpoolGrid!&body=Hi%2C%0A%0AI%27d%20love%20to%20get%20my%20business%20on%20The%20Liverpool%20Grid!%20Here%20are%20the%20details%20to%20get%20started%3A%20%0A%0ABusiness%20Name%3A%20%0AShort%20Description%20%28270%20Characters%20Max%29%3A%20%0AWebsite%2FOnline%20Link%3A%20%0AInstagram%2FFacebook%2FTikTok%3A%20%0APhone%20Number%3A%20%0AEmail%3A%20%0APostcode%20%28or%20if%20you%20cover%20L1-L40%2C%20just%20put%20%E2%80%98L1-L40%E2%80%99%29%3A%0A%0AGUIDANCE%3A%20Please%20attach%20your%20company%20logo%20to%20this%20email%20%E2%80%93%20best%20size%3A%20400x400px%20or%20larger%2C%20square%20format%2C%20PNG%20%2C%20JPG%20or%20WebP%2C%20ideally%20with%20a%20transparent%20background%20for%20the%20best%20look%20on%20the%20Grid.%0A%0ALooking%20forward%20to%20hearing%20from%20you%20and%20getting%20set%20up!%20%0A%0ATa%2C%0A%5BYour%20Name%5D" class="btn vip">VIP Early Access – £10 One-Time →</a>
 
             <div class="hero-testimonials">
                 <div class="testimonial-bg">
@@ -984,49 +609,46 @@
                 </div>
             </div>
         </section>
- 
-
-
-     
-
 
         <section id="about" class="about">
             <h2>Liverpool Built on Community – Now Digitised & Exclusive</h2>
             <p style="font-size:1.2rem; margin:1.5rem 0;">
                 The Liverpool Grid is the city's premium digital showcase — limited Phase 1 spots, high visibility, Scouse-first. Own your digital stall like a permanent market pitch that never closes.
             </p>
- <!-- Main grid display -->
-        <section class="grid-section">
-            <div class="grid-container" id="gridContainer">
-<div class="grid-item phase-4" tabindex="0" data-category="services" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
-    <div class="lifetime-badge">Guardian</div>
-    <div class="grid-inner">
-        <div class="grid-front">
-            <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid">
-        </div>
-        <div class="grid-back">
-            <h3>YOUR COMPANY NAME</h3>
-            <p>DESCRIPTION</p>
-            <ul class="compact-list">
-                <li>LIST OF SERVICES...</li>
-		<li>Service #1</li>
-		<li>Service #2</li>
-            </ul>
-            <p>YOUR MOTTO</p>
-            <ul class="compact-list">
-                <li><a href="https://www.liverpoolgrid.co.uk" target="_blank">🌐 Website</a></li>
-                <li><a href="mailto:Liverpoolgrid@outlook.com">📧 Email</a></li>
-                <li><a href="tel:07752748342">📞 Contact</a></li>
-                <li><a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a></li>
-            </ul>
-            <a href="https://www.liverpoolgrid.co.uk/buyagrid.html" target="_blank" style="color:#ffd700; font-weight:bold;">Buy Your Grid Now →</a>
-<p><b>***MAXIMUM OF 340 CHARACTERS***</b></p>
-        </div>
-    </div>
-    <div class="postcode-tooltip">Postcode: L1 (City Centre)</div>
-</div>
-        </section>
+
+            <section class="grid-section">
+                <div class="grid-container" id="gridContainer">
+                    <div class="grid-item phase-4" tabindex="0" data-category="services" data-postcode="L1">
+                        <div class="scouse-badge">Scouse Only</div>
+                        <div class="lifetime-badge">Guardian</div>
+                        <div class="grid-inner">
+                            <div class="grid-front">
+                                <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid">
+                            </div>
+                            <div class="grid-back">
+                                <h3>YOUR COMPANY NAME</h3>
+                                <p>DESCRIPTION</p>
+                                <ul class="compact-list">
+                                    <li>LIST OF SERVICES...</li>
+                                    <li>Service #1</li>
+                                    <li>Service #2</li>
+                                </ul>
+                                <p>YOUR MOTTO</p>
+                                <ul class="compact-list">
+                                    <li><a href="https://www.liverpoolgrid.co.uk" target="_blank">🌐 Website</a></li>
+                                    <li><a href="mailto:Liverpoolgrid@outlook.com">📧 Email</a></li>
+                                    <li><a href="tel:07752748342">📞 Contact</a></li>
+                                    <li><a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a></li>
+                                </ul>
+                                <a href="https://www.liverpoolgrid.co.uk/buyagrid.html" target="_blank" style="color:#ffd700; font-weight:bold;">Buy Your Grid Now →</a>
+                                <p><b>***MAXIMUM OF 340 CHARACTERS***</b></p>
+                            </div>
+                        </div>
+                        <div class="postcode-tooltip">Postcode: L1 (City Centre)</div>
+                    </div>
+                </div>
+            </section>
+
             <div class="price-highlight">One-Time £10 – Own Your Spot Forever!</div>
             <p style="font-size:1.2rem; margin:1rem 0;">
                 For just a single tenner – one time, no monthly nonsense – secure your business on the Grid for life. Thousands of local Scousers will see you every month, forever. Less than a couple of pints, way more return.
@@ -1044,7 +666,7 @@
             <p style="margin-top:2rem; font-style:italic; color:#c8102e;">
                 Don’t just get found. Get on the Grid for £10 forever – before Phase 1 sells out and the price goes up.
             </p>
-            <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20own%20grid%20on%20LiverpoolGrid!&body=Hi%20team%2C%0A%0AI'd%20love%20to%20get%20my%20business%20on%20The%20Liverpool%20Grid!%20Here%20are%20the%20details%20to%20get%20started%3A%0A%0ABusiness%20Name%3A%20%5BYour%20Business%20Name%5D%0AShort%20Description%20(what%20you%20do%2C%20keep%20it%20snappy)%3A%20%5BYour%20description%5D%0AWebsite%2FOnline%20Link%3A%20%5Bhttps%3A%2F%2F...%5D%0AInstagram%2FFacebook%2FTikTok%3A%20%5Blinks%5D%0APhone%20Number%3A%20%5B0151%20...%5D%0AEmail%3A%20%5Bhello%40yourbusiness.co.uk%5D%0APostcode%20Area%20(L1%2C%20L8%2C%20etc.)%3A%20%5BL...%5D%0A%0APlease%20attach%20your%20company%20logo%20to%20this%20email%20–%20best%20size%3A%20400x400px%20or%20larger%2C%20square%20format%2C%20PNG%20, %20JPG%20or%20WebP%2C%20ideally%20with%20a%20transparent%20background%20for%20the%20best%20look%20on%20the%20Grid.%0A%0ALooking%20forward%20to%20hearing%20from%20you%20and%20getting%20set%20up!%0A%0ATa%2C%0A%5BYour%20Name%5D" class="btn" style="margin-top:2rem;">Claim Your Lifetime Spot – Only £10</a>
+            <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20own%20grid%20on%20LiverpoolGrid!&body=Hi%20team%2C%0A%0AI'd%20love%20to%20get%20my%20business%20on%20The%20Liverpool%20Grid!%20Here%20are%20the%20details%20to%20get%20started%3A%20%0A%0ABusiness%20Name%3A%20%5BYour%20Business%20Name%5D%0AShort%20Description%20(what%20you%20do%2C%20keep%20it%20snappy)%3A%20%5BYour%20description%5D%0AWebsite%2FOnline%20Link%3A%20%5Bhttps%3A%2F%2F...%5D%0AInstagram%2FFacebook%2FTikTok%3A%20%5Blinks%5D%0APhone%20Number%3A%20%5B0151%20...%5D%0AEmail%3A%20%5Bhello%40yourbusiness.co.uk%5D%0APostcode%20Area%20(L1%2C%20L8%2C%20etc.)%3A%20%5BL...%5D%0A%0APlease%20attach%20your%20company%20logo%20to%20this%20email%20–%20best%20size%3A%20400x400px%20or%20larger%2C%20square%20format%2C%20PNG%20, %20JPG%20or%20WebP%2C%20ideally%20with%20a%20transparent%20background%20for%20the%20best%20look%20on%20the%20Grid.%0A%0ALooking%20forward%20to%20hearing%20from%20you%20and%20getting%20set%20up!%0A%0ATa%2C%0A%5BYour%20Name%5D" class="btn" style="margin-top:2rem;">Claim Your Lifetime Spot – Only £10</a>
             <div class="premium-tease">
                 <h3>Coming Soon: Premium Grids</h3>
                 <p>Get even more visibility with bigger logos, top-row priority, and custom highlights. Lock in your basic spot now before upgrades launch!</p>
