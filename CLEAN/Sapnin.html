@@ -541,7 +541,72 @@
             .testimonial-bg:nth-child(3),
             .testimonial-bg:nth-child(4) { display: none; }
         }
+footer {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    color: #666;
+    border-top: 1px solid #eee;
+    transition: color 0.3s, border-color 0.3s;
+    font-size: 0.95rem;
+}
 
+body.dark-mode footer {
+    color: #aaa;
+    border-color: #333;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;               /* Increased gap for desktop breathing room */
+    margin-top: 1.2rem;
+    font-size: 1rem;           /* Slightly larger on desktop */
+}
+
+.footer-links a {
+    color: #c8102e;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+body.dark-mode .footer-links a {
+    color: #ffd700;
+}
+
+.footer-links a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+/* Desktop-specific improvements */
+@media (min-width: 1024px) {
+    footer {
+        padding: 4rem 2rem 3rem;   /* More generous vertical space */
+        font-size: 1.05rem;
+    }
+
+    .footer-links {
+        gap: 2.5rem;               /* Wider spacing between links on large screens */
+        font-size: 1.1rem;
+    }
+
+    footer p {
+        font-size: 1.05rem;        /* Slightly larger text for readability */
+        margin: 0.4rem 0;
+    }
+}
+
+/* Mobile remains compact and centered (already good) */
+@media (max-width: 768px) {
+    footer {
+        padding: 2.5rem 1rem 2rem;
+    }
+    .footer-links {
+        gap: 1rem;
+        font-size: 0.95rem;
+    }
     </style>
 </head>
 <body>
