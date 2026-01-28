@@ -289,17 +289,17 @@
             padding: 2rem 0;
         }
         @media (min-width: 1024px) {
-            .grid-container {
-                grid-template-columns: repeat(4, 1fr);
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-        }
-        @media (min-width: 1400px) {
-            .grid-container {
-                grid-template-columns: repeat(4, 1fr);
-                max-width: 1400px;
-            }
+    .grid-container {
+        grid-template-columns: repeat(4, minmax(280px, 1fr));  /* Prevents cards <280px wide */
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+@media (min-width: 1400px) {
+    .grid-container {
+        grid-template-columns: repeat(4, minmax(300px, 1fr));  /* Roomier on ultra-wide */
+        max-width: 1400px;
+    }
         }
         .grid-item {
             aspect-ratio: 1 / 1;
@@ -353,13 +353,15 @@
         .grid-back p,
         .grid-back li,
         .grid-back a {
-            font-size: clamp(12px, 12px + 0.6vw, 14px);
-            line-height: 1.25;
+            font-size: clamp(12px, 2.5vw + 0.3rem, 15px);  /* Mobile: ~12px, Desktop: caps at ~15px */
+    	    line-height: 1.3;  /* Slightly more room to prevent tight wrapping */
+	    overflow-wrap: break-word;  /* Breaks long words if needed */
+    	    hyphens: auto;  /* Allows hyphenation for better flow */
         }
         .grid-back h3 {
-            font-size: clamp(14px, 14px + 0.6vw, 16px);
-            margin-bottom: 6px;
-            font-weight: 700;
+            font-size: clamp(14px, 3vw + 0.4rem, 18px);  /* Mobile: ~14px, Desktop: caps at ~18px */
+    	    margin-bottom: 8px;  /* Extra breathing room below titles */
+    	    font-weight: 700;
         }
         .grid-back a {
             color: white;
@@ -577,21 +579,7 @@
         }
         body.dark-mode .dark-mode-toggle:hover {
             background: #333;
-        }
-
-        .scouse-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: #c8102e;
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            z-index: 10;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-        }
+        }        
         .lifetime-badge {
             position: absolute;
             top: 12px;
@@ -688,7 +676,7 @@
             .filter-field {
                 min-width: 300px;
             }
-            .scouse-badge, .lifetime-badge {
+            .lifetime-badge {
                 font-size: 1rem;
                 padding: 8px 16px;
             }
@@ -829,7 +817,6 @@
         <section class="grid-section">
             <div class="grid-container" id="gridContainer">
 <div class="grid-item phase-1" tabindex="0" data-category="Cleaning & Domestic" data-postcode="L1-L40">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -858,7 +845,6 @@
     <div class="postcode-tooltip">Postcode: L1</div>
 </div>
 <div class="grid-item phase-4" tabindex="0" data-category="Services & Trades" data-postcode="L1-L40">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Guardian</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -889,8 +875,7 @@
     <div class="postcode-tooltip">Postcode: L1-L40</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Kids & Entertainment" data-postcode="L1-L40">
-    <div class="scouse-badge">Scouse Only</div>
-    <div class="lifetime-badge">Founder</div>
+     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
             <img src="Grids/DreamsSleepover.jpg" alt="Dreams Sleepover Club">
@@ -927,7 +912,6 @@
         <section class="grid-section">
             <div class="grid-container" id="gridContainer">
    <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -960,7 +944,6 @@
 
 
   <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L15">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -989,7 +972,6 @@
     <div class="postcode-tooltip">Postcode: L15</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1023,7 +1005,6 @@
         <section class="grid-section">
             <div class="grid-container" id="gridContainer">
 <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L8">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1055,7 +1036,6 @@
 </div>
 <!-- Probe Records (Phase 1) -->
 <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1085,7 +1065,6 @@
     <div class="postcode-tooltip">Postcode: L1</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1118,7 +1097,6 @@
 
 
 <div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L2">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1148,7 +1126,6 @@
     <div class="postcode-tooltip">Postcode: L2</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1178,7 +1155,6 @@
     <div class="postcode-tooltip">Postcode: L1</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L8">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1207,7 +1183,6 @@
     <div class="postcode-tooltip">Postcode: L8</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Beauty & Wellness" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1239,7 +1214,6 @@
     <div class="postcode-tooltip">Postcode: L14</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Beauty & Wellness" data-postcode="L8">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1269,7 +1243,6 @@
 </div>
 
 <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1299,7 +1272,6 @@
     <div class="postcode-tooltip">Postcode: L1</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Animal Retail & Services" data-postcode="L8">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1331,7 +1303,6 @@
 </div>
 
 <div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1361,7 +1332,6 @@
     <div class="postcode-tooltip">Postcode: L1</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1391,7 +1361,6 @@
     <div class="postcode-tooltip">Postcode: L1</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Services & Trades" data-postcode="L6">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1421,7 +1390,6 @@
     <div class="postcode-tooltip">Postcode: L6</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Services & Trades" data-postcode="L15">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1452,7 +1420,6 @@
 </div>
 
 <div class="grid-item phase-1" tabindex="0" data-category="Kids & Entertainment" data-postcode="L11">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1482,7 +1449,6 @@
     <div class="postcode-tooltip">Postcode: L11</div>
 </div>		
 <div class="grid-item phase-1" tabindex="0" data-category="Retail & Shops" data-postcode="L2">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
@@ -1512,7 +1478,6 @@
     <div class="postcode-tooltip">Postcode: L2</div>
 </div>
 <div class="grid-item phase-1" tabindex="0" data-category="Food & Drink" data-postcode="L1">
-    <div class="scouse-badge">Scouse Only</div>
     <div class="lifetime-badge">Founder</div>
     <div class="grid-inner">
         <div class="grid-front">
