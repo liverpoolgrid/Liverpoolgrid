@@ -283,24 +283,34 @@
         }
        
         .grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.8rem;
-            padding: 2rem 0;
-        }
-        @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr;          /* 1 column by default (mobile) */
+    gap: 1.8rem;
+    padding: 2rem 0;
+}
+
+/* Tablets and small desktops: still 1 or 2 depending on space */
+@media (min-width: 768px) {
     .grid-container {
-        grid-template-columns: repeat(4, minmax(280px, 1fr));  /* Prevents cards <280px wide */
-        max-width: 1200px;
+        grid-template-columns: repeat(2, 1fr);   /* 2 columns from ~768px up */
+    }
+}
+
+/* Large desktops: keep it at 2 columns (no 3 or 4) */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1200px;          /* or 1100px if you want them even wider */
         margin: 0 auto;
     }
 }
+
 @media (min-width: 1400px) {
     .grid-container {
-        grid-template-columns: repeat(4, minmax(300px, 1fr));  /* Roomier on ultra-wide */
-        max-width: 1400px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1300px;          /* optional: let them breathe more */
     }
-        }
+}
         .grid-item {
             aspect-ratio: 1 / 1;
             perspective: 1300px;
@@ -341,33 +351,44 @@
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
         }
         .grid-back {
-            background: linear-gradient(135deg, #c8102e, #a00d1a);
-            color: white;
-            transform: rotateY(180deg);
-            flex-direction: column;
-            gap: 0.5rem;
-            text-align: center;
-            overflow-y: auto;
-        }
-        .grid-back,
-        .grid-back p,
-        .grid-back li,
-        .grid-back a {
-            font-size: clamp(12px, 2.5vw + 0.3rem, 15px);  /* Mobile: ~12px, Desktop: caps at ~15px */
-    	    line-height: 1.3;  /* Slightly more room to prevent tight wrapping */
-	    overflow-wrap: break-word;  /* Breaks long words if needed */
-    	    hyphens: auto;  /* Allows hyphenation for better flow */
-        }
-        .grid-back h3 {
-            font-size: clamp(14px, 3vw + 0.4rem, 18px);  /* Mobile: ~14px, Desktop: caps at ~18px */
-    	    margin-bottom: 8px;  /* Extra breathing room below titles */
-    	    font-weight: 700;
-        }
-        .grid-back a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-        }
+    background: linear-gradient(135deg, #c8102e, #a00d1a);
+    color: white;
+    transform: rotateY(180deg);
+    flex-direction: column;
+    gap: 0.6rem;                    /* increased slightly for breathing room */
+    text-align: center;
+    overflow-y: auto;
+    padding: 1.2rem 1rem;           /* ← reduce horizontal padding a tiny bit */
+}
+        /* Main text elements */
+.grid-back,
+.grid-back p,
+.grid-back li,
+.grid-back a {
+    font-size: clamp(13px, 2.8vw, 15px);   /* tighter ceiling */
+    line-height: 1.35;                      /* more vertical space per line */
+    margin: 0;                              /* reset any stray margins */
+    overflow-wrap: break-word;              /* force long words to break */
+    hyphens: auto;                          /* allow hyphenation where possible */
+}
+        /* Titles – keep hierarchy but prevent blow-out */
+.grid-back h3 {
+    font-size: clamp(15px, 3.2vw, 18px);   /* mobile ~15px, desktop max 18px */
+    margin: 0 0 8px 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.grid-back .compact-list li {
+    margin-bottom: 0.35rem;
+    font-size: inherit;                 /* inherit from parent */
+}
+        /* Links – make sure they wrap nicely too */
+.grid-back a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;              /* helps with wrapping */
+}
         .grid-back a:hover {
             color: #ffd700;
             text-decoration: underline;
