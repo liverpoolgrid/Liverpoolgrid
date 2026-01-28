@@ -259,35 +259,64 @@
 
         .testimonials-section {
             text-align: center;
-            margin: 4rem 0;
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, #111, #222);
-            border-radius: 16px;
-            color: white;
+            margin: 3rem 0 4rem;
+            padding: 1.5rem 1rem;
+            background: #f9f9f9;
+            border-radius: 12px;
+            transition: background 0.3s;
+        }
+        body.dark-mode .testimonials-section {
+            background: #222;
         }
         .testimonials-section h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
+            color: #c8102e;
+            margin-bottom: 1.5rem;
+        }
+        body.dark-mode .testimonials-section h2 {
             color: #ffd700;
-            margin-bottom: 2rem;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
         }
         .testimonial-card {
-            max-width: 700px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            border: 1px solid #444;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            padding: 1.4rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        body.dark-mode .testimonial-card {
+            background: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        body.dark-mode .testimonial-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
         }
         .testimonial-card p {
-            font-size: 1.6rem;
+            font-size: 1.15rem;
             font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+        body.dark-mode .testimonial-card p {
+            color: #eee;
         }
         .testimonial-card span {
-            font-size: 1.1rem;
-            color: #ffd700;
+            font-size: 1rem;
+            color: #c8102e;
             font-weight: 600;
+        }
+        body.dark-mode .testimonial-card span {
+            color: #ffd700;
         }
 
         .grid-container {
@@ -299,7 +328,7 @@
             margin: 0 auto;
         }
         .grid-item {
-            aspect-ratio: 1 / 1;           /* Perfect square */
+            aspect-ratio: 1 / 1;
             width: 100%;
             max-width: 380px;
             margin: 0 auto;
@@ -456,8 +485,8 @@
             .grid-back a {
                 font-size: 1.15rem;
             }
-            .testimonial-card {
-                max-width: 900px;
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -465,6 +494,9 @@
             .container { margin: 10px; padding: 20px; }
             .grid-container { grid-template-columns: 1fr; }
             .grid-item { aspect-ratio: 1 / 1; }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -525,24 +557,26 @@
             <a href="mailto:Liverpoolgrid@outlook.com?subject=I%20want%20my%20own%20grid%20on%20LiverpoolGrid!&body=Hi%2C%0A%0AI%27d%20love%20to%20get%20my%20business%20on%20The%20Liverpool%20Grid!%20Here%20are%20the%20details%20to%20get%20started%3A%20%0A%0ABusiness%20Name%3A%20%0AShort%20Description%20%28270%20Characters%20Max%29%3A%20%0AWebsite%2FOnline%20Link%3A%20%0AInstagram%2FFacebook%2FTikTok%3A%20%0APhone%20Number%3A%20%0AEmail%3A%20%0APostcode%20%28or%20if%20you%20cover%20L1-L40%2C%20just%20put%20%E2%80%98L1-L40%E2%80%99%29%3A%0A%0AGUIDANCE%3A%20Please%20attach%20your%20company%20logo%20to%20this%20email%20%E2%80%93%20best%20size%3A%20400x400px%20or%20larger%2C%20square%20format%2C%20PNG%20%2C%20JPG%20or%20WebP%2C%20ideally%20with%20a%20transparent%20background%20for%20the%20best%20look%20on%20the%20Grid.%0A%0ALooking%20forward%20to%20hearing%20from%20you%20and%20getting%20set%20up!%20%0A%0ATa%2C%0A%5BYour%20Name%5D" class="btn vip">VIP Early Access – £10 One-Time →</a>
         </section>
 
-        <!-- New Testimonials Section -->
+        <!-- Compact Testimonials Section -->
         <section class="testimonials-section">
             <h2>What Scousers Are Saying</h2>
-            <div class="testimonial-card">
-                <p>“Transformed how locals find us!”</p>
-                <span>– Alicia, Alka Cleaning</span>
-            </div>
-            <div class="testimonial-card">
-                <p>“Best platform for Scouse businesses – love it!”</p>
-                <span>– Retailer on Bold Street</span>
-            </div>
-            <div class="testimonial-card">
-                <p>“Quick exposure & real customers.”</p>
-                <span>– Beauty Salon L3</span>
-            </div>
-            <div class="testimonial-card">
-                <p>“Fantastic way to support Liverpool talent.”</p>
-                <span>– Vintage Shop Keeper</span>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>“Transformed how locals find us!”</p>
+                    <span>– Alicia, Alka Cleaning</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>“Best platform for Scouse businesses – love it!”</p>
+                    <span>– Retailer on Bold Street</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>“Quick exposure & real customers.”</p>
+                    <span>– Beauty Salon L3</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>“Fantastic way to support Liverpool talent.”</p>
+                    <span>– Vintage Shop Keeper</span>
+                </div>
             </div>
         </section>
 
