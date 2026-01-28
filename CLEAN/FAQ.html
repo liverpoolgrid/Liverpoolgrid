@@ -50,30 +50,31 @@
             margin: 20px auto;
         }
         header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 20px 0;
-    gap: 20px;
-    border-bottom: 3px solid #c8102e;
-    max-width: 100%;               /* ← Ensures header doesn't exceed container */
-    overflow: hidden;              /* ← Hides any internal overflow */
-}
-        .logo { max-width: 260px; height: auto; }
-       .social-bar {
-    display: flex;
-    gap: clamp(5px, 1vw, 7px);     /* Your reduced spacing */
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden;            /* ← Changed from 'auto' to 'hidden' – no scrollbar, clips if needed */
-    max-width: 100%;               /* ← Prevents exceeding container width */
-    margin: 0 auto;                /* Centers it nicely */
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            padding: 20px 0;
+            gap: 40px;
+            border-bottom: 3px solid #c8102e;
+        }
+        .logo { 
+            max-width: 280px; 
+            height: auto; 
+            flex-shrink: 0;
+        }
+       
+        .social-bar {
+            display: flex;
+            gap: clamp(10px, 2vw, 16px);
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            align-items: center;
+            overflow-x: auto;
+        }
         .social-btn {
-            width: clamp(32px, 4.5vw, 38px);
-    	    height: clamp(32px, 4.5vw, 38px);
+            width: clamp(38px, 5vw, 48px);
+            height: clamp(38px, 5vw, 48px);
             border-radius: 50%;
             overflow: hidden;
             transition: all 0.35s ease;
@@ -99,7 +100,65 @@
             transform: scale(1.08);
         }
 
-       
+        .skyline-wrapper {
+            width: 100%;
+            margin: 5px 0 0 0;
+            overflow: hidden;
+            border-radius: 0 0 16px 16px;
+        }
+        .skyline-full {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            border-radius: 16px;
+            margin: 20px 0;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 16px;
+            padding: 0 20px;
+        }
+        .nav-link {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #ffd700;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 60%;
+        }
+        
         .hero {
             text-align: center;
             padding: 60px 20px 60px;
@@ -110,27 +169,27 @@
             position: relative;
             overflow: hidden;
         }
-.hero-testimonials {
-    position: absolute;
-    inset: 0;
-    pointer-events: none; /* So clicks go through to text/CTA */
-    z-index: 0;           /* Behind everything else */
-}
-.testimonial-bg {
-    position: absolute;
-    width: 40%;           /* Large enough to feel background-y, but not overwhelming */
-    max-width: 380px;
-    font-size: 1.8rem;    /* Big & subtle */
-    font-style: italic;
-    font-weight: 700;
-    color: white;
-    opacity: var(--opacity);
-    transform: rotate(var(--rot));
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7); /* Helps legibility on gradient */
-    line-height: 1.3;
-    padding: 1rem;
-    user-select: none;
-}
+        .hero-testimonials {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .testimonial-bg {
+            position: absolute;
+            width: 38%;
+            max-width: 420px;
+            font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+            font-style: italic;
+            font-weight: 700;
+            color: white;
+            opacity: var(--opacity);
+            transform: rotate(var(--rot));
+            text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+            line-height: 1.35;
+            padding: 1.2rem;
+            user-select: none;
+        }
         .hero::before {
             content: "";
             position: absolute;
@@ -139,9 +198,9 @@
             pointer-events: none;
         }
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: clamp(2.8rem, 5vw, 3.8rem);
             font-weight: 900;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             text-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
         .hero p {
@@ -151,48 +210,31 @@
             margin-left: auto;
             margin-right: auto;
         }
-       .testimonial-bg p {
-    margin: 0;
-}
+        .testimonial-bg p {
+            margin: 0;
+        }
 
-.testimonial-bg span {
-    display: block;
-    margin-top: 0.6rem;
-    font-size: 0.8em;
-    font-style: normal;
-    font-weight: 500;
-    color: #ffd700;       /* Gold accent for attribution */
-    opacity: 0.8;
-}
+        .testimonial-bg span {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.8em;
+            font-style: normal;
+            font-weight: 500;
+            color: #ffd700;
+            opacity: 0.8;
+        }
 
-/* Position variations via custom prop */
-.testimonial-bg:nth-child(1) { top: 10%; left: 5%;   --pos: top left; }
-.testimonial-bg:nth-child(2) { top: 15%; right: 5%;  --pos: top right; }
-.testimonial-bg:nth-child(3) { bottom: 20%; left: 8%;  --pos: bottom left; }
-.testimonial-bg:nth-child(4) { bottom: 12%; right: 6%; --pos: bottom right; }
-
-/* Optional: Slight fade-in on load for polish */
-@keyframes fadeInBg {
-    from { opacity: 0; }
-    to   { opacity: var(--opacity); }
-}
-.testimonial-bg {
-    animation: fadeInBg 2s ease-out forwards;
-}
-
-/* Responsive: Smaller & fewer on mobile */
-@media (max-width: 768px) {
-    .testimonial-bg {
-        font-size: 1.3rem;
-        width: 60%;
-        max-width: none;
-    }
-    /* Optionally hide 1–2 on very small screens if too busy */
-    .testimonial-bg:nth-child(3),
-    .testimonial-bg:nth-child(4) {
-        display: none;
-    }
-}
+        .testimonial-bg:nth-child(1) { top: 10%; left: 5%;   --rot: -8deg; --opacity: 0.18; }
+        .testimonial-bg:nth-child(2) { top: 15%; right: 5%;  --rot: 6deg; --opacity: 0.20; }
+        .testimonial-bg:nth-child(3) { bottom: 20%; left: 8%;  --rot: -5deg; --opacity: 0.16; }
+        .testimonial-bg:nth-child(4) { bottom: 12%; right: 6%; --rot: 7deg; --opacity: 0.22; }
+        @keyframes fadeInBg {
+            from { opacity: 0; }
+            to   { opacity: var(--opacity); }
+        }
+        .testimonial-bg {
+            animation: fadeInBg 2s ease-out forwards;
+        }
         
         .content {
             max-width: 1000px;
@@ -250,146 +292,78 @@
             border-top: 1px solid #eee;
         }
         
-        @media (max-width: 900px) {
-            header { flex-direction: column; text-align: center; }
-            .social-bar { justify-content: center; }
-            .hero h1 { font-size: 2.6rem; }
+        @media (min-width: 1024px) {
+            header { padding: 24px 0; }
+            .logo { max-width: 320px; }
+            .social-bar { gap: 18px; }
+            .social-btn { width: 52px; height: 52px; }
+            .nav-container { gap: 24px; padding: 0 40px; }
+            .nav-link { font-size: 1.1rem; padding: 10px 20px; }
+            .hero h1 { font-size: 4rem; }
+            .hero p { font-size: 1.6rem; max-width: 900px; }
+            .testimonial-bg { font-size: 2rem; width: 30%; max-width: 450px; }
+            .content { max-width: 1100px; }
+            .section h2 { font-size: 2.8rem; }
+            .question { font-size: 1.8rem; }
+            .answer { font-size: 1.3rem; }
+            .cta-button { font-size: 1.6rem; padding: 20px 60px; }
+            footer { padding: 4rem 2rem 3rem; font-size: 1.05rem; }
+            .footer-links { gap: 2.5rem; font-size: 1.1rem; }
         }
+
         @media (max-width: 768px) {
             .container { margin: 10px; padding: 20px; }
+            header {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .social-bar { justify-content: center; }
             .hero { padding: 40px 20px; }
+            .hero h1 { font-size: 2.6rem; }
+            .hero p { font-size: 1.3rem; }
+            .testimonial-bg { font-size: 1.3rem; width: 60%; max-width: none; }
+            .testimonial-bg:nth-child(3), .testimonial-bg:nth-child(4) { display: none; }
             .section h2 { font-size: 1.8rem; }
-            .nav-container {
-                gap: 10px; /* Smaller gap for single line */
+            .question { font-size: 1.2rem; }
+            .answer { font-size: 1rem; }
+            .cta-button { font-size: 1.2rem; padding: 14px 36px; }
+            .nav-container { gap: 6px; padding: 0 10px; }
+            .nav-link { font-size: 0.85rem; padding: 6px 10px; }
+            .social-bar { gap: 10px; }
+            .social-btn { width: 40px; height: 40px; }
+            footer { padding: 2.5rem 1rem 2rem; font-size: 0.95rem; }
+            .footer-links { gap: 1rem; font-size: 0.95rem; }
+        }
+
+        /* Logo animation when clicked */
+        .logo {
+            transition: transform 0.6s ease, filter 0.6s ease;
+            cursor: pointer;
+        }
+
+        .logo.clicked {
+            animation: logoClick 0.8s ease forwards;
+        }
+
+        @keyframes logoClick {
+            0% {
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
             }
-            .nav-link {
-                font-size: 1rem; /* Smaller font */
-                padding: 8px 16px; /* Smaller padding */
+            30% {
+                transform: scale(1.15) translateY(-15px) rotate(10deg);
+                filter: drop-shadow(0 0 20px #ffd700);
             }
-            .social-bar {
-                gap: 10px; /* Smaller gap for single line */
+            70% {
+                transform: scale(1.1) translateY(0) rotate(-10deg);
+                filter: drop-shadow(0 0 25px #ffd700);
             }
-            .social-btn {
-                width: 40px; /* Smaller icons */
-                height: 40px;
+            100% {
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
             }
         }
-        /* Enhanced Navbar Styles - FIXED */
-        nav {
-            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
-            border-radius: 16px;
-            margin: 20px 0;
-            padding: 15px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            overflow: hidden;
-        }
-        .nav-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 9px;                     /* ← Changed from 18px to half */
-    overflow-x: hidden;
-    padding: 0 15px;
-}
-        .nav-link {
-            color: white;
-            font-size: 0.92rem;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 8px 14px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-            white-space: nowrap;
-        }
-        .nav-link:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background: #ffd700;
-            transition: width 0.3s;
-        }
-        .nav-link:hover::after {
-            width: 60%;
-        }
-        .nav-link.active {
-            background: rgba(255,255,255,0.2);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        @media (max-width: 1100px) {
-    .nav-link {
-        font-size: 0.88rem;
-        padding: 7px 12px;
-    }
-    .nav-container {
-        gap: 7px;                 /* ← Half of 14px */
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-link {
-        font-size: 0.85rem;
-        padding: 6px 10px;
-    }
-    .nav-container {
-        gap: 6px;                 /* ← Half of 12px */
-        padding: 0 10px;
-    }
-.skyline-wrapper {
-    width: 100%;                   /* Matches container inner width */
-    margin: 5px 0 0 0;             /* Small top spacing */
-    overflow: hidden;
-    border-radius: 0 0 16px 16px;  /* Rounded bottom */
-    max-width: 100%;               /* ← Extra safety to prevent overflow */
-}
-
-.skyline-full {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;            /* Keeps the full image visible, no cropping */
-}
-
-/* Logo animation when clicked */
-.logo {
-    transition: transform 0.6s ease, filter 0.6s ease;
-    cursor: pointer;
-}
-
-.logo.clicked {
-    animation: logoClick 0.8s ease forwards;
-}
-
-@keyframes logoClick {
-    0% {
-        transform: scale(1) rotate(0deg);
-        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
-    }
-    30% {
-        transform: scale(1.15) translateY(-15px) rotate(10deg);
-        filter: drop-shadow(0 0 20px #ffd700);
-    }
-    70% {
-        transform: scale(1.1) translateY(0) rotate(-10deg);
-        filter: drop-shadow(0 0 25px #ffd700);
-    }
-    100% {
-        transform: scale(1) rotate(0deg);
-        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
-    }
-}
-
     </style>
 </head>
 <body>
@@ -423,15 +397,15 @@
                     <img src="Email.png" alt="Email">
                 </a>
             </div>
-<div class="skyline-wrapper">
-    <img src="Skyline.png" alt="Liverpool Skyline" class="skyline-full">
-</div>
-
         </header>
+        <div class="skyline-wrapper">
+            <img src="Skyline.png" alt="Liverpool Skyline" class="skyline-full">
+        </div>
+
         <nav>
             <div class="nav-container">
-        <a href="index.html" class="nav-link">Grids</a>
-		<a href="Sapnin.html" class="nav-link">Sapnin</a>        
+                <a href="index.html" class="nav-link">Grids</a>
+                <a href="Sapnin.html" class="nav-link">Sapnin</a>        
             </div>
         </nav>
         <section class="hero">
@@ -572,17 +546,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
