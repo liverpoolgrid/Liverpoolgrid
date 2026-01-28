@@ -348,82 +348,52 @@
         .grid-front { background: #fff; }
         .grid-front img { max-width: 92%; max-height: 92%; object-fit: contain; }
         .grid-back {
-    background: linear-gradient(135deg, #c8102e, #a00d1a);
-    color: white;
-    transform: rotateY(180deg);
-    flex-direction: column;
-    gap: 0.6rem;               /* Slightly more breathing room between elements */
-    text-align: center;
-    line-height: 1.3;           /* Improved readability */
-    padding: 1.2rem 1rem;       /* A bit more internal padding */
-    overflow-y: auto;           /* Scroll only if truly needed */
-}
+            background: linear-gradient(135deg, #c8102e, #a00d1a);
+            color: white;
+            transform: rotateY(180deg);
+            flex-direction: column;
+            gap: 0.6rem;               /* Slightly more breathing room between elements */
+            text-align: center;
+            line-height: 1.3;           /* Improved readability */
+            padding: 1.2rem 1rem;       /* A bit more internal padding */
+            overflow-y: auto;           /* Scroll only if truly needed */
+        }
+        .grid-back h3 { 
+            font-size: clamp(13px, 1.1vw, 15px);  /* Smaller title, still bold */
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+        .grid-back p,
+        .grid-back li,
+        .grid-back a {
+            font-size: clamp(11px, 0.9vw, 13px);  /* Main body text – noticeably smaller */
+            margin: 0.3rem 0;
+            line-height: 1.35;
+        }
 
-/* Smaller, tighter text sizing – fits nicely with room */
-.grid-back h3 {
-    font-size: clamp(13px, 1.1vw, 15px);  /* Smaller title, still bold */
-    margin-bottom: 6px;
-    font-weight: 700;
-}
+        .grid-back ul.compact-list {
+            padding-left: 1.4rem;
+            margin: 0.6rem auto;
+            text-align: left;
+            max-width: 92%;
+        }
 
-.grid-back p,
-.grid-back li,
-.grid-back a {
-    font-size: clamp(11px, 0.9vw, 13px);  /* Main body text – noticeably smaller */
-    margin: 0.3rem 0;
-    line-height: 1.35;
-}
+        .grid-back ul.compact-list li {
+            margin-bottom: 0.4rem;
+            font-size: clamp(11px, 0.9vw, 13px);
+        }
 
-/* List items get extra polish */
-.grid-back ul.compact-list {
-    padding-left: 1.4rem;
-    margin: 0.6rem auto;
-    text-align: left;
-    max-width: 92%;
-}
+        .grid-back a {
+            color: #ffd700;
+            font-weight: 600;
+            font-size: clamp(12px, 1vw, 14px);
+        }
 
-.grid-back ul.compact-list li {
-    margin-bottom: 0.4rem;
-    font-size: clamp(11px, 0.9vw, 13px);
-}
-
-/* Links stay prominent but fit */
-.grid-back a {
-    color: #ffd700;
-    font-weight: 600;
-    font-size: clamp(12px, 1vw, 14px);
-}
-
-/* Desktop-specific: even more room when screen is wide */
-@media (min-width: 1024px) {
-    .grid-back {
-        padding: 1.4rem 1.2rem;
-        gap: 0.8rem;
-    }
-    .grid-back h3 {
-        font-size: clamp(14px, 1.2vw, 16px);
-    }
-    .grid-back p,
-    .grid-back li,
-    .grid-back a {
-        font-size: clamp(12px, 1vw, 14px);
-    }
-    .grid-back ul.compact-list {
-        padding-left: 1.6rem;
-        max-width: 90%;
-    }
-}
-
-/* Mobile: keep slightly larger so it's still legible on small screens */
-@media (max-width: 768px) {
-    .grid-back h3 {
-        font-size: clamp(14px, 3vw, 16px);
-    }
-    .grid-back p,
-    .grid-back li,
-    .grid-back a {
-        font-size: clamp(13px, 3.2vw, 15px);
-    }
+        .compact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
        
         .about { max-width: 900px; margin: 4rem auto; text-align: center; }
         .about h2 { font-size: 2.6rem; color: #c8102e; margin-bottom: 1.5rem; }
@@ -905,6 +875,37 @@
   .grid-container {
     grid-template-columns: repeat(5, 1fr); /* Optional ultra-wide support */
   }
+}
+
+@media (min-width: 1024px) {
+    .grid-back {
+        padding: 1.4rem 1.2rem;
+        gap: 0.8rem;
+    }
+    .grid-back h3 {
+        font-size: clamp(14px, 1.2vw, 16px);
+    }
+    .grid-back p,
+    .grid-back li,
+    .grid-back a {
+        font-size: clamp(12px, 1vw, 14px);
+    }
+    .grid-back ul.compact-list {
+        padding-left: 1.6rem;
+        max-width: 90%;
+    }
+}
+
+/* Mobile: keep slightly larger so it's still legible on small screens */
+@media (max-width: 768px) {
+    .grid-back h3 {
+        font-size: clamp(14px, 3vw, 16px);
+    }
+    .grid-back p,
+    .grid-back li,
+    .grid-back a {
+        font-size: clamp(13px, 3.2vw, 15px);
+    }
 }
 
     </style>
