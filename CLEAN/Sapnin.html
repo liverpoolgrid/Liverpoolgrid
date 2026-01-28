@@ -368,46 +368,159 @@
             }
         }
 
-        /* Your existing grid-item, grid-front/back, badges, tooltip, footer styles remain unchanged */
-        /* ... paste your original grid-item styles here if needed, but they are already in your code ... */
+        /* ────────────────────────────────────────────────
+           FLIP CARD STYLES – THIS IS THE KEY FIX
+        ──────────────────────────────────────────────── */
+        .grid-item,
+        .grid-item1 {
+            aspect-ratio: 400 / 550;
+            perspective: 1300px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            transition: transform 0.3s;
+            position: relative;
+        }
 
+        .grid-item:hover,
+        .grid-item1:hover {
+            transform: translateY(-8px);
+        }
+
+        .grid-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+        }
+
+        .grid-item:hover .grid-inner,
+        .grid-item1:hover .grid-inner,
+        .grid-item:focus-within .grid-inner,
+        .grid-item1:focus-within .grid-inner {
+            transform: rotateY(180deg);
+        }
+
+        .grid-front,
+        .grid-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+        }
+
+        .grid-front {
+            background: #fff;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .grid-back {
+            background: linear-gradient(135deg, #c8102e, #a00d1a);
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            text-align: center;
+            overflow-y: auto;
+            gap: 0.8rem;
+        }
+
+        .grid-back h3 {
+            font-size: 1.6rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .grid-back p {
+            font-size: 1rem;
+            margin: 0.4rem 0;
+        }
+
+        .grid-back ul.compact-list {
+            padding-left: 1.2rem;
+            text-align: left;
+            width: 100%;
+            max-width: 90%;
+            margin: 0.5rem auto;
+        }
+
+        .grid-back a {
+            color: #ffd700;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 0.8rem;
+        }
+
+        .grid-back a:hover {
+            text-decoration: underline;
+        }
+
+        /* Badges (stay on front face) */
+        .scouse-badge,
+        .scouse-badge2,
+        .lifetime-badge {
+            position: absolute;
+            top: 10px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        .scouse-badge  { left: 10px; background: #02f750; color: #02541c; }
+        .scouse-badge2 { left: 10px; background: #c8102e; color: white; }
+        .lifetime-badge { right: 10px; background: #ffd700; color: #000; }
+
+        .postcode-tooltip {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.75);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .grid-item:hover .postcode-tooltip,
+        .grid-item1:hover .postcode-tooltip {
+            opacity: 1;
+        }
+
+        /* Rest of your media queries and other styles */
         @media (min-width: 1024px) {
-            header {
-                padding: 24px 0;
-            }
-            .logo {
-                max-width: 320px;
-            }
-            .social-bar {
-                gap: 18px;
-            }
-            .social-btn {
-                width: 52px;
-                height: 52px;
-            }
-            .nav-container {
-                gap: 24px;
-                padding: 0 40px;
-            }
-            .nav-link {
-                font-size: 1.1rem;
-                padding: 10px 20px;
-            }
-            .filters {
-                gap: 2rem;
-                padding: 2rem;
-            }
+            header { padding: 24px 0; }
+            .logo { max-width: 320px; }
+            .social-bar { gap: 18px; }
+            .social-btn { width: 52px; height: 52px; }
+            .nav-container { gap: 24px; padding: 0 40px; }
+            .nav-link { font-size: 1.1rem; padding: 10px 20px; }
+            .filters { gap: 2rem; padding: 2rem; }
             .scouse-only-note,
-            .list-cta-banner {
-                padding: 2rem 3rem;
-                font-size: 1.3rem;
-            }
-            .month-header {
-                gap: 2rem;
-            }
-            .month-icon {
-                width: 220px;
-            }
+            .list-cta-banner { padding: 2rem 3rem; font-size: 1.3rem; }
+            .month-header { gap: 2rem; }
+            .month-icon { width: 220px; }
         }
 
         @media (max-width: 768px) {
@@ -417,9 +530,7 @@
                 align-items: center;
                 gap: 20px;
             }
-            .social-bar {
-                justify-content: center;
-            }
+            .social-bar { justify-content: center; }
             .filters { flex-direction: column; }
             .month-header { flex-direction: column; text-align: center; }
             .testimonial-bg {
@@ -428,11 +539,9 @@
                 max-width: none;
             }
             .testimonial-bg:nth-child(3),
-            .testimonial-bg:nth-child(4) {
-                display: none;
-            }
+            .testimonial-bg:nth-child(4) { display: none; }
         }
-    </style>
+
 </head>
 <body>
     <div class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</div>
@@ -589,133 +698,53 @@
                 <img src="February.jpg" alt="February" class="month-icon">
             </div>
             <div class="grid-container">
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
+    <div class="grid-item" tabindex="0" data-postcode="L3">
+        <div class="scouse-badge">AVAILABLE</div>
+        <div class="grid-inner">
+            <div class="grid-front">
+                <img src="Events/example.png" alt="Event Placeholder">
+            </div>
+            <div class="grid-back">
+                <h3>Available Event Slot</h3>
+                <p>Your gig, market, comedy night or festival here – one-time payment, incredible visibility!</p>
+                <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
+                <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
             </div>
         </div>
+        <div class="postcode-tooltip">Postcode: L3</div>
+    </div>
+</div>
+
+
+
 
         <div class="month-section" data-month="march">
             <div class="month-header">
                 <img src="March.jpg" alt="March" class="month-icon">
             </div>
             <div class="grid-container">
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
+    <div class="grid-item" tabindex="0" data-postcode="L3">
+        <div class="scouse-badge">AVAILABLE</div>
+        <div class="grid-inner">
+            <div class="grid-front">
+                <img src="Events/example.png" alt="Event Placeholder">
+            </div>
+            <div class="grid-back">
+                <h3>Available Event Slot</h3>
+                <p>Your gig, market, comedy night or festival here – one-time payment, incredible visibility!</p>
+                <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
+                <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
             </div>
         </div>
+        <div class="postcode-tooltip">Postcode: L3</div>
+    </div>
+</div>
+
 
         <div class="month-section" data-month="april">
             <div class="month-header">
                 <img src="April.jpg" alt="April" class="month-icon">
             </div>
-            
-                    <div class="grid-container">
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
                 <div class="grid-item1" tabindex="0" data-postcode="L9">
                     <div class="scouse-badge">AVAILABLE</div>
                     <div class="grid-inner">
@@ -738,24 +767,6 @@
                     <div class="postcode-tooltip">Postcode Area: L9</div>
                 </div>
 
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-            </div>
-        </div>        
-
         <div class="month-section" data-month="may">
             <div class="month-header">
                 <img src="May.jpg" alt="May" class="month-icon">
@@ -776,40 +787,7 @@
                     </div>
                     <div class="postcode-tooltip">Postcode: L3</div>
                 </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-            </div>
-        </div>
+             
 
         <div class="month-section" data-month="june">
             <div class="month-header">
@@ -830,41 +808,7 @@
                         </div>
                     </div>
                     <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-            </div>
-        </div>
+                </div>                
 
         <div class="month-section" data-month="july">
             <div class="month-header">
@@ -885,41 +829,7 @@
                         </div>
                     </div>
                     <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-            </div>
-        </div>
+                </div>               
 
         <div class="month-section" data-month="august">
             <div class="month-header">
@@ -942,40 +852,7 @@
                     <div class="postcode-tooltip">Postcode: L3</div>
                 </div>
 
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-            </div>
-        </div>
-
+                
         <div class="month-section" data-month="september">
             <div class="month-header">
                 <img src="September.jpg" alt="September" class="month-icon">
@@ -997,40 +874,7 @@
                     <div class="postcode-tooltip">Postcode: L3</div>
                 </div>
 
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-            </div>
-        </div>
-
+         
         <div class="month-section" data-month="october">
             <div class="month-header">
                 <img src="October.jpg" alt="October" class="month-icon">
@@ -1052,41 +896,7 @@
                     <div class="postcode-tooltip">Postcode: L3</div>
                 </div>
 
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="month-section" data-month="november">
+       <div class="month-section" data-month="november">
             <div class="month-header">
                 <img src="November.jpg" alt="November" class="month-icon">
             </div>
@@ -1107,40 +917,7 @@
                     <div class="postcode-tooltip">Postcode: L3</div>
                 </div>
 
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-            </div>
-        </div>
-
+ 
         <div class="month-section" data-month="december">
             <div class="month-header">
                 <img src="December.jpg" alt="December" class="month-icon">
@@ -1161,41 +938,7 @@
                     </div>
                     <div class="postcode-tooltip">Postcode: L3</div>
                 </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here –one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-            </div>
-        </div>
-
+ 
         <div class="month-section" data-month="january 27">
             <div class="month-header">
                 <img src="January27.jpg" alt="January 27" class="month-icon">
@@ -1216,41 +959,6 @@
                     </div>
                     <div class="postcode-tooltip">Postcode: L3</div>
                 </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-
-                <div class="grid-item" tabindex="0" data-postcode="L3">
-                    <div class="scouse-badge">AVAILABLE</div>
-                    <div class="grid-inner">
-                        <div class="grid-front">
-                            <img src="Events/example.png" alt="Event Placeholder">
-                        </div>
-                        <div class="grid-back">
-                            <h3>Available Event Slot</h3>
-                            <p>Your gig, market, comedy night or festival here – one-time £20 payment, incredible visibility!</p>
-                            <a href="Sapnin Sales.html" style="color:#ffd700; font-weight:bold;">List for £20 One-Time →</a>
-                            <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share Event</a>
-                        </div>
-                    </div>
-                    <div class="postcode-tooltip">Postcode: L3</div>
-                </div>
-            </div>
-        </div>
-
 
 
         <!-- Mid-page CTA -->
