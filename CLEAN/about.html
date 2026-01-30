@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | The Liverpool Grid – Proper Scouse Independents & Events</title>
+    <meta name="description" content="The Liverpool Grid – championing 100% vetted Scouse independent businesses & events. No chains, just real Liverpool soul. Discover shops, services, gigs, markets & more. Support local – join the grid!">
+    <meta name="keywords" content="Liverpool independent businesses, Scouse directory, what's on Liverpool, independent Liverpool, local events Liverpool, support local Liverpool, Sapnin events, Liverpool business directory">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="About Us | The Liverpool Grid – Proper Scouse Independents">
+    <meta property="og:description" content="Ey up la – we're The Liverpool Grid. Vetted Scouse businesses & events, no chains allowed. Proper local pride.">
+    <meta property="og:image" content="https://www.liverpoolgrid.co.uk/LiverpoolGridLogo.jpg">
+    <meta property="og:url" content="https://www.liverpoolgrid.co.uk/about.html">
+
+    <!-- Favicons & Fonts -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            transition: background 0.4s, color 0.4s;
+        }
+        body.light-mode {
+            background: #fff;
+            color: #222;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header img {
+            max-width: 260px;
+            height: auto;
+        }
+
+        /* SOCIAL BAR – EXACT SAME AS INDEX.HTML */
+        .social-bar {
+            display: flex;
+            gap: clamp(10px, 2vw, 14px);
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .social-btn {
+            width: clamp(38px, 5vw, 44px);
+            height: clamp(38px, 5vw, 44px);
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            border: 2px solid transparent;
+            background: #111;
+            flex-shrink: 0;
+        }
+        body.light-mode .social-btn {
+            background: #eee;
+        }
+        .social-btn:hover {
+            transform: translateY(-6px) scale(1.12);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+            border-color: #ffd700;
+        }
+        .social-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            margin: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .social-btn:hover img {
+            transform: scale(1.08);
+        }
+
+        /* ────── NAVBAR (exact same as index.html) ────── */
+        nav {
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            border-radius: 16px;
+            margin: 20px 0;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 9px;
+            overflow-x: hidden;
+            padding: 0 15px;
+        }
+        .nav-link {
+            color: white;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #ffd700;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 60%;
+        }
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 1100px) {
+            .nav-link { font-size: 0.88rem; padding: 7px 12px; }
+            .nav-container { gap: 7px; }
+        }
+        @media (max-width: 768px) {
+            .nav-link { font-size: 0.85rem; padding: 6px 10px; }
+            .nav-container { gap: 6px; padding: 0 10px; }
+        }
+
+        /* ────── REST OF YOUR PAGE STYLES (unchanged from last version) ────── */
+        h1 { font-size: 3.5rem; text-align: center; margin-bottom: 1rem; color: #ffd700; }
+        body.light-mode h1 { color: #c8102e; }
+        h2 { font-size: 2.5rem; color: #c8102e; margin: 60px 0 30px; text-align: center; }
+        body.light-mode h2 { color: #a00d1a; }
+        .red { color: #c8102e; }
+        .gold { color: #ffd700; }
+        body.light-mode .gold { color: #d4af37; }
+        p { font-size: 1.15rem; max-width: 900px; margin: 0 auto 25px; text-align: center; }
+        .section { margin: 80px 0; padding: 0 20px; opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .section.visible { opacity: 1; transform: translateY(0); }
+        .divider { border: 0; height: 1px; background: linear-gradient(to right, transparent, #c8102e, transparent); margin: 60px 0; }
+        body.light-mode .divider { background: linear-gradient(to right, transparent, #ffd700, transparent); }
+        
+.cta-button { display: inline-block; background: #ffd700; color: #000; font-size: 1.4rem; font-weight: 900; padding: 18px 48px; border-radius: 50px; text-decoration: none; box-shadow: 0 8px 24px rgba(0,0,0,0.4); transition: all 0.35s ease; border: 4px solid #fff; margin: 20px auto; }
+        body.light-mode .cta-button { background: #c8102e; color: #fff; border-color: #000; }
+        
+.cta-button:hover { transform: translateY(-6px) scale(1.05); box-shadow: 0 16px 40px rgba(255,215,0,0.5); background: #ffeb3b; }
+        body.light-mode .cta-button:hover { background: #a00d1a; box-shadow: 0 16px 40px rgba(200,16,46,0.5); }
+        
+.cta-container { text-align: center; margin: 40px 0; }
+        .hero-image-section { position: relative; margin: 80px 0; text-align: center; }
+       
+ .hero-image-section img { width: 100%; max-height: 500px; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+        .hero-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.65); padding: 40px 60px; border-radius: 16px; max-width: 90%; text-align: center; }
+        body.light-mode .hero-overlay { background: rgba(255,255,255,0.85); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .hero-overlay h2 { font-size: 3rem; color: #ffd700; margin: 0 0 1rem; text-shadow: 0 2px 10px #000; }
+        body.light-mode .hero-overlay h2 { color: #c8102e; text-shadow: none; }
+        .hero-overlay p { font-size: 1.5rem; margin: 0; text-shadow: 0 1px 6px #000; }
+        body.light-mode .hero-overlay p { color: #222; text-shadow: none; }
+        footer { text-align: center; padding: 60px 20px 40px; color: #aaa; border-top: 1px solid #333; }
+        body.light-mode footer { color: #555; border-top: 1px solid #ddd; }
+
+        /* Light/Dark Mode Toggle (same as index) */
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ffd700;
+            color: #000;
+            padding: 10px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        body.light-mode .mode-toggle {
+            background: #222;
+            color: #ffd700;
+        }
+        .mode-toggle:hover { transform: scale(1.08); }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            .hero-overlay h2 { font-size: 2.4rem; }
+            .hero-overlay p { font-size: 1.3rem; }
+            .hero-overlay { padding: 30px 40px; }
+            .cta-button { font-size: 1.2rem; padding: 14px 36px; width: 90%; display: block; margin: 20px auto; }
+            p { padding: 0 10px; }
+            .mode-toggle { top: 15px; right: 15px; padding: 8px 14px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Light/Dark Mode Toggle -->
+    <div class="mode-toggle" onclick="toggleMode()">Light Mode</div>
+
+    <div class="container">
+        <header>
+            <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid – Scouse Independent Businesses & Events">
+        </header>
+
+        <!-- SOCIAL BAR – EXACT SAME AS INDEX.HTML -->
+        <div class="social-bar">
+            <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn">
+                <img src="TikTok.png" alt="TikTok">
+            </a>
+            <a href="https://www.instagram.com/liverpoolgrid" target="_blank" class="social-btn">
+                <img src="Instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/share/1D8M9yNtdk" target="_blank" class="social-btn">
+                <img src="Facebook.png" alt="Facebook">
+            </a>
+            <a href="https://x.com/Liverpoolgrid" target="_blank" class="social-btn">
+                <img src="X.png" alt="X">
+            </a>
+            <a href="https://linktr.ee/Liverpoolgrid" class="social-btn">
+                <img src="LinkTree.png" alt="LinkTree">
+            </a>
+            <a href="tel:07752748342" class="social-btn">
+                <img src="Phone.png" alt="Call Us">
+            </a>
+            <a href="https://wa.me/447752748342" target="_blank" class="social-btn">
+                <img src="Whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="mailto:Liverpoolgrid@outlook.com" target="_blank" class="social-btn">
+                <img src="Email.png" alt="Email">
+            </a>
+        </div>
+
+        <!-- NAVBAR – exact same as index.html -->
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="nav-link">Grids</a>
+                <a href="Sapnin.html" class="nav-link">Sapnin</a>
+                <a href="FAQ.html" class="nav-link">FAQ</a>
+		<a href="contact.html" class="nav-link">Contact</a> 
+            </div>
+        </nav>
+
+        <main>
+            <h1>S'goin on! – This Is <span class="red">The Liverpool Grid</span></h1>
+
+            <p style="font-size: 1.3rem; text-align: center; max-width: 900px; margin: 0 auto 60px;">
+                We're not just another directory. We're a proper Scouse rebellion against chains, algorithms, and soulless listings.  
+                A place where real independents shine, visitors discover hidden gems, and event organisers actually fill rooms – all in one boss grid.
+            </p>
+
+            <hr class="divider">
+
+            <!-- Hero Image Break -->
+            <div class="hero-image-section">
+                <img src="Skyline.png" alt="Liverpool skyline at dusk – home of proper independents and buzzing events">
+                <div class="hero-overlay">
+                    <h2>Proper Liverpool.<br>No Chains Allowed.</h2>
+                    <p>Vetted Scouse businesses & events – 100% independent, 100% heart.</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="section">
+                <h2>Why We Built This (And Why You’ll Love It)</h2>
+                <p>Alright?, I'm Richie. I'm a spirited Scouser who loves my city and I got proper sick of seeing the same chains everywhere, while brilliant little independent business gaffs struggled to be seen, and I kept asking myself “where’s the real stuff gone?”, local businesses were closing down left, right and Toxteth, and I couldn't help but think about the business owners that have been scalped because they didn't have the means to compete or just couldn't get noticed against the big chains that swoop in with their top-hats, bonuses and rat-like spines, and that goes for events aswell because event organisers were lucky if ten people turned up to their belter nights.</p>
+                <p>So I thought: f-that (Soz abar the language!). Let’s build something different. Something Scouse to the core. No paid ads from big brands and no corporate fluff. Just vetted independents and real events – all in one place. That’s The Liverpool Grid.</p>
+<div style="text-align:center; margin:40px 0;">
+<p style="font-style:normal; color:red; margin-top:2px; font-size: 8px;">*Stereotype may vary.</p>
+    <img src="CEO.jpg" alt="Richie – Guardian of The Liverpool Grid" style="max-width:300px; border-radius:50%; border:4px solid #c8102e;">
+    <p style="font-style:normal; color: red; margin-top:5px;">Richie – just a Scouser trying to keep it real</p>
+    <p style="font-style:italic; margin-top:10px;">Thanks for visiting us, 'preciate ye!</p>
+</div>
+            </div>
+
+
+
+            <div class="section">
+                <h2>For Visitors: Find the Real Liverpool</h2>
+                <p>Stop wasting time on Google. We’ve done the legwork. Every shop, café, barber, tattooist, cleaner, dog groomer – vetted by hand. Every gig, market, comedy night, pop-up – proper Scouse, no chains. Use the grid to discover, the Sapnin’ section to see what’s on. Simple. Local. Boss. I'm working on casting the net, to encourage locally-ran businesses to get involved with this, so you can expect alot more as time goes on, which will give you alot more....LIKE ALOT MORE choice.</p>
+                <div class="cta-container">
+                    <a href="index.html" class="cta-button" style="background:#c8102e; color:#fff;">Grids (Shopping) →</a>
+                    <a href="Sapnin.html" class="cta-button" style="margin-left:20px;">Sapnin’ (Events) →</a>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="section">
+                <h2>For Business Owners: Get Seen Without Selling Your Soul</h2>
+                <p>One-time fee. Lifetime grid. Permanent spot, priority in searches, monthly shoutouts, Sapnin’ cross-promos. No monthly subs, no fighting algorithms. Just your business front and centre to people who actually care about independents. Be the name they remember.</p>
+
+<div style="background:#c8102e; color:#fff; padding:15px; text-align:center; margin:20px 0; border-radius:12px;">
+    <strong>Phase 1 Alert:</strong> Only £10 lifetime grids – 402 spots max! Phase 2 price rise coming soon. Don't miss out – secure yours before they're gone!
+</div>
+                <p>Right now, we're in Phase 1 – just £10 for a lifetime spot. But listen up, la: only 402 spots in this phase. Once they're gone, Phase 2 hits with a price jump, then Phase 3 even higher. Demand's already building fast – this is your once-in-a-lifetime shot to lock in early on Liverpool's hottest new indie hub. We're set to explode in 2026, pulling in thousands of locals hungry for real Scouse spots. Miss out, and you'll be kicking yourself as your competitors grab the glory and the traffic. Don't sleep on this – spots are vanishing quick!</p>
+                <div class="cta-container">
+                    <a href="https://buy.stripe.com/28EaEY09e5sQdMhbiM6J200" class="cta-button">Don't Miss Out – Grab Your £10 Phase 1 Grid Now! →</a><p style="font-size:1.5rem; color:#ffd700; text-align:center; font-weight:bold;">
+    Phase 1 Spots Left: <span style="color:#ffeb3b;">379/402</span> – Going Fast!
+</p>
+                    <p style="margin-top: 15px; font-size: 1.1rem;">One payment. Forever spot. Proper Scouse visibility.</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="section">
+                <h2>For Event Organisers: Pack the Place Out</h2>
+                <p>List once, stay forever. Your gig/market/festival/pop-up gets prime Sapnin’ billing. Thousands of Scousers check it weekly. No ticketmaster rip-offs, no buried listings. Just real promotion that gets bums on seats. Your event deserves better – give it the grid.</p>
+                <div class="cta-container">
+                    <a href="https://buy.stripe.com/00w3cw8FKbRe0Zv72w6J201" class="cta-button">Promote Your Event →</a>
+                    <p style="margin-top: 15px; font-size: 1.1rem;">One payment. City-wide interest.</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="section">
+                <h2>We’re Not Big. We’re Proper.</h2>
+                <p>We’re small, Scouse, and fiercely independent – just like the people we champion. No investors, no suits, no selling out. Just Richie and a growing army of locals who believe Liverpool’s best bits should be easy to find and support.</p>
+                <p>So come on, la. Dive in. Discover. List. Share. Let’s keep Liverpool proper boss – together.</p>
+            </div>
+
+<div class="cta-container" style="margin: 80px 0; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+    <p style="font-size: 1.4rem; margin-bottom: 20px;">Ready to join the grid?</p>
+    
+    <a href="index.html" class="cta-button">Go Home!</a>
+
+<button id="share-btn" class="cta-button" style="background:#c8102e; color:#fff;">Share Website</a>
+
+
+</div>
+        </main>
+               <footer>
+            <p>© January 2026 The Liverpool Grid – Proudly Supporting Scouse Talent</p>
+            <p>Liverpoolgrid@outlook.com | Liverpool (UK)</p>
+            <div class="footer-links">
+                <a href="Accessibility-Statement.html">Accessibility Statement</a>
+                <a href="Privacy-Policy.html">Privacy Policy</a>
+                <a href="Terms-and-Conditions-Policy.html">Terms and Conditions</a>
+                <a href="Cookie-Policy.html">Cookie Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Fade-in sections
+        document.querySelectorAll('.section').forEach((el, i) => {
+            setTimeout(() => el.classList.add('visible'), i * 200 + 300);
+        });
+
+        // Light/Dark Mode Toggle
+        function toggleMode() {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            localStorage.setItem('mode', isLight ? 'light' : 'dark');
+            document.querySelector('.mode-toggle').textContent = isLight ? 'Dark Mode' : 'Light Mode';
+        }
+        const savedMode = localStorage.getItem('mode');
+        if (savedMode === 'light') {
+            document.body.classList.add('light-mode');
+            document.querySelector('.mode-toggle').textContent = 'Dark Mode';
+        } else {
+            document.querySelector('.mode-toggle').textContent = 'Light Mode';
+        }
+    </script>
+<script>
+    const shareBtn = document.getElementById('share-btn');
+    
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            // What gets shared
+            const shareData = {
+                title: "Join the Grid!",               // headline in share dialog
+                text:  "Check out this awesome site!", // description/body
+                url:   window.location.href            // current page URL (or use "https://yourdomain.com")
+            };
+
+            try {
+                // Check if browser supports it & trigger native share
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    // Optional: console.log("Shared successfully!");
+                } else {
+                    // Fallback for very old browsers (very rare in 2026)
+                    alert("Sharing not supported in this browser.\n\nCopy this link: " + window.location.href);
+                }
+            } catch (err) {
+                // User cancelled or other error – usually safe to ignore
+                console.log("Share cancelled or failed", err);
+            }
+        });
+    }
+</script>
+</body>
+</html>

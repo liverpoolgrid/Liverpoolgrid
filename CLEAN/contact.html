@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C2HY3XKZ8H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C2HY3XKZ8H');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us – The Liverpool Grid: Get in Touch, La!</title>
+    
+    <meta name="description" content="Contact The Liverpool Grid: Questions about listing your Scouse business or event? Email, phone, WhatsApp, or socials – we're dead easy to reach. Support local independents!">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact | The Liverpool Grid">
+    <meta property="og:description" content="Ping us an email, give us a bell, or WhatsApp – let's chat about grids, Sapnin', or supportin' proper Scouse talent!">
+    <meta property="og:image" content="LiverpoolGridLogo.jpg">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="icon" type="image/png" href="LiverpoolGridLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #000;
+            color: #222;
+            line-height: 1.6;
+        }
+        .container {
+            background: #fff;
+            margin: 20px;
+            padding: 40px;
+            border: 5px solid #000;
+            border-radius: 12px;
+            max-width: 1440px;
+            margin: 20px auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            padding: 20px 0;
+            gap: 40px;
+            border-bottom: 3px solid #c8102e;
+        }
+        .logo { 
+            max-width: 280px; 
+            height: auto; 
+            flex-shrink: 0;
+        }
+       
+        .social-bar {
+            display: flex;
+            gap: clamp(10px, 2vw, 16px);
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            align-items: center;
+            overflow-x: auto;
+        }
+        .social-btn {
+            width: clamp(38px, 5vw, 48px);
+            height: clamp(38px, 5vw, 48px);
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            border: 2px solid transparent;
+            background: #111;
+            flex-shrink: 0;
+        }
+        .social-btn:hover {
+            transform: translateY(-6px) scale(1.12);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+            border-color: #ffd700;
+        }
+        .social-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            margin: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .social-btn:hover img {
+            transform: scale(1.08);
+        }
+
+        .skyline-wrapper {
+            width: 100%;
+            margin: 5px 0 0 0;
+            overflow: hidden;
+            border-radius: 0 0 16px 16px;
+        }
+        .skyline-full {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            border-radius: 16px;
+            margin: 20px 0;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 16px;
+            padding: 0 20px;
+        }
+        .nav-link {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #ffd700;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 60%;
+        }
+        .nav-link.active {
+            background: rgba(255,255,255,0.25);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 20px 60px;
+            background: linear-gradient(135deg, #c8102e 0%, #8b0a1f 100%);
+            color: white;
+            border-radius: 16px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: clamp(2.8rem, 5vw, 3.8rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin: 1rem 0 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .content {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .section h2 {
+            font-size: 2.2rem;
+            color: #c8102e;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #c8102e;
+            padding-bottom: 10px;
+        }
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .contact-card {
+            background: #f8f8f8;
+            border: 3px solid #c8102e;
+            border-radius: 12px;
+            padding: 30px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        }
+        .contact-card h3 {
+            color: #c8102e;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+        .contact-card p {
+            margin-bottom: 20px;
+        }
+        .contact-card .card-social-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 15px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #000;
+            font-size: 1.4rem;
+            font-weight: 900;
+            padding: 18px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            transition: all 0.35s ease;
+            border: 4px solid #fff;
+            margin: 20px 0;
+        }
+        .cta-button:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 16px 40px rgba(255,215,0,0.5);
+            background: #ffeb3b;
+            color: #111;
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f8f8f8;
+            padding: 30px;
+            border-radius: 12px;
+            border: 3px solid #c8102e;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: 700;
+            color: #c8102e;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #c8102e;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+        button {
+            background: #ffd700;
+            color: #000;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #ffeb3b;
+            transform: translateY(-4px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (min-width: 1024px) {
+            header { padding: 24px 0; }
+            .logo { max-width: 320px; }
+            .social-bar { gap: 18px; }
+            .social-btn { width: 52px; height: 52px; }
+            .nav-container { gap: 24px; padding: 0 40px; }
+            .nav-link { font-size: 1.1rem; padding: 10px 20px; }
+            .hero h1 { font-size: 4rem; }
+            .hero p { font-size: 1.6rem; max-width: 900px; }
+            .content { max-width: 1100px; }
+            .section h2 { font-size: 2.8rem; }
+            .cta-button { font-size: 1.6rem; padding: 20px 60px; }
+            footer { padding: 4rem 2rem 3rem; font-size: 1.05rem; }
+        }
+
+        @media (max-width: 768px) {
+            .container { margin: 10px; padding: 20px; }
+            header {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .social-bar { justify-content: center; }
+            .hero { padding: 40px 20px; }
+            .hero h1 { font-size: 2.6rem; }
+            .hero p { font-size: 1.3rem; }
+            .contact-methods { flex-direction: column; align-items: center; }
+            .section h2 { font-size: 1.8rem; }
+            .cta-button { font-size: 1.2rem; padding: 14px 36px; }
+            .nav-container { gap: 6px; padding: 0 10px; }
+            .nav-link { font-size: 0.85rem; padding: 6px 10px; }
+            .social-bar { gap: 10px; }
+            .social-btn { width: 40px; height: 40px; }
+            .card-social-bar { gap: 12px; }
+            footer { padding: 2.5rem 1rem 2rem; font-size: 0.95rem; }
+        }
+
+        /* Logo animation when clicked */
+        .logo {
+            transition: transform 0.6s ease, filter 0.6s ease;
+            cursor: pointer;
+        }
+
+        .logo.clicked {
+            animation: logoClick 0.8s ease forwards;
+        }
+
+        @keyframes logoClick {
+            0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
+            30% { transform: scale(1.15) translateY(-15px) rotate(10deg); filter: drop-shadow(0 0 20px #ffd700); }
+            70% { transform: scale(1.1) translateY(0) rotate(-10deg); filter: drop-shadow(0 0 25px #ffd700); }
+            100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid – Exclusive Local Business Showcase" class="logo" id="logo">
+            <div class="social-bar">
+                <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="TikTok.png" alt="TikTok">
+                </a>
+                <a href="https://www.instagram.com/liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="Instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/share/1D8M9yNtdk" target="_blank" class="social-btn">
+                    <img src="Facebook.png" alt="Facebook">
+                </a>
+                <a href="https://x.com/Liverpoolgrid" target="_blank" class="social-btn">
+                    <img src="X.png" alt="X">
+                </a>
+                <a href="https://linktr.ee/Liverpoolgrid" class="social-btn">
+                    <img src="LinkTree.png" alt="LinkTree">
+                </a>
+                <a href="tel:07752748342" class="social-btn">
+                    <img src="Phone.png" alt="Call Us">
+                </a>
+                <a href="https://wa.me/447752748342" target="_blank" class="social-btn">
+                    <img src="Whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="mailto:Liverpoolgrid@outlook.com" target="_blank" class="social-btn">
+                    <img src="Email.png" alt="Email">
+                </a>
+            </div>
+        </header>
+        <div class="skyline-wrapper">
+            <img src="Skyline.png" alt="Liverpool Skyline" class="skyline-full">
+        </div>
+
+        <nav>
+            <div class="nav-container">
+		<a href="about.html" class="nav-link">About</a>
+                <a href="index.html" class="nav-link">Grids</a>
+                <a href="Sapnin.html" class="nav-link">Sapnin</a>
+		<a href="FAQ.html" class="nav-link">FAQ</a>
+                </div>
+        </nav>
+
+        <section class="hero">
+            <h1>Get in Touch, La!</h1>
+            <p>Got a question about gettin' your Scouse business or event on the Grid? Fancy suggestin' a belter spot? Or just wanna say "alright our kid"? We're dead easy to reach – fire away!</p>
+        </section>
+
+        <div class="content">
+            <div class="section">
+                <h2>Best Ways to Reach Us</h2>
+                <p style="text-align:center; font-size:1.3rem; margin:20px 0;">We're proper responsive – get on us!</p>
+
+                <div class="contact-methods">
+                    <div class="contact-card">
+                        <h3>Email Us</h3>
+                        <p>The quickest way for questions, listings, or suggestions.</p>
+                        <a href="mailto:Liverpoolgrid@outlook.com">Liverpoolgrid@outlook.com</a>
+                        <div class="card-social-bar" style="margin-top: 25px;">
+                            <a href="mailto:Liverpoolgrid@outlook.com" target="_blank" class="social-btn">
+                                <img src="Email.png" alt="Email">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Give Us a Bell</h3>
+                        <p>Mon–Fri, 9am–6pm (or whenever we're not out supportin' local!)</p>
+                        <a href="tel:07752748342">07752 748 342</a>
+                        <div class="card-social-bar" style="margin-top: 25px;">
+                            <a href="tel:07752748342" class="social-btn">
+                                <img src="Phone.png" alt="Phone">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>WhatsApp</h3>
+                        <p>Send a message or voice note – we love a quick chinwag.</p>
+                        <div class="card-social-bar" style="margin-top: 25px;">
+                            <a href="https://wa.me/447752748342" target="_blank" class="social-btn">
+                                <img src="Whatsapp.png" alt="WhatsApp">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Social Media</h3>
+                        <p>We're on all major platforms – Like, Follow, Share or DM us!</p>
+                        <div class="card-social-bar">
+                            <a href="https://www.facebook.com/share/1D8M9yNtdk" target="_blank" class="social-btn">
+                                <img src="Facebook.png" alt="Facebook">
+                            </a>
+                            <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn">
+                                <img src="TikTok.png" alt="TikTok">
+                            </a>
+                            <a href="https://www.instagram.com/liverpoolgrid" target="_blank" class="social-btn">
+                                <img src="Instagram.png" alt="Instagram">
+                            </a>
+                            <a href="https://linktr.ee/Liverpoolgrid" target="_blank" class="social-btn">
+                                <img src="LinkTree.png" alt="LinkTree">
+                            </a>
+                            <a href="https://x.com/Liverpoolgrid" target="_blank" class="social-btn">
+                                <img src="X.png" alt="X">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" style="text-align:center;">
+                <h2>Still Got Somethin' to Say?</h2>
+                <p>Fill this in and we'll get back to ya sharpish – usually within the day, la!</p>
+
+                <!-- Simple mailto form – replace action with real backend/form handler if you add one later -->
+                <form action="mailto:Liverpoolgrid@outlook.com" method="post" enctype="text/plain">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="What's your name, kid?">
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Where can we reply?">
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required placeholder="e.g. Want a Grid for me barber shop!">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required placeholder="Tell us all about it – the more deets the better!"></textarea>
+
+                    <button type="submit">Ping it!</button>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>© January 2026 The Liverpool Grid – Proudly Supporting Scouse Talent</p>
+            <p>Liverpoolgrid@outlook.com | Liverpool (UK)</p>
+            <div class="footer-links" style="margin-top:1rem; display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
+                <a href="Accessibility-Statement.html">Accessibility Statement</a>
+                <a href="Privacy-Policy.html">Privacy Policy</a>
+                <a href="Terms-and-Conditions-Policy.html">Terms and Conditions</a>
+                <a href="Cookie-Policy.html">Cookie Policy</a>
+            </div>
+        </footer>
+    </div>
+
+<script>
+    const logo = document.getElementById('logo');
+    const audio = new Audio('easter-egg.mp3');
+
+    logo.addEventListener('click', function() {
+        audio.play().catch(error => console.error('Audio playback failed:', error));
+        logo.classList.add('clicked');
+        setTimeout(() => logo.classList.remove('clicked'), 800);
+    });
+</script>
+</body>
+</html>
