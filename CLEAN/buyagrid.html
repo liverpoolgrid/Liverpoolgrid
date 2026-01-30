@@ -320,24 +320,42 @@
         }
 
         .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            justify-content: center;
-            gap: 2rem;
-            padding: 2rem 0;
-            margin: 0 auto;
-        }
+    display: grid;
+    grid-template-columns: 1fr;          /* 1 column by default (mobile) */
+    gap: 1.8rem;
+    padding: 2rem 0;
+}
+
+/* Tablets and small desktops: still 1 or 2 depending on space */
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);   /* 2 columns from ~768px up */
+    }
+}
+
+/* Large desktops: keep it at 2 columns (no 3 or 4) */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1200px;          /* or 1100px if you want them even wider */
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1400px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1300px;          /* optional: let them breathe more */
+    }
+}
         .grid-item {
             aspect-ratio: 1 / 1;
-            width: 100%;
-            max-width: 380px;
-            margin: 0 auto;
-            perspective: 1000px;
+            perspective: 1300px;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.18),
-                        0 0 25px 10px rgba(200, 16, 46, 0.7);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
             transition: transform 0.3s;
+            position: relative;
         }
         .grid-item:hover { transform: translateY(-8px); }
         .grid-inner {
@@ -357,13 +375,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
+            padding: 1.2rem;
         }
-        .grid-front { background: #fff; }
-        .grid-front img { 
-            max-width: 90%; 
-            max-height: 90%; 
-            object-fit: contain; 
+        .grid-front { 
+            background: linear-gradient(135deg, #c8102e, #a00d1a);
+            color: white;
+        }
+        .grid-front img {
+            max-width: 92%;
+            max-height: 92%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
         }
         .grid-back {
     background: linear-gradient(135deg, #c8102e, #a00d1a);
@@ -408,6 +430,7 @@
             color: #ffd700;
             text-decoration: underline;
         }       
+
 
 
         .scouse-badge {
@@ -478,24 +501,19 @@
             }
         }
 
-        @media (min-width: 1024px) {
-            .grid-container {
-                grid-template-columns: repeat(4, 1fr);
+        @media (max-width: 768px) {
+            .container { margin: 10px; padding: 20px; }
+            .grid-container { grid-template-columns: 1fr; }
+            .filters { flex-direction: column; }
+            .hero h1 { font-size: 2.6rem; }
+            .hero p { font-size: 1.3rem; }
+            .cta-button { font-size: 1.2rem; padding: 14px 36px; }
+            header {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
             }
-            .grid-item {
-                max-width: none;
-            }
-            .grid-back h3 {
-                font-size: 1.5rem;
-            }
-            .grid-back p,
-            .grid-back li,
-            .grid-back a {
-                font-size: 1.15rem;
-            }
-            .testimonial-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+
         }
 
         @media (max-width: 768px) {
@@ -549,6 +567,8 @@
                 <a href="index.html" class="nav-link active">Grids</a>
                 <a href="Sapnin.html" class="nav-link">Sapnin</a>
                 <a href="FAQ.html" class="nav-link">FAQ</a>
+		<a href="about.html" class="nav-link">About</a>
+		<a href="contact.html" class="nav-link">Contact</a>
             </div>
         </nav>
 
@@ -611,13 +631,11 @@
                                     <li>Service #2</li>
                                 </ul>
                                 <p>YOUR MOTTO</p>
-                                <ul class="compact-list">
-                                    <li><a href="https://www.liverpoolgrid.co.uk" target="_blank">🌐 Website</a></li>
-                                    <li><a href="mailto:Liverpoolgrid@outlook.com">📧 Email</a></li>
-                                    <li><a href="tel:07752748342">📞 Contact</a></li>
-                                    <li><a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a></li>
-                                </ul>
-                                <a href="https://buy.stripe.com/28EaEY09e5sQdMhbiM6J200" class="btn email-cta" target="_blank" style="color:#ffd700; font-weight:bold;">Buy Your Grid Now →</a>
+                                <a href="https://www.liverpoolgrid.co.uk" target="_blank">🌐 Website</a>
+                                <a href="mailto:Liverpoolgrid@outlook.com">📧 Email</a>
+                                <a href="tel:07752748342">📞 Contact</a>
+                                <a href="#" class="share-link" onclick="shareBusiness(this); return false;">🔗 Share This Grid</a>
+                                <a href="https://buy.stripe.com/28EaEY09e5sQdMhbiM6J200" class="btn email-cta" target="_blank" style="color: black; font-weight:bold;">Buy Your Grid Now →</a>
                                 <p><b>***MAXIMUM OF 340 CHARACTERS***</b></p>
                             </div>
                         </div>
