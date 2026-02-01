@@ -204,6 +204,27 @@
         .mode-toggle:hover { transform: scale(1.08); }
 
         @media (max-width: 768px) {
+.hero-image-section {
+    margin: 50px 0;
+}
+
+.hero-image-section img {
+    max-height: 320px;
+}
+
+.hero-overlay {
+    padding: 20px 24px;
+    border-radius: 12px;
+}
+
+.hero-overlay h2 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+}
+
+.hero-overlay p {
+    font-size: 1rem;
+}
             h1 { font-size: 2.8rem; }
             h2 { font-size: 2rem; }
             .hero-overlay h2 { font-size: 2.4rem; }
@@ -349,7 +370,7 @@
     
     <a href="index.html" class="cta-button">Go Home!</a>
 
-<button id="share-btn" class="cta-button" style="background:#c8102e; color:#fff;">Share Website</a>
+<button id="share-btn" class="cta-button" style="background:#c8102e; color:#fff;">Share Website</button>
 
 
 </div>
@@ -366,28 +387,38 @@
         </footer>
     </div>
 
-    <!-- Scripts -->
-    <script>
-        // Fade-in sections
-        document.querySelectorAll('.section').forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), i * 200 + 300);
-        });
+<script>
+    // Fade-in sections
+    document.querySelectorAll('.section').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 200 + 300);
+    });
 
-        // Light/Dark Mode Toggle
-        function toggleMode() {
-            document.body.classList.toggle('light-mode');
-            const isLight = document.body.classList.contains('light-mode');
-            localStorage.setItem('mode', isLight ? 'light' : 'dark');
-            document.querySelector('.mode-toggle').textContent = isLight ? 'Dark Mode' : 'Light Mode';
-        }
-        const savedMode = localStorage.getItem('mode');
-        if (savedMode === 'light') {
-            document.body.classList.add('light-mode');
-            document.querySelector('.mode-toggle').textContent = 'Dark Mode';
-        } else {
-            document.querySelector('.mode-toggle').textContent = 'Light Mode';
-        }
-    </script>
+    // Light/Dark Mode Toggle (DEFAULT = LIGHT MODE)
+    function toggleMode() {
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        localStorage.setItem('mode', isLight ? 'light' : 'dark');
+        document.querySelector('.mode-toggle').textContent = isLight ? 'Dark Mode' : 'Light Mode';
+    }
+
+    // Force LIGHT mode on first load
+    const savedMode = localStorage.getItem('mode');
+
+    document.body.classList.add('light-mode');
+    document.querySelector('.mode-toggle').textContent = 'Dark Mode';
+
+    // Only switch to dark if user explicitly chose it before
+    if (savedMode === 'dark') {
+        document.body.classList.remove('light-mode');
+        document.querySelector('.mode-toggle').textContent = 'Light Mode';
+    }
+</script>
+
+
+
+
+
+
 <script>
     const shareBtn = document.getElementById('share-btn');
     
