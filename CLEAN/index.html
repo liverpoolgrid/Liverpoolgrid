@@ -282,117 +282,186 @@
             font-size: 0.9rem;
         }
        
-        .grid-container {
+
+.grid-container {
     display: grid;
     grid-template-columns: 1fr;          /* 1 column by default (mobile) */
     gap: 1.8rem;
     padding: 2rem 0;
 }
 
-/* Tablets and small desktops: still 1 or 2 depending on space */
+/* Tablets — 2 columns */
 @media (min-width: 768px) {
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);   /* 2 columns from ~768px up */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Large desktops: keep it at 2 columns (no 3 or 4) */
+/* Desktops — 4 columns + smaller cards */
 @media (min-width: 1024px) {
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 1200px;          /* or 1100px if you want them even wider */
+        grid-template-columns: repeat(4, 1fr);     /* 4 items per row */
+        max-width: 1440px;                         /* good balance on most desktops */
         margin: 0 auto;
+        gap: 1.5rem;                               /* slightly tighter gap for 4-col layout */
+    }
+
+    .grid-item {
+        aspect-ratio: 1 / 1;
+        font-size: 0.95rem;                        /* base font size reduction */
+    }
+
+    /* Make content fit better in smaller cards */
+    .grid-front img {
+        max-width: 86%;
+        max-height: 86%;
+    }
+
+    .grid-back {
+        padding: 1rem 0.9rem;                      /* less padding → more content space */
+    }
+
+    .grid-back h3 {
+        font-size: clamp(14px, 1.9vw, 16px);       /* smaller but still readable titles */
+    }
+
+    .grid-back p,
+    .grid-back li,
+    .grid-back a {
+        font-size: clamp(12px, 1.55vw, 14px);      /* body text more compact */
+    }
+
+    .grid-back .compact-list li {
+        margin-bottom: 0.3rem;
     }
 }
 
-@media (min-width: 1400px) {
+/* Very wide screens — prevent cards from becoming enormous */
+@media (min-width: 1600px) {
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 1300px;          /* optional: let them breathe more */
+        max-width: 1520px;                         /* or try 1600px / 1680px */
+        gap: 1.6rem;
+    }
+
+    .grid-item {
+        max-width: 340px;                          /* strong cap — prevents over-scaling */
+        margin: 0 auto;                            /* centers cards if row not full */
     }
 }
-        .grid-item {
-            aspect-ratio: 1 / 1;
-            perspective: 1300px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-            transition: transform 0.3s;
-            position: relative;
-        }
-        .grid-item:hover { transform: translateY(-8px); }
-        .grid-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transition: transform 0.8s ease;
-        }
-        .grid-item:hover .grid-inner,
-        .grid-item:focus-within .grid-inner { transform: rotateY(180deg); }
-        .grid-front, .grid-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.2rem;
-        }
-        .grid-front { 
-            background: linear-gradient(135deg, #c8102e, #a00d1a);
-            color: white;
-        }
-        .grid-front img {
-            max-width: 92%;
-            max-height: 92%;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
-        }
-        .grid-back {
+
+/* ────────────────────────────────────────────────
+   The rest of your grid-item related styles remain mostly unchanged
+   ──────────────────────────────────────────────── */
+
+.grid-item {
+    aspect-ratio: 1 / 1;
+    perspective: 1300px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.grid-item:hover {
+    transform: translateY(-8px);
+}
+
+.grid-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+.grid-item:hover .grid-inner,
+.grid-item:focus-within .grid-inner {
+    transform: rotateY(180deg);
+}
+
+.grid-front,
+.grid-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+}
+
+.grid-front {
+    background: linear-gradient(135deg, #c8102e, #a00d1a);
+    color: white;
+}
+
+.grid-front img {
+    max-width: 92%;
+    max-height: 92%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+}
+
+.grid-back {
     background: linear-gradient(135deg, #c8102e, #a00d1a);
     color: white;
     transform: rotateY(180deg);
     flex-direction: column;
-    gap: 0.6rem;                    /* increased slightly for breathing room */
+    gap: 0.6rem;
     text-align: center;
     overflow-y: auto;
-    padding: 1.2rem 1rem;           /* ← reduce horizontal padding a tiny bit */
+    padding: 1.2rem 1rem;
 }
-        /* Main text elements */
+
+/* Text sizing (base rules — media query above overrides on desktop) */
 .grid-back,
 .grid-back p,
 .grid-back li,
 .grid-back a {
-    font-size: clamp(13px, 2.8vw, 15px);   /* tighter ceiling */
-    line-height: 1.35;                      /* more vertical space per line */
-    margin: 0;                              /* reset any stray margins */
-    overflow-wrap: break-word;              /* force long words to break */
-    hyphens: auto;                          /* allow hyphenation where possible */
+    font-size: clamp(13px, 2.8vw, 15px);
+    line-height: 1.35;
+    margin: 0;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
-        /* Titles – keep hierarchy but prevent blow-out */
+
 .grid-back h3 {
-    font-size: clamp(15px, 3.2vw, 18px);   /* mobile ~15px, desktop max 18px */
+    font-size: clamp(15px, 3.2vw, 18px);
     margin: 0 0 8px 0;
     font-weight: 700;
     line-height: 1.2;
 }
+
 .grid-back .compact-list li {
     margin-bottom: 0.35rem;
-    font-size: inherit;                 /* inherit from parent */
+    font-size: inherit;
 }
-        /* Links – make sure they wrap nicely too */
+
 .grid-back a {
     color: white;
     text-decoration: none;
     font-weight: 600;
-    display: inline-block;              /* helps with wrapping */
+    display: inline-block;
 }
-        .grid-back a:hover {
-            color: #ffd700;
-            text-decoration: underline;
-        }       
+
+.grid-back a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+   
         footer {
             text-align: center;
             padding: 3rem 1rem 2rem;
