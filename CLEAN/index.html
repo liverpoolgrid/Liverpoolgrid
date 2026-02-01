@@ -283,6 +283,9 @@
         }
        
 
+
+
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr;          /* 1 column by default (mobile) */
@@ -297,60 +300,75 @@
     }
 }
 
-/* Desktops — 4 columns + smaller cards */
+/* Desktops and larger — 3 columns + improved readability */
 @media (min-width: 1024px) {
     .grid-container {
-        grid-template-columns: repeat(4, 1fr);     /* 4 items per row */
-        max-width: 1440px;                         /* good balance on most desktops */
+        grid-template-columns: repeat(3, 1fr);     /* ← 3 items per row */
+        max-width: 1440px;                         /* good width for most screens */
         margin: 0 auto;
-        gap: 1.5rem;                               /* slightly tighter gap for 4-col layout */
+        gap: 1.6rem;                               /* balanced spacing with 3 cols */
     }
 
     .grid-item {
         aspect-ratio: 1 / 1;
-        font-size: 0.95rem;                        /* base font size reduction */
+        font-size: 0.97rem;                        /* slight base size increase */
     }
 
-    /* Make content fit better in smaller cards */
+    /* Give more breathing room inside cards */
     .grid-front img {
-        max-width: 86%;
-        max-height: 86%;
+        max-width: 88%;
+        max-height: 88%;
     }
 
     .grid-back {
-        padding: 1rem 0.9rem;                      /* less padding → more content space */
+        padding: 1.3rem 1.1rem;                    /* more comfortable padding */
+        gap: 0.7rem;                               /* better spacing between elements */
     }
 
+    /* Titles and text — larger and more readable */
     .grid-back h3 {
-        font-size: clamp(14px, 1.9vw, 16px);       /* smaller but still readable titles */
+        font-size: clamp(15px, 2.1vw, 18px);       /* bigger but controlled */
+        margin: 0 0 10px 0;
     }
 
     .grid-back p,
     .grid-back li,
     .grid-back a {
-        font-size: clamp(12px, 1.55vw, 14px);      /* body text more compact */
+        font-size: clamp(13.5px, 1.65vw, 16px);    /* noticeably larger, still fits */
+        line-height: 1.4;                          /* improved readability */
+    }
+
+    .grid-back .compact-list {
+        padding-left: 1.4rem;
+        max-width: 95%;
     }
 
     .grid-back .compact-list li {
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.4rem;
+    }
+
+    /* Make sure links don't feel squeezed */
+    .grid-back a {
+        font-size: clamp(14px, 1.7vw, 16px);
+        padding: 2px 0;
     }
 }
 
-/* Very wide screens — prevent cards from becoming enormous */
+/* Very wide screens — prevent cards from becoming too stretched */
 @media (min-width: 1600px) {
     .grid-container {
-        max-width: 1520px;                         /* or try 1600px / 1680px */
-        gap: 1.6rem;
+        max-width: 1500px;                         /* or 1560px — adjust to taste */
+        gap: 1.8rem;
     }
 
     .grid-item {
-        max-width: 340px;                          /* strong cap — prevents over-scaling */
-        margin: 0 auto;                            /* centers cards if row not full */
+        max-width: 420px;                          /* ← this helps keep cards nicely sized */
+        margin: 0 auto;
     }
 }
 
 /* ────────────────────────────────────────────────
-   The rest of your grid-item related styles remain mostly unchanged
+   Rest of your grid-item styles (unchanged or minimally adjusted)
    ──────────────────────────────────────────────── */
 
 .grid-item {
@@ -415,7 +433,7 @@
     padding: 1.2rem 1rem;
 }
 
-/* Text sizing (base rules — media query above overrides on desktop) */
+/* Base text rules (overridden in media query above on desktop) */
 .grid-back,
 .grid-back p,
 .grid-back li,
@@ -450,10 +468,6 @@
     color: #ffd700;
     text-decoration: underline;
 }
-
-
-
-
 
 
 
