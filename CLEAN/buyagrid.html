@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];	
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-C2HY3XKZ8H');
 </script>
     <meta charset="UTF-8">
@@ -75,22 +74,25 @@
             align-items: center;
             flex-wrap: nowrap;
             padding: 20px 0;
-            gap: 40px;
+            gap: 30px;
             border-bottom: 3px solid #c8102e;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-shrink: 0;
         }
         .logo { 
             max-width: 280px; 
             height: auto; 
-            flex-shrink: 0;
         }
        
         .social-bar {
             display: flex;
             gap: clamp(10px, 2vw, 16px);
             flex-wrap: nowrap;
-            justify-content: flex-end;
             align-items: center;
-            overflow-x: auto;
         }
         .social-btn {
             width: clamp(38px, 5vw, 48px);
@@ -122,7 +124,7 @@
 
         .skyline-wrapper {
             width: 100%;
-            margin: 5px 0 0 0;
+            margin: 5px 0 25px 0;
             overflow: hidden;
             border-radius: 0 0 16px 16px;
         }
@@ -144,9 +146,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             gap: 16px;
             padding: 0 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         .nav-link {
             color: white;
@@ -320,34 +324,26 @@
         }
 
         .grid-container {
-    display: grid;
-    grid-template-columns: 1fr;          /* 1 column by default (mobile) */
-    gap: 1.8rem;
-    padding: 2rem 0;
-}
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+            padding: 2rem 0;
+        }
 
-/* Tablets and small desktops: still 1 or 2 depending on space */
-@media (min-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);   /* 2 columns from ~768px up */
-    }
-}
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-/* Large desktops: keep it at 2 columns (no 3 or 4) */
-@media (min-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 1200px;          /* or 1100px if you want them even wider */
-        margin: 0 auto;
-    }
-}
+        @media (min-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
 
-@media (min-width: 1400px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 1300px;          /* optional: let them breathe more */
-    }
-}
         .grid-item {
             aspect-ratio: 1 / 1;
             perspective: 1300px;
@@ -388,50 +384,45 @@
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
         }
         .grid-back {
-    background: linear-gradient(135deg, #c8102e, #a00d1a);
-    color: white;
-    transform: rotateY(180deg);
-    flex-direction: column;
-    gap: 0.6rem;                    /* increased slightly for breathing room */
-    text-align: center;
-    overflow-y: auto;
-    padding: 1.2rem 1rem;           /* ← reduce horizontal padding a tiny bit */
-}
-        /* Main text elements */
-.grid-back,
-.grid-back p,
-.grid-back li,
-.grid-back a {
-    font-size: clamp(13px, 2.8vw, 15px);   /* tighter ceiling */
-    line-height: 1.35;                      /* more vertical space per line */
-    margin: 0;                              /* reset any stray margins */
-    overflow-wrap: break-word;              /* force long words to break */
-    hyphens: auto;                          /* allow hyphenation where possible */
-}
-        /* Titles – keep hierarchy but prevent blow-out */
-.grid-back h3 {
-    font-size: clamp(15px, 3.2vw, 18px);   /* mobile ~15px, desktop max 18px */
-    margin: 0 0 8px 0;
-    font-weight: 700;
-    line-height: 1.2;
-}
-.grid-back .compact-list li {
-    margin-bottom: 0.35rem;
-    font-size: inherit;                 /* inherit from parent */
-}
-        /* Links – make sure they wrap nicely too */
-.grid-back a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;              /* helps with wrapping */
-}
+            background: linear-gradient(135deg, #c8102e, #a00d1a);
+            color: white;
+            transform: rotateY(180deg);
+            flex-direction: column;
+            gap: 0.6rem;
+            text-align: center;
+            overflow-y: auto;
+            padding: 1.2rem 1rem;
+        }
+        .grid-back,
+        .grid-back p,
+        .grid-back li,
+        .grid-back a {
+            font-size: clamp(13px, 2.8vw, 15px);
+            line-height: 1.35;
+            margin: 0;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        .grid-back h3 {
+            font-size: clamp(15px, 3.2vw, 18px);
+            margin: 0 0 8px 0;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .grid-back .compact-list li {
+            margin-bottom: 0.35rem;
+            font-size: inherit;
+        }
+        .grid-back a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
         .grid-back a:hover {
             color: #ffd700;
             text-decoration: underline;
-        }       
-
-
+        }
 
         .scouse-badge {
             position: absolute;
@@ -487,12 +478,16 @@
             border-top: 1px solid #eee;
         }
 
-        /* Responsive adjustments */
+        /* Mobile adjustments */
         @media (max-width: 900px) {
             header {
                 flex-direction: column;
                 text-align: center;
                 gap: 20px;
+            }
+            .header-left {
+                flex-direction: column;
+                gap: 15px;
             }
             .social-bar {
                 justify-content: center;
@@ -504,57 +499,41 @@
         @media (max-width: 768px) {
             .container { margin: 10px; padding: 20px; }
             .grid-container { grid-template-columns: 1fr; }
-            .filters { flex-direction: column; }
             .hero h1 { font-size: 2.6rem; }
-            .hero p { font-size: 1.3rem; }
-            .cta-button { font-size: 1.2rem; padding: 14px 36px; }
-            header {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-
-        }
-
-        @media (max-width: 768px) {
-            .container { margin: 10px; padding: 20px; }
-            .grid-container { grid-template-columns: 1fr; }
-            .grid-item { aspect-ratio: 1 / 1; }
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid – Exclusive Local Business Showcase" class="logo">
-            <div class="social-bar">
-                <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn">
-                    <img src="TikTok.png" alt="TikTok">
-                </a>
-                <a href="https://www.instagram.com/liverpoolgrid" target="_blank" class="social-btn">
-                    <img src="Instagram.png" alt="Instagram">
-                </a>
-                <a href="https://www.facebook.com/share/1D8M9yNtdk" target="_blank" class="social-btn">
-                    <img src="Facebook.png" alt="Facebook">
-                </a>
-                <a href="https://x.com/Liverpoolgrid" target="_blank" class="social-btn">
-                    <img src="X.png" alt="X">
-                </a>
-                <a href="https://linktr.ee/Liverpoolgrid" class="social-btn">
-                    <img src="LinkTree.png" alt="LinkTree">
-                </a>
-                <a href="tel:07752748342" class="social-btn">
-                    <img src="Phone.png" alt="Call Us">
-                </a>
-                <a href="https://wa.me/447752748342" target="_blank" class="social-btn">
-                    <img src="Whatsapp.png" alt="WhatsApp">
-                </a>
-                <a href="mailto:Liverpoolgrid@outlook.com" target="_blank" class="social-btn">
-                    <img src="Email.png" alt="Email">
-                </a>
+            <div class="header-left">
+                <img src="LiverpoolGridLogo.jpg" alt="The Liverpool Grid – Exclusive Local Business Showcase" class="logo">
+                <div class="social-bar">
+                    <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn">
+                        <img src="TikTok.png" alt="TikTok">
+                    </a>
+                    <a href="https://www.instagram.com/liverpoolgrid" target="_blank" class="social-btn">
+                        <img src="Instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/share/1D8M9yNtdk" target="_blank" class="social-btn">
+                        <img src="Facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://x.com/Liverpoolgrid" target="_blank" class="social-btn">
+                        <img src="X.png" alt="X">
+                    </a>
+                    <a href="https://linktr.ee/Liverpoolgrid" class="social-btn">
+                        <img src="LinkTree.png" alt="LinkTree">
+                    </a>
+                    <a href="tel:07752748342" class="social-btn">
+                        <img src="Phone.png" alt="Call Us">
+                    </a>
+                    <a href="https://wa.me/447752748342" target="_blank" class="social-btn">
+                        <img src="Whatsapp.png" alt="WhatsApp">
+                    </a>
+                    <a href="mailto:Liverpoolgrid@outlook.com" target="_blank" class="social-btn">
+                        <img src="Email.png" alt="Email">
+                    </a>
+                </div>
             </div>
         </header>
 
@@ -567,8 +546,7 @@
                 <a href="index.html" class="nav-link active">Grids</a>
                 <a href="Sapnin.html" class="nav-link">Sapnin</a>
                 <a href="FAQ.html" class="nav-link">FAQ</a>
-		<a href="about.html" class="nav-link">About</a>
-		<a href="contact.html" class="nav-link">Contact</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </div>
         </nav>
 
@@ -581,7 +559,7 @@
                 For a single tenner – one time, forever – secure your business on the Grid and be seen by thousands of proud Scousers every month. No subscriptions, no hidden costs, just lifetime exposure for less than a couple of pints.
             </p>
             <a href="https://buy.stripe.com/28EaEY09e5sQdMhbiM6J200" class="btn email-cta">Claim Your £10 Forever Grid Now</a>
-            <a href="https://buy.stripe.com/28EaEY09e5sQdMhbiM6J200" class="btn email-cta" class="btn vip">VIP Early Access – £10 One-Time →</a>
+            <a href="https://buy.stripe.com/28EaEY09e5sQdMhbiM6J200" class="btn vip">VIP Early Access – £10 One-Time →</a>
         </section>
 
         <!-- Compact Testimonials Section -->
@@ -661,7 +639,7 @@
             <p style="margin-top:2rem; font-style:italic; color:#c8102e;">
                 Don’t just get found. Get on the Grid for £10 forever – before Phase 1 sells out and the price goes up.
             </p>
-            <a href="https://buy.stripe.com/28EaEY09e5sQdMhbiM6J200" class="btn email-cta" class="btn" style="margin-top:2rem;">Claim Your Lifetime Spot – Only £10</a>
+            <a href="https://buy.stripe.com/28EaEY09e5sQdMhbiM6J200" class="btn email-cta" style="margin-top:2rem;">Claim Your Lifetime Spot – Only £10</a>
             <div class="premium-tease">
                 <h3>Coming Soon: Premium Grids</h3>
                 <p>Get even more visibility with bigger logos, top-row priority, and custom highlights. Lock in your basic spot now before upgrades launch!</p>
