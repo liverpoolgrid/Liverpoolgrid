@@ -838,6 +838,54 @@
 <meta name="google-site-verification" content="VkOBm4IFsuuzCGNHzwT1Ey93E2ZXnr6O11KuIWKJjhI" />	
 </head>
 <body>
+  <!-- SOCIAL MEDIA SUPPORT MODAL -->
+<div id="social-modal">
+  <div class="modal-content">
+    <img 
+      src="TheLiverpoolGridROUND.png" 
+      alt="Liverpool Grid Logo" 
+      style="width: 110px; height: 110px; object-fit: contain; margin: 0 auto 1.2rem; display: block; border-radius: 50%; border: 3px solid #444; box-shadow: 0 4px 12px rgba(0,0,0,0.6);"
+    >
+    
+    <div class="modal-title">Help keep Liverpool Grid going!</div>
+    
+    <div class="modal-text">
+      We're a small, independent project celebrating Liverpool.<br>
+      Following us on social media is a huge help — it really means a lot!
+    </div>
+
+    <div class="social-buttons">
+      <a href="https://www.facebook.com/share/1D8M9yNtdk" target="_blank" class="social-btn facebook">Follow on Facebook</a>
+      <a href="https://www.instagram.com/liverpoolgrid" target="_blank" class="social-btn instagram">Follow on Instagram</a>
+      <a href="https://www.tiktok.com/@Liverpoolgrid" target="_blank" class="social-btn tiktok">Follow on TikTok</a>
+    </div>
+
+    <div class="no-thanks" id="close-modal">No thanks, maybe later</div>
+  </div>
+</div>
+
+  <script>
+    // Show modal automatically when page loads
+    window.addEventListener('load', () => {
+      // Optional: only show once per visit (using sessionStorage)
+      if (!sessionStorage.getItem('socialModalShown')) {
+        document.getElementById('social-modal').style.display = 'flex';
+        sessionStorage.setItem('socialModalShown', 'true');
+      }
+    });
+
+    // Close modal when clicking "No thanks"
+    document.getElementById('close-modal').addEventListener('click', () => {
+      document.getElementById('social-modal').style.display = 'none';
+    });
+
+    // Optional: also allow closing by clicking outside the modal content
+    document.getElementById('social-modal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        e.currentTarget.style.display = 'none';
+      }
+    });
+  </script>	
     <div class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</div>
     <div class="container">
         <header>
@@ -1742,4 +1790,5 @@
 
 </body>
 </html>
+
 
